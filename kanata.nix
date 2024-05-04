@@ -166,7 +166,7 @@ with lib; let
       gam (layer-switch game)
       cbs C-bspc
       lng hngl ;; ime toggle
-      cls A-f4
+      cls M-q
       cpy C-c
       pst C-v
 
