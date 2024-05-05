@@ -34,7 +34,6 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | igh⚝   | ighbo   |
 | t⚝     | tch     |
 | t⬢     | tp      |
-| te⚝    | ted     |
 | ⎵⚝     | th      |
 | ⎵⚝⎵    | the     |
 | ⎵⚝⬡    | them    |
@@ -71,13 +70,14 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | row⬡   | rowing  |
 | ew⬡    | ewing   |
 | g⚝     | ght     |
-| g⬡     | get     |
+| g⬢     | get     |
 | w⬢     | was     |
 | h⬡     | hav     |
 | j⚝     | just    |
 | a⬡     | and     |
 | pu⚝    | put     |
 | to⚝    | top     |
+| te⚝    | ted     |
 
 ## Fingering and slides
 
