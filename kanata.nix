@@ -379,13 +379,13 @@ with lib; let
       (lm rm ) @num
     )
 
-    (defchords esc 20
+    (defchords esc 25
       (*    ) @magic
       (   f ) f
       (*  f ) esc
     )
 
-    (defchords backspace 20
+    (defchords backspace 25
       (h   ) h
       (  ; ) ;
       (h ; ) bspc
