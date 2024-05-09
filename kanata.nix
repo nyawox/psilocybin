@@ -251,7 +251,7 @@ with lib; let
 
         ;; TODO somehow implement ious
       )
-      mgc (chord jkesc *)
+      mgc (chord esc *)
       mgt (multi @mgc @tp)
 
       repeat (switch
@@ -344,7 +344,7 @@ with lib; let
       g (multi g @tp)
       v (multi v @tp)
       ' (multi ' @tp)
-      f (multi f @tp)
+      f (multi (chord esc f) @tp)
       o (multi o @tp)
       u (multi u @tp)
       j (multi j @tp)
@@ -356,7 +356,7 @@ with lib; let
       t (multi t @tp)
       d (multi d @tp)
       y (multi y @tp)
-      e (multi (chord jkesc e) @tp)
+      e (multi e @tp)
       a (multi a @tp)
       i (multi i @tp)
       , (multi (fork , ' (lsft rsft)) @tp)
@@ -379,10 +379,10 @@ with lib; let
       (lm rm ) @num
     )
 
-    (defchords jkesc 20
+    (defchords esc 20
       (*    ) @magic
-      (   e ) e
-      (*  e ) esc
+      (   f ) f
+      (*  f ) esc
     )
 
     (defchords backspace 20

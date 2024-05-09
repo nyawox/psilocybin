@@ -3,7 +3,7 @@
 ![Psilocybin](assets/base_layout.png)
 
 Designed for row stagger, with slides and magic key in mind.
-Full layout can be seen [here](assets/full_layout.png)
+The overview of all layers can be seen [here](assets/full_layout.png), and keymap-drawer can be accessed [here](https://caksoylar.github.io/keymap-drawer?keymap_yaml=H4sIAAAAAAAC_62U6XbSUBDHv_cpxlSNy7SUTVtcCwW7QBcWa0WsF7gYDtlMgj0cxI8-gx98BV-qT-KdCWs4PR6xH_Kbm8nMZO78c7MOrvB82YaO51gQGBLasiP6ZgBnpSPoyYEl3DVTDJx-kFkD-GL1LpWz6QivnQHD6DVjwva7sWSinxo_HgdDcffipFalXOn5lJsVviS7AXVdR_jHKzSNWf47hCJCDqGEcDQLhfcIBYQawgnChfJtTpPKbqACjhHKCBWEKsKbWV4WQbv-9VtDyCPsIhzMveoQ4RzhFGEP4WyW8hZhX62eqaWma5H2hmoEx-LrKFxV3BaCkYFc4JkT18Bil4aa8lBz1z9_cAWVtvqcYGlQVdEMvXlfNaHnTMeXcN61285VNO1QuMKW6vFBKU_3-44lydZcYt5uk9mT5sIrwrFWjG4nQN6gmp9JS6sdKZ_byPpui1ZF2Qm4lnNlky13Pxvs4IBGZPenXgAVzss57oA9wg_kTZvPCdfnojLoe7a-JMzAlerblaZqb3WR1JPbFEl_TqgThoQHhO_z0R8JDwkjQoPwkvApooS-QXhEeEG4JNydL7XOU7JYTSUV36k9k2UZFxrLEDTCa0KM8G2-2gfCfcIrwh39P06CUmSqTvRU9BcGXogzE8wkM8VMT_oqPGE-ZW4zd8LMrdCEFeKJvxyYqGw8Aa7KRXem095c4UiwVtw4980tby0dgMl1L-p4TOB98C6St_Wx36hDy7Gajh8KMXQzUE-kEJLbDYSeSlQDU6mmcmv0t9cao1lgOo6QTowD6ZhHIv8AxiQdPYoGAAA%3D)
 
 ## Magic rules 🪄
 Magic rules are mostly used to address bad patterns, effectively reducing sfbs to almost 0 percent!
