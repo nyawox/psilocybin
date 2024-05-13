@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib; let
@@ -190,6 +189,7 @@ with lib; let
         ((and (key-history a 5) (key-history m 4) (key-history a 3) (key-history t 2) (key-history e 1))) u break ;; te* -> ted unless amateur
         ((and (key-history m 2) (key-history a 1))) t break ;; ma* -> mat sfs
         ((and (key-history t 2) (key-history e 1))) d break ;; te* -> ted sfs
+        ((and (key-history g 2) (key-history e 1))) d break ;; ge* -> ged sfs
         ((key-history e 1)) u break ;; 0.01% sfb
         ;; most pms which is 0.01% sfb are pment, use left rpt key for other pms
         ((and (key-history l 3)(key-history o 2) (key-history p 1))) (macro m e n t) break ;; 0.01% opment
