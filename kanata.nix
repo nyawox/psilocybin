@@ -191,6 +191,7 @@ with lib; let
         ((and (key-history m 2) (key-history a 1))) t break ;; ma* -> mat sfs
         ((and (key-history t 2) (key-history e 1))) d break ;; te* -> ted sfs
         ((and (key-history g 2) (key-history e 1))) d break ;; ge* -> ged sfs
+        ((and (key-history d 2) (key-history a 1))) t break ;; da* -> dat sfs
         ((key-history e 1)) u break ;; 0.01% sfb
         ;; most pms which is 0.01% sfb are pment, use left rpt key for other pms
         ((and (key-history l 3)(key-history o 2) (key-history p 1))) (macro m e n t) break ;; 0.01% opment

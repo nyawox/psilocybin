@@ -79,6 +79,8 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | to⚝    | top     |
 | te⚝    | ted     |
 | ge⚝    | ged     |
+| ma⚝    | mat     |
+| da⚝    | dat     |
 
 ## Fingering and slides
 
