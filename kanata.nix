@@ -1,9 +1,6 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
+{ config, lib, ... }:
+with lib;
+let
   # workaround one-shot shift not working on keys with chord defined
   # https://github.com/jtroo/kanata/issues/900
   defCfg = ''
@@ -397,7 +394,8 @@ with lib; let
       hngl 122 ;;ime on/off
     )
   '';
-in {
+in
+{
   options = {
     psilocybin = {
       enable = mkOption {
@@ -407,12 +405,16 @@ in {
           Enable psilocybin
         '';
       };
+      devices = mkOption {
+        type = types.listOf types.str;
+        default = [ ];
+        description = ''
+          An empty list, the default value, lets kanata detect which input devices are keyboards and intercept them all.
+        '';
+      };
       ansi = mkOption {
         type = types.bool;
-        default =
-          if config.psilocybin.jis
-          then false
-          else true;
+        default = if config.psilocybin.jis then false else true;
       };
       jis = mkOption {
         type = types.bool;
@@ -423,34 +425,16 @@ in {
   config = {
     services.kanata = mkIf config.psilocybin.enable {
       enable = true;
-      # package = pkgs.rustPlatform.buildRustPackage {
-      #   pname = "kanata";
-      #   version = "1.6.1-git";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "jtroo";
-      #     repo = "kanata";
-      #     rev = "d07f674c542a44b05c62a072effc57d70617d186";
-      #     hash = "sha256-h0eyD7b77ek7ze4j85vnXdoalFhgLgjRZ2+7Az8coYY=";
-      #   };
-      #   cargoHash = "sha256-cSQkpZOnEtsw6P28ZR+okA+ZjZ1EOKwXuCYJp7nHkus=";
-      #   buildFeatures = ["cmd"];
-      #   meta = with lib; {
-      #     description = "A tool to improve keyboard comfort and usability with advanced customization";
-      #     homepage = "https://github.com/jtroo/kanata";
-      #     license = licenses.lgpl3Only;
-      #     maintainers = with maintainers; [bmanuel linj];
-      #     platforms = platforms.unix;
-      #     mainProgram = "kanata";
-      #   };
-      # };
 
       keyboards.psilocybin = mkIf config.psilocybin.ansi {
         extraDefCfg = defCfg;
         config = ansi + psilocybin;
+        devices = config.psilocybin.devices;
       };
       keyboards.psilocybinjis = mkIf config.psilocybin.jis {
         extraDefCfg = defCfg;
         config = jis + psilocybin;
+        devices = config.psilocybin.devices;
       };
     };
   };
