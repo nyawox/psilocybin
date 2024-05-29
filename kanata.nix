@@ -247,6 +247,8 @@ let
         ((and (key-history p 2) (key-history u 1))) t break
         ;; top 0.03%
         ((and (key-history t 2) (key-history o 1))) p break
+        ;; stud
+        ((and (key-history s 3) (key-history t 2) (key-history u 1))) d break
 
         ;; TODO somehow implement ious
       )
