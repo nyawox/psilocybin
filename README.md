@@ -82,6 +82,8 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | ma⚝    | mat     |
 | da⚝    | dat     |
 | stud⚝  | stud    |
+| u⚝     | use     |
+| u⬡     | ure     |
 
 ## Fingering and slides
 

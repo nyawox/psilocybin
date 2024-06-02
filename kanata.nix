@@ -249,6 +249,8 @@ let
         ((and (key-history t 2) (key-history o 1))) p break
         ;; stud
         ((and (key-history s 3) (key-history t 2) (key-history u 1))) d break
+        ;; use 0.18%
+        ((key-history u 1)) (macro s e) break
 
         ;; TODO somehow implement ious
       )
@@ -286,6 +288,7 @@ let
         ((key-history v 1)) (macro i n g) break ;; ving
         ((key-history h 1)) (macro a v) break ;; 0.194% sfs
         ((key-history a 1)) (macro n d) break ;; 3.639% common ngram
+        ((key-history u 1)) (macro r e) break ;; ure 0.13%
         () rpt break
         ;; Currently 7.168% usage + 6.046% of repeats, total 13.214
         ;; Space bar is like 20% usage
