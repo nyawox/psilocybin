@@ -73,6 +73,7 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | g⬢     | get     |
 | wa⚝    | was     |
 | wi⚝    | wis     |
+| we⚝    | wes     |
 | h⬡     | hav     |
 | j⚝     | just    |
 | a⬡     | and     |

@@ -185,6 +185,7 @@ let
         ((key-history y 1)) . break ;; 0.06% sfb
         ((and (key-history w 2) (key-history a 1))) (macro s) break ;; was 0.26% wao doesn't happen in english
         ((and (key-history w 2) (key-history i 1))) (macro s) break ;; wis 0.03% wion doesn't happen in english
+        ((and (key-history w 2) (key-history e 1))) (macro s) break ;; wes 0.01% weu doesn't happen in english
         ((and (key-history a 5) (key-history m 4) (key-history a 3) (key-history t 2) (key-history e 1))) u break ;; te* -> ted unless amateur
         ((and (key-history l 3) (key-history m 2) (key-history a 1))) o break ;; stop converting lmao to lmat
         ((and (key-history m 2) (key-history a 1))) t break ;; ma* -> mat sfs
