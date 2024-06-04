@@ -183,6 +183,8 @@ let
         ;; ue 0.08% sfb slide
         ;; y' scissor can be copped with pinky thumb
         ((key-history y 1)) . break ;; 0.06% sfb
+        ((and (key-history w 2) (key-history a 1))) (macro s) break ;; was 0.26% wao doesn't happen in english
+        ((and (key-history w 2) (key-history i 1))) (macro s) break ;; wis 0.03% wion doesn't happen in english
         ((and (key-history a 5) (key-history m 4) (key-history a 3) (key-history t 2) (key-history e 1))) u break ;; te* -> ted unless amateur
         ((and (key-history l 3) (key-history m 2) (key-history a 1))) o break ;; stop converting lmao to lmat
         ((and (key-history m 2) (key-history a 1))) t break ;; ma* -> mat sfs
@@ -306,7 +308,6 @@ let
         ((key-history p 1)) m break ;; 0.01% sfb, use right repeat key for pp, magic key for pment
         ((key-history k 1)) (macro i n g) break ;; 0.305% the rule is, put on the opposite hand repeat key
         ((key-history t 1)) p break ;; 0.01% sfb
-        ((key-history w 1)) (macro a s) break ;; 0.192% sfs
         ;; get 0.134% common sfs
         ((key-history g 1)) (macro e t) break
         () rpt break ;; 1.567%
