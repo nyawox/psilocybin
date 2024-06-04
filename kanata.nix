@@ -244,8 +244,8 @@ let
         ;; nts 0.13% common redirect
         ((key-history n 1)) (macro t s) break
         ;; put 0.04% sfs
-        ((and (key-history c 5) (key-history a 4) (key-history m 3) (key-history p 2) (key-history u 1))) (macro s e) break ;; prevent overwriting use with put
-        ((and (key-history a 9) (key-history r 8) (key-history t 7) (key-history o 6) (key-history c 5) (key-history a 4) (key-history r 3) (key-history p 2) (key-history u 1))) (macro s e) break ;; prevent overwriting use with put
+        ((and (key-history c 5) (key-history a 4) (key-history m 3) (key-history p 2) (key-history u 1))) (macro s e) break ;; campuses prevent overwriting use with put
+        ((and (key-history r 8) (key-history t 7) (key-history o 6) (key-history c 5) (key-history a 4) (key-history r 3) (key-history p 2) (key-history u 1))) (macro s e) break ;; artocarpuses prevent overwriting use with put
         ((and (key-history p 2) (key-history u 1))) t break
         ;; top 0.03%
         ((and (key-history t 2) (key-history o 1))) p break
