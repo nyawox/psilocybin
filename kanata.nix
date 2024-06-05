@@ -181,9 +181,11 @@ with lib; let
         ;; psilocybin
         ((key-history m 1)) p break ;; sfb
         ((key-history y 1)) . break ;; sfb
-        ((and (key-history w 2) (key-history a 1))) (macro s) break ;; was ;; wao doesn't happen in english
-        ((and (key-history w 2) (key-history i 1))) (macro s) break ;; wis ;; wion doesn't happen in english
-        ((and (key-history w 2) (key-history e 1))) (macro s) break ;; wes ;; weu doesn't happen in english
+        ((and (key-history w 2) (key-history a 1))) s break ;; was ;; wao doesn't happen in english
+        ((and (key-history w 2) (key-history i 1))) s break ;; wis ;; wion doesn't happen in english
+        ((and (key-history w 2) (key-history e 1))) s break ;; wes ;; weu doesn't happen in english
+        ((and (key-history m 4) (key-history a 3) (key-history k 2) (key-history e 1))) u ;; prevent overwriting makeup
+        ((and (key-history k 2) (key-history e 1))) d break ;; ked
         ((and (key-history a 5) (key-history m 4) (key-history a 3) (key-history t 2) (key-history e 1))) u break ;; te* -> ted unless amateur
         ((and (key-history l 3) (key-history m 2) (key-history a 1))) o break ;; stop converting lmao to lmat
         ((and (key-history m 2) (key-history a 1))) t break ;; ma* -> mat sfs
