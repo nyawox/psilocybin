@@ -1,6 +1,9 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   # workaround one-shot shift not working on keys with chord defined
   # https://github.com/jtroo/kanata/issues/900
   defCfg = ''
@@ -189,6 +192,7 @@ let
         ((and (key-history a 5) (key-history m 4) (key-history a 3) (key-history t 2) (key-history e 1))) u break ;; te* -> ted unless amateur
         ((and (key-history l 3) (key-history m 2) (key-history a 1))) o break ;; stop converting lmao to lmat
         ((and (key-history m 2) (key-history a 1))) t break ;; ma* -> mat sfs
+        ((and (key-history m 2) (key-history e 1))) t break ;; ma* -> met sfs
         ((and (key-history t 2) (key-history e 1))) d break ;; te* -> ted sfs
         ((and (key-history g 2) (key-history e 1))) d break ;; ge* -> ged sfs
         ((and (key-history d 2) (key-history a 1))) t break ;; da* -> dat sfs
@@ -403,8 +407,7 @@ let
       hngl 122 ;;ime on/off
     )
   '';
-in
-{
+in {
   options = {
     psilocybin = {
       enable = mkOption {
@@ -416,14 +419,17 @@ in
       };
       devices = mkOption {
         type = types.listOf types.str;
-        default = [ ];
+        default = [];
         description = ''
           An empty list, the default value, lets kanata detect which input devices are keyboards and intercept them all.
         '';
       };
       ansi = mkOption {
         type = types.bool;
-        default = if config.psilocybin.jis then false else true;
+        default =
+          if config.psilocybin.jis
+          then false
+          else true;
       };
       jis = mkOption {
         type = types.bool;

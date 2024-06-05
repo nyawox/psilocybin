@@ -82,6 +82,7 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | te⚝    | ted     |
 | ge⚝    | ged     |
 | ma⚝    | mat     |
+| me⚝    | met     |
 | da⚝    | dat     |
 | stud⚝  | stud    |
 | u⚝     | use     |
