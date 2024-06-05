@@ -179,16 +179,11 @@ with lib; let
       magic (switch ;;🪄
         ;;;;;;;;;;;;;;;;;;;;;;;;
         ;; psilocybin
-        ;;;sfbs 0.82%
-        ((key-history m 1)) p break ;; 0.16% sfb
-        ;; sc 0.09% sfb index middle
-        ;; cs 0.02% sfb index middle
-        ;; ue 0.08% sfb slide
-        ;; y' scissor can be copped with pinky thumb
-        ((key-history y 1)) . break ;; 0.06% sfb
-        ((and (key-history w 2) (key-history a 1))) (macro s) break ;; was 0.26% wao doesn't happen in english
-        ((and (key-history w 2) (key-history i 1))) (macro s) break ;; wis 0.03% wion doesn't happen in english
-        ((and (key-history w 2) (key-history e 1))) (macro s) break ;; wes 0.01% weu doesn't happen in english
+        ((key-history m 1)) p break ;; sfb
+        ((key-history y 1)) . break ;; sfb
+        ((and (key-history w 2) (key-history a 1))) (macro s) break ;; was ;; wao doesn't happen in english
+        ((and (key-history w 2) (key-history i 1))) (macro s) break ;; wis ;; wion doesn't happen in english
+        ((and (key-history w 2) (key-history e 1))) (macro s) break ;; wes ;; weu doesn't happen in english
         ((and (key-history a 5) (key-history m 4) (key-history a 3) (key-history t 2) (key-history e 1))) u break ;; te* -> ted unless amateur
         ((and (key-history l 3) (key-history m 2) (key-history a 1))) o break ;; stop converting lmao to lmat
         ((and (key-history m 2) (key-history a 1))) t break ;; ma* -> mat sfs
@@ -196,34 +191,23 @@ with lib; let
         ((and (key-history t 2) (key-history e 1))) d break ;; te* -> ted sfs
         ((and (key-history g 2) (key-history e 1))) d break ;; ge* -> ged sfs
         ((and (key-history d 2) (key-history a 1))) t break ;; da* -> dat sfs
-        ((key-history e 1)) u break ;; 0.01% sfb
-        ;; most pms which is 0.01% sfb are pment, use left rpt key for other pms
-        ((and (key-history l 3)(key-history o 2) (key-history p 1))) (macro m e n t) break ;; 0.01% opment
-        ((and (key-history o 3)(key-history o 2) (key-history p 1))) (macro m e n t) break ;; 0.01% opment
+        ((key-history e 1)) u break ;; sfb
+        ;; most pms which is sfb are pment, use left rpt key for other pms
+        ((and (key-history l 3)(key-history o 2) (key-history p 1))) (macro m e n t) break ;; opment
+        ((and (key-history o 3)(key-history o 2) (key-history p 1))) (macro m e n t) break ;; opment
         ;; remove script from the rule below
         ((and (key-history s 5)(key-history c 4)(key-history r 3) (key-history i 2) (key-history p 1))) t break
-        ((and (key-history i 2) (key-history p 1))) (macro m e n t) break ;; 0.00% ipment
-        ((key-history p 1)) t break ;; 0.05% sfb
-        ((key-history r 1)) l break ;; 0.05% sfb
-        ;; oa 0.05% sfb is a slide
-        ((key-history w 1)) s break ;; 0.03% sfb
-        ;; i' is easy to slide or pinky ring on wide mod
+        ((and (key-history i 2) (key-history p 1))) (macro m e n t) break ;; ipment
+        ((key-history p 1)) t break ;; sfb
+        ((key-history r 1)) l break ;; sfb
+        ((key-history w 1)) s break ;; sfb
         ((and (key-history g 3) (key-history a 2) (key-history d 1))) g break ;; gadget
         ((and (key-history b 3) (key-history a 2) (key-history d 1))) g break ;; badge
-        ((and (key-history a 2) (key-history d 1))) m break ;; dm 0.01% sfb mostly consists of adm, otherwise cope with index middle
-        ((key-history d 1)) g break ;; 0.02% sfb
-        ;; tm index middle 0.02% sfb
-        ((key-history s 1)) w break ;; 0.02% sfb
-        ;; gt 0.01% sfb easy index middle
-        ((key-history l 1)) r break ;; 0.01% sfb
-        ((key-history a 1)) o break ;; 0.00% sfb but still, cause it's not altable
-        ;; pd middle index 0.01% sfb
-        ;; e; can't be slided
-        ;; dt 0.00% sfb index middle
-        ;; maybe bv(obvious) which is a rare sfb can be slided
-        ((and (key-history i 3) (key-history g 2) (key-history h 1))) (macro b o) break ;; hb 0.01% sfb is mostly neighbo
-        ;; 'a 0.01% sfb and a' 0.01% sfb can be pressed with pinky ring in this fat-i wide mod
-        ;; total real sfbs 0.05% if the math is correct
+        ((and (key-history a 2) (key-history d 1))) m break ;; dm sfb mostly consists of adm, otherwise cope with index middle
+        ((key-history d 1)) g break ;; sfb
+        ((key-history s 1)) w break ;; sfb
+        ((key-history l 1)) r break ;; sfb
+        ((key-history a 1)) o break ;; sfb
         ;;;;;;;;;;;;;;;
         ;;th is the most common english bigram
         ((or (key-history spc 1) (key-history tab 1) (key-history ret 1))) (macro t h (on-press tap-vkey the)) break
@@ -236,29 +220,29 @@ with lib; let
         ((and (key-history e 3) (key-history a 2) (key-history t 1))) (macro m e n 50 t) break ;; eatment
         ((and (key-history u 3) (key-history i 2) (key-history t 1))) (macro m e n 50 t) break ;; uitment
         ((and (key-history m 3) (key-history i 2) (key-history t 1))) (macro m e n 50 t) break ;; mitment
-        ;;ion 1.692%
+        ;;ion
         ((key-history i 1)) (macro o n) break
 
         ;;tch
         ((key-history t 1)) (macro c h) break
-        ;; ver 1.003%
+        ;; ver
         ((key-history v 1)) (macro e r) break ;; press with index middle, otherwise it just makes another sfb
-        ;; just 0.232%, still most frequent ngram that starts with j
+        ;; just, most frequent ngram that starts with j
         ((key-history j 1)) (macro u s t) break
 
-        ;; ght 0.317% common sfs
+        ;; ght is a common sfs
         ((key-history g 1)) (macro h t) break
-        ;; nts 0.13% common redirect
+        ;; nts common redirect
         ((key-history n 1)) (macro t s) break
-        ;; put 0.04% sfs
+        ;; put sfs
         ((and (key-history c 5) (key-history a 4) (key-history m 3) (key-history p 2) (key-history u 1))) (macro s e) break ;; campuses prevent overwriting use with put
         ((and (key-history r 8) (key-history t 7) (key-history o 6) (key-history c 5) (key-history a 4) (key-history r 3) (key-history p 2) (key-history u 1))) (macro s e) break ;; artocarpuses prevent overwriting use with put
         ((and (key-history p 2) (key-history u 1))) t break
-        ;; top 0.03%
+        ;; top
         ((and (key-history t 2) (key-history o 1))) p break
         ;; stud
         ((and (key-history s 3) (key-history t 2) (key-history u 1))) d break
-        ;; use 0.18%
+        ;; use
         ((key-history u 1)) (macro s e) break
 
         ;; TODO somehow implement ious
@@ -269,25 +253,11 @@ with lib; let
       repeat (switch
         ;; Use this left repeat key mostly when repeating left hand bigram like ll
         ;; Also key(feels like a roll) ying ing ngin owing rawing ewing
-        ;; LSBs 1.75%
-        ;; ve 0.59% comfy
-        ;; be 0.35% fine
-        ;; ev 0.17% comfy
-        ;; bu 0.15% comfy
-        ;; ck 0.13% comfy
-        ;; ds 0.08% comfy
-        ;; ub 0.04% comfy
-        ;; gs 0.04% fine
-        ;; eb 0.03% fine
-        ;; ek 0.02% not bad
-        ;; sd 0.01% comfy
-        ;; dw 0.01% not bad
-        ;; dc 0.01% not bad
         ;; they'
         ((and (key-history t 4) (key-history h 3) (key-history e 2) (key-history y 1))) (macro ' (on-press tap-vkey they)) break
         ;; ing
-        ((key-history i 1)) (macro n g) break ;; i repeat is only 0.011%, compared to ing 3.302% just use left rpt key anyways
-        ((key-history y 1)) (macro i n g) break ;; 0.03% sfb all common yis are ying
+        ((key-history i 1)) (macro n g) break
+        ((key-history y 1)) (macro i n g) break ;; sfb all common yis are ying
         ((and (key-history n 2) (key-history g 1))) (macro i n 50 g) break ;; nging
         ((and (key-history n 2) (key-history d 1))) (macro i n g) break ;; nding
         ((and (key-history o 2) (key-history w 1))) (macro i n g) break ;; owing
@@ -295,12 +265,10 @@ with lib; let
         ((and (key-history r 3) (key-history o 2) (key-history w 1))) (macro i n g) break ;; rowing
         ((and (key-history e 2) (key-history w 1))) (macro i n g) break ;; ewing
         ((key-history v 1)) (macro i n g) break ;; ving
-        ((key-history h 1)) (macro a v) break ;; 0.194% sfs
-        ((key-history a 1)) (macro n d) break ;; 3.639% common ngram
-        ((key-history u 1)) (macro r e) break ;; ure 0.13%
+        ((key-history h 1)) (macro a v) break ;; sfs
+        ((key-history a 1)) (macro n d) break ;; common ngram
+        ((key-history u 1)) (macro r e) break ;; ure
         () rpt break
-        ;; Currently 7.168% usage + 6.046% of repeats, total 13.214
-        ;; Space bar is like 20% usage
       )
 
       ral @repeat
@@ -310,14 +278,12 @@ with lib; let
         ;; also use for common right hand repeat bigrams like ff, ee(unless next letter is n?)
         ;; and uncommon bigrams like ii(wii mii)
         ((and (key-history i 2) (key-history p 1))) (macro t) break
-        ((key-history p 1)) m break ;; 0.01% sfb, use right repeat key for pp, magic key for pment
-        ((key-history k 1)) (macro i n g) break ;; 0.305% the rule is, put on the opposite hand repeat key
-        ((key-history t 1)) p break ;; 0.01% sfb
-        ;; get 0.134% common sfs
+        ((key-history p 1)) m break ;; sfb, use right repeat key for pp, magic key for pment
+        ((key-history k 1)) (macro i n g) break ;; the rule is, put on the opposite hand repeat key
+        ((key-history t 1)) p break ;; sfb
+        ;; get common sfs
         ((key-history g 1)) (macro e t) break
-        () rpt break ;; 1.567%
-        ;; Currently 2.56% usage + 1.567% of repeats, total 4.127%
-        ;; keep this as low as possible
+        () rpt break
       )
 
       spc (tap-hold 200 300 spc lctl)
