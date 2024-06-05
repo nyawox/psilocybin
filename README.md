@@ -101,6 +101,7 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | m_k           | middle-index                       |
 | m_g           | middle-index                       |
 | o_'           | ring-pinky                         |
+| a_'           | ring-pinky                         |
 | bv            | slide                              |
 | ⚝h            | slide                              |
 | 'a/a'         | pinky-ring                         |
