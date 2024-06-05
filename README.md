@@ -90,19 +90,20 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 
 ## Fingering and slides
 
-| Keys  | Fingering              |
-| ----- | ---------------------- |
-| sc/cs | index-middle           |
-| tm/mt | index-middle           |
-| gt    | index-middle           |
-| pd    | middle-index           |
-| dt    | index-middle           |
-| bv    | slide                  |
-| ⚝h    | slide                  |
-| 'a/a' | pinky-ring             |
-| ue    | slide                  |
-| oa    | slide                  |
-| i'    | pinky ring             |
+| Keys  | Fingering                          |
+| ----- | ----------------------             |
+| sc/cs | index-middle                       |
+| tm/mt | index-middle                       |
+| gt    | index-middle                       |
+| pd    | middle-index                       |
+| dt    | index-middle                       |
+| bv    | slide                              |
+| ⚝h    | slide                              |
+| 'a/a' | pinky-ring                         |
+| ue    | slide                              |
+| oa    | slide                              |
+| yi    | slide,only works on wide mod fat i |
+| i'    | pinky ring                         |
 
 ## Usage
 
