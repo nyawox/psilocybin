@@ -97,7 +97,8 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | gt    | index-middle           |
 | pd    | middle-index           |
 | dt    | index-middle           |
-| bv    | maybe slide?           |
+| bv    | slide                  |
+| ⚝h    | slide                  |
 | 'a/a' | pinky-ring             |
 | ue    | slide                  |
 | oa    | slide                  |
