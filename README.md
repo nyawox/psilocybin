@@ -27,7 +27,6 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | s⚝     | sw      |
 | n⚝     | nts     |
 | i⚝     | ion     |
-| i⬡     | ing     |
 | ad⚝    | adm     |
 | d⚝     | dg      |
 | v⚝     | ver     |
