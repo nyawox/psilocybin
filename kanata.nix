@@ -234,6 +234,8 @@ with lib; let
 
         ;; ght is a common sfs
         ((key-history g 1)) (macro h t) break
+        ;; got sfs
+        ((and (key-history g 2) (key-history o 1))) t break
         ;; nts common redirect
         ((key-history n 1)) (macro t s) break
         ;; put sfs
