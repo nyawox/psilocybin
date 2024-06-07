@@ -144,6 +144,11 @@ with lib; let
       beautifully (one-shot 5000 (layer-toggle beautifully))
       be-t (one-shot 5000 (layer-toggle be-t))
       be-g (one-shot 5000 (layer-toggle be-g))
+      wh (one-shot 5000 (layer-toggle wh))
+      will (one-shot 5000 (layer-toggle will))
+      when (one-shot 5000 (layer-toggle when))
+      what (one-shot 5000 (layer-toggle what))
+      whats (one-shot 5000 (layer-toggle whats))
     )
 
     ;; these word-builder rules aren't tested and likely wouldn't work on jis keyboard
@@ -235,6 +240,37 @@ with lib; let
       ret (macro i n) ;; <spc><rpt>gi -> begin
       ' (macro a n) ;; <spc><rpt>ga -> began
       p (macro u n) ;; <spc><rpt>gu -> begun
+    )
+    ;; <spc><lrpt>
+    (deflayermap (wh)
+      l (macro bspc i t h) ;; <spc><lrpt>* -> with
+      ralt (macro e n (on-press tap-vkey when)) ;; <spc><lrpt><rpt> -> when
+      [ (macro o) ;; <spc><lrpt>o -> who
+      ] (macro y) ;; <spc><lrpt>y -> why
+      ' (macro a t (on-press tap-vkey what)) ;; <spc><lrpt>a -> what
+      ret (macro bspc i l l (on-press tap-vkey will)) ;; <spc><lrpt>i -> will
+      w (macro bspc e l l) ;; <spc><lrpt>l -> well
+      . (macro i l e) ;; <spc><lrpt>h -> while
+      e (macro i c h) ;; <spc><lrpt>c -> which
+      ; (macro e r e) ;; <spc><lrpt>e -> where
+      y (macro bspc o r k) ;; <spc><lrpt>k -> work
+      p (macro bspc o u l d) ;; <spc><lrpt>u -> would
+      v (macro bspc o r l d) ;; <spc><lrpt>d -> world
+      f (macro e t h e r) ;; <spc><lrpt>t -> whether
+    )
+    (deflayermap (will)
+      f (macro bspc bspc t h o u t) ;; <spc><lrpt>it -> without
+    )
+    (deflayermap (when)
+      , (macro e v e r) ;; <spc><lrpt><rpt>v -> whenever
+    )
+    (deflayermap (what)
+      , (macro e v e r) ;; <spc><lrpt>av -> whatever
+      d (macro s (on-press tap-vkey whats)) ;; <spc><lrpt>as
+    )
+    (deflayermap (whats)
+      spc (macro bspc ' s spc) ;; <spc><lrpt>as<spc> -> what's
+      , (macro o e v e r) ;; <spc><lrpt>asv -> whatsoever
     )
 
     (defalias
@@ -368,6 +404,8 @@ with lib; let
         ((key-history k 1)) (macro i n g) break ;; the rule is to put on the opposite hand repeat key
         ((key-history t 1)) p break ;; sfb
         ((key-history g 1)) (macro e t) break ;; get sfs
+        ;; wh
+        ((or (key-history spc 1) (key-history tab 1) (key-history ret 1))) (macro w h (on-press tap-vkey wh)) break
         () rpt break
       )
 
