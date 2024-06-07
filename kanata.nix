@@ -128,6 +128,8 @@ with lib; let
       to-base (layer-switch psilocybin)
       the (one-shot 5000 (layer-toggle the))
       the-r (one-shot 5000 (layer-toggle the-r))
+      the-r-e (one-shot 5000 (layer-toggle the-r-e))
+      the-r-o (one-shot 5000 (layer-toggle the-r-o))
       tho (one-shot 5000 (layer-toggle tho))
       they (one-shot 5000 (layer-toggle they))
       for (one-shot 5000 (layer-toggle for))
@@ -152,13 +154,19 @@ with lib; let
       ] (macro e y) ;; <spc>*y -> they
       a (macro e n) ;; <spc>*n -> then
       d (macro e s e) ;; <spc>*s -> these
-      ;; layer switch
       s (on-press tap-vkey the-r) ;; <spc>*r -> the**(including r)
       [ (macro o (on-press tap-vkey tho)) ;; <spc>*o -> tho**
     )
     (deflayermap (the-r)
       spc (macro e i r spc) ;; <spc>*r<spc> -> their<spc>
-      ; (macro e r e) ;; <spc>*re -> there
+      ; (on-press tap-vkey the-r-e) ;; <spc>*re
+      [ (on-press tap-vkey the-r-o) ;; <spc>*ro
+    )
+    (deflayermap (the-r-e)
+      spc (macro e r e spc) ;; <spc>*re<spc> -> there
+    )
+    (deflayermap (the-r-o)
+      spc (macro r o u g h spc) ;; <spc>*ro<spc> -> through
     )
     (deflayermap (tho)
       d (macro s e) ;; <spc>*os  -> those
