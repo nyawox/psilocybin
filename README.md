@@ -90,11 +90,12 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | u⚝        | use        |
 | u⬡        | ure        |
 | f⬡        | for        |
+| f⬡ d      | found      |
+| f⬡ g      | foreign    |
 | f⬡ n⎵     | forgotten  |
 | f⬡ w⎵     | follow     |
 | f⬡ r⎵     | forever    |
 | f⬡ rd     | forward    |
-| f⬡ rn     | foreign    |
 | ⎵⬡        | be         |
 | ⎵⬡ k      | back       |
 | ⎵⬡ c⎵     | because    |

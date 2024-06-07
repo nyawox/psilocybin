@@ -180,6 +180,7 @@ with lib; let
     ;; f<rpt>
     (deflayermap (for) ;; defaults to for
       v (macro bspc u n d) ;; f<rpt>d -> found
+      g (macro e i g n) ;; f<rpt>g -> foreign
       x (on-press tap-vkey for-w) ;; f<rpt>w
       a (on-press tap-vkey for-n) ;; f<rpt>n
       s (on-press tap-vkey for-r) ;; f<rpt>r
@@ -195,7 +196,6 @@ with lib; let
     (deflayermap (for-r)
       spc (macro e v e r spc) ;; f<rpt>r<spc> -> forever
       v (macro w a r d) ;; f<rpt>rd -> forward
-      a (macro e i g n) ;; f<rpt>rn -> foreign
     )
     ;; <spc><rpt>
     (deflayermap (be) ;; defaults to be
