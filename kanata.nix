@@ -171,7 +171,7 @@ with lib; let
     (deflayermap (for-r)
       spc (macro e v e r spc) ;; f<rpt>r<spc> -> forever
       v (macro w a r d) ;; f<rpt>rd -> forward
-      a (macro e i g n e r) ;; f<rpt>rn -> foreigner
+      a (macro e i g n) ;; f<rpt>rn -> foreign
     )
 
     (defalias
