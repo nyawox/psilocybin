@@ -253,7 +253,7 @@ with lib; let
       . (macro i l e) ;; <spc><lrpt>h -> while
       e (macro i c h) ;; <spc><lrpt>c -> which
       ; (macro e r e) ;; <spc><lrpt>e -> where
-      y (macro bspc o r k) ;; <spc><lrpt>k -> work
+      t (macro bspc o r k) ;; <spc><lrpt>k -> work
       p (macro bspc o u l d) ;; <spc><lrpt>u -> would
       v (macro bspc o r l d) ;; <spc><lrpt>d -> world
       f (macro e t h e r) ;; <spc><lrpt>t -> whether
