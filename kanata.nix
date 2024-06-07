@@ -132,6 +132,7 @@ with lib; let
       they (one-shot 5000 (layer-toggle they))
       for (one-shot 5000 (layer-toggle for))
       for-w (one-shot 5000 (layer-toggle for-w))
+      for-n (one-shot 5000 (layer-toggle for-n))
       for-r (one-shot 5000 (layer-toggle for-r))
     )
 
@@ -162,11 +163,16 @@ with lib; let
     (deflayermap (for) ;; defaults to for
       v (macro bspc u n d) ;; f<rpt>d -> found
       x (on-press tap-vkey for-w) ;; f<rpt>w
+      a (on-press tap-vkey for-n) ;; f<rpt>n
       s (on-press tap-vkey for-r) ;; f<rpt>r
     )
     ;; prevent confliction with forward
     (deflayermap (for-w)
       spc (macro bspc l l o w spc) ;; f<rpt>w<spc> -> follow
+    )
+    ;; prevent confliction with california
+    (deflayermap (for-n)
+      spc (macro g o t t e n spc) ;; f<rpt>n<spc> -> forgotten
     )
     (deflayermap (for-r)
       spc (macro e v e r spc) ;; f<rpt>r<spc> -> forever
