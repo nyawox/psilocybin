@@ -134,9 +134,17 @@ with lib; let
       for-w (one-shot 5000 (layer-toggle for-w))
       for-n (one-shot 5000 (layer-toggle for-n))
       for-r (one-shot 5000 (layer-toggle for-r))
+      be (one-shot 5000 (layer-toggle be))
+      be-c (one-shot 5000 (layer-toggle be-c))
+      be-f (one-shot 5000 (layer-toggle be-f))
+      be-u (one-shot 5000 (layer-toggle be-u))
+      beauty (one-shot 5000 (layer-toggle beauty))
+      beautifully (one-shot 5000 (layer-toggle beautifully))
+      be-t (one-shot 5000 (layer-toggle be-t))
     )
 
-    ;; these word-builder rules aren't tested on jis keyboard
+    ;; these word-builder rules aren't tested and likely wouldn't work on jis keyboard
+    ;; <spc>*
     (deflayermap (the)
       spc (macro e spc) ;; <spc>*<spc> -> the<spc>
       ralt (macro e m) ;; <spc>*<rpt> -> them
@@ -160,6 +168,7 @@ with lib; let
       , (macro v e) ;; <spc>*y<rpt>v -> they've ;; this is the 4th hardest word in this layout
       w (macro l l) ;; <spc>*y<rpt>l -> they'll
     )
+    ;; f<rpt>
     (deflayermap (for) ;; defaults to for
       v (macro bspc u n d) ;; f<rpt>d -> found
       x (on-press tap-vkey for-w) ;; f<rpt>w
@@ -178,6 +187,39 @@ with lib; let
       spc (macro e v e r spc) ;; f<rpt>r<spc> -> forever
       v (macro w a r d) ;; f<rpt>rd -> forward
       a (macro e i g n) ;; f<rpt>rn -> foreign
+    )
+    ;; <spc><rpt>
+    (deflayermap (be) ;; defaults to be
+      t (macro bspc a c k) ;; <spc><rpt>k -> back
+      o (on-press tap-vkey be-f) ;; <spc><rpt>f
+      p (on-press tap-vkey be-u) ;; <spc><rpt>u
+      e (on-press tap-vkey be-c) ;; <spc><rpt>c
+      f (on-press tap-vkey be-t) ;; <spc><rpt>t
+    )
+    (deflayermap (be-c)
+      spc (macro c a u s e spc) ;; <spc><rpt>c<spc> -> because
+      [ (macro c o m e) ;; <spc><rpt>co -> become
+      ' (macro c a m e) ;; <spc><rpt>co -> became
+      ret (macro c o m i n g) ;; <spc><rpt>ci -> becoming
+    )
+    (deflayermap (be-f)
+      spc (macro f o r e spc) ;; <spc><rpt>f -> before
+    )
+    (deflayermap (be-u)
+      spc (macro bspc u t spc) ;; <spc><rpt>u<spc> -> but
+      f (macro a u t y (on-press tap-vkey beauty)) ;; <spc><rpt>ut -> beauty
+    )
+    (deflayermap (beauty)
+      o (macro bspc i f u l (on-press tap-vkey beautifully)) ;; <spc><rpt>utf -> beautiful
+      ] (macro bspc i f y) ;; <spc><rpt>uty -> beautify
+    )
+    (deflayermap (beautifully)
+      ] (macro l y) ;; <spc><rpt>utfy -> beautifully
+    )
+    (deflayermap (be-t)
+      a (macro t w e e n) ;; <spc><rpt>tn -> between
+      ; (macro t t e r) ;; <spc><rpt>te -> better
+      s (macro t r a y) ;; <spc><rpt>tr -> betray
     )
 
     (defalias
@@ -298,6 +340,8 @@ with lib; let
         ((key-history u 1)) (macro r e) break ;; ure
         ;; for
         ((key-history f 1)) (macro o r (on-press tap-vkey for)) break
+        ;; be
+        ((or (key-history spc 1) (key-history tab 1) (key-history ret 1))) (macro b e (on-press tap-vkey be)) break
         () rpt break
       )
 
