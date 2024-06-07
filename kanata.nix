@@ -141,6 +141,7 @@ with lib; let
       beauty (one-shot 5000 (layer-toggle beauty))
       beautifully (one-shot 5000 (layer-toggle beautifully))
       be-t (one-shot 5000 (layer-toggle be-t))
+      be-g (one-shot 5000 (layer-toggle be-g))
     )
 
     ;; these word-builder rules aren't tested and likely wouldn't work on jis keyboard
@@ -195,6 +196,7 @@ with lib; let
       p (on-press tap-vkey be-u) ;; <spc><rpt>u
       e (on-press tap-vkey be-c) ;; <spc><rpt>c
       f (on-press tap-vkey be-t) ;; <spc><rpt>t
+      g (on-press tap-vkey be-g) ;; <spc><rpt>g
     )
     (deflayermap (be-c)
       spc (macro c a u s e spc) ;; <spc><rpt>c<spc> -> because
@@ -220,6 +222,11 @@ with lib; let
       a (macro t w e e n) ;; <spc><rpt>tn -> between
       ; (macro t t e r) ;; <spc><rpt>te -> better
       s (macro t r a y) ;; <spc><rpt>tr -> betray
+    )
+    (deflayermap (be-g)
+      ret (macro g i n) ;; <spc><rpt>gi -> begin
+      ' (macro g a n) ;; <spc><rpt>ga -> began
+      p (macro g u n) ;; <spc><rpt>gu -> begun
     )
 
     (defalias
