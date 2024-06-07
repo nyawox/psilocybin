@@ -154,19 +154,19 @@ with lib; let
       ] (macro e y) ;; <spc>*y -> they
       a (macro e n) ;; <spc>*n -> then
       d (macro e s e) ;; <spc>*s -> these
-      s (on-press tap-vkey the-r) ;; <spc>*r -> the**(including r)
+      s (macro r (on-press tap-vkey the-r)) ;; <spc>*r -> the**(including r)
       [ (macro o (on-press tap-vkey tho)) ;; <spc>*o -> tho**
     )
     (deflayermap (the-r)
-      spc (macro e i r spc) ;; <spc>*r<spc> -> their<spc>
-      ; (on-press tap-vkey the-r-e) ;; <spc>*re
-      [ (on-press tap-vkey the-r-o) ;; <spc>*ro
+      spc (macro bspc e i r spc) ;; <spc>*r<spc> -> their<spc>
+      ; (macro e (on-press tap-vkey the-r-e)) ;; <spc>*re
+      [ (macro o (on-press tap-vkey the-r-o)) ;; <spc>*ro
     )
     (deflayermap (the-r-e)
-      spc (macro e r e spc) ;; <spc>*re<spc> -> there
+      spc (macro bspc bspc e r e spc) ;; <spc>*re<spc> -> there
     )
     (deflayermap (the-r-o)
-      spc (macro r o u g h spc) ;; <spc>*ro<spc> -> through
+      spc (macro u g h spc) ;; <spc>*ro<spc> -> through
     )
     (deflayermap (tho)
       d (macro s e) ;; <spc>*os  -> those
