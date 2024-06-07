@@ -130,15 +130,20 @@ with lib; let
       the-r (one-shot 5000 (layer-toggle the-r))
       tho (one-shot 5000 (layer-toggle tho))
       they (one-shot 5000 (layer-toggle they))
+      for (one-shot 5000 (layer-toggle for))
+      for-w (one-shot 5000 (layer-toggle for-w))
+      for-r (one-shot 5000 (layer-toggle for-r))
     )
 
+    ;; these word-builder rules aren't tested on jis keyboard
     (deflayermap (the)
       spc (macro e spc) ;; <spc>*<spc> -> the<spc>
       ralt (macro e m) ;; <spc>*<rpt> -> them
       ] (macro e y) ;; <spc>*y -> they
-      s (on-press tap-vkey the-r) ;; <spc>*r -> the**(including r)
       a (macro e n) ;; <spc>*n -> then
       d (macro e s e) ;; <spc>*s -> these
+      ;; layer switch
+      s (on-press tap-vkey the-r) ;; <spc>*r -> the**(including r)
       [ (macro o (on-press tap-vkey tho)) ;; <spc>*o -> tho**
     )
     (deflayermap (the-r)
@@ -153,6 +158,20 @@ with lib; let
       s (macro r e) ;; <spc>*y<rpt>r -> they're
       , (macro v e) ;; <spc>*y<rpt>v -> they've ;; this is the 4th hardest word in this layout
       w (macro l l) ;; <spc>*y<rpt>l -> they'll
+    )
+    (deflayermap (for) ;; defaults to for
+      v (macro bspc u n d) ;; f<rpt>d -> found
+      x (on-press tap-vkey for-w) ;; f<rpt>w
+      s (on-press tap-vkey for-r) ;; f<rpt>r
+    )
+    ;; prevent confliction with forward
+    (deflayermap (for-w)
+      spc (macro bspc l l o w spc) ;; f<rpt>w<spc> -> follow
+    )
+    (deflayermap (for-r)
+      spc (macro e v e r spc) ;; f<rpt>r<spc> -> forever
+      v (macro w a r d) ;; f<rpt>rd -> forward
+      a (macro e i g n e r) ;; f<rpt>rn -> foreigner
     )
 
     (defalias
@@ -255,8 +274,7 @@ with lib; let
       mgt (multi @mgc @tp)
 
       repeat (switch
-        ;; Use this left repeat key mostly when repeating left hand bigram like ll
-        ;; Also key(feels like a roll) ying ing ngin owing rawing ewing
+        ;; Use this thumb repeat key mostly when repeating left hand bigram like ll
         ;; they'
         ((and (key-history t 4) (key-history h 3) (key-history e 2) (key-history y 1))) (macro ' (on-press tap-vkey they)) break
         ;; ing
@@ -272,21 +290,19 @@ with lib; let
         ((key-history h 1)) (macro a v) break ;; sfs
         ((key-history a 1)) (macro n d) break ;; common ngram
         ((key-history u 1)) (macro r e) break ;; ure
+        ;; for
+        ((key-history f 1)) (macro o r (on-press tap-vkey for)) break
         () rpt break
       )
 
       ral @repeat
 
       lrp (switch
-        ;; use this repeat key when typing most ke(s), which is uncomfortable with right repeat key
-        ;; also use for common right hand repeat bigrams like ff, ee(unless next letter is n?)
-        ;; and uncommon bigrams like ii(wii mii)
         ((and (key-history i 2) (key-history p 1))) (macro t) break
         ((key-history p 1)) m break ;; sfb, use right repeat key for pp, magic key for pment
-        ((key-history k 1)) (macro i n g) break ;; the rule is, put on the opposite hand repeat key
+        ((key-history k 1)) (macro i n g) break ;; the rule is to put on the opposite hand repeat key
         ((key-history t 1)) p break ;; sfb
-        ;; get common sfs
-        ((key-history g 1)) (macro e t) break
+        ((key-history g 1)) (macro e t) break ;; get sfs
         () rpt break
       )
 
