@@ -200,24 +200,24 @@ with lib; let
     ;; <spc><rpt>
     (deflayermap (be) ;; defaults to be
       t (macro bspc a c k) ;; <spc><rpt>k -> back
-      o (on-press tap-vkey be-f) ;; <spc><rpt>f
-      p (on-press tap-vkey be-u) ;; <spc><rpt>u
-      e (on-press tap-vkey be-c) ;; <spc><rpt>c
-      f (on-press tap-vkey be-t) ;; <spc><rpt>t
-      g (on-press tap-vkey be-g) ;; <spc><rpt>g
+      e (macro c (on-press tap-vkey be-c)) ;; <spc><rpt>c
+      o (macro f (on-press tap-vkey be-f)) ;; <spc><rpt>f
+      p (macro u (on-press tap-vkey be-u)) ;; <spc><rpt>u
+      f (macro t (on-press tap-vkey be-t)) ;; <spc><rpt>t
+      g (macro g (on-press tap-vkey be-g)) ;; <spc><rpt>g
     )
     (deflayermap (be-c)
-      spc (macro c a u s e spc) ;; <spc><rpt>c<spc> -> because
-      [ (macro c o m e) ;; <spc><rpt>co -> become
-      ' (macro c a m e) ;; <spc><rpt>co -> became
-      ret (macro c o m i n g) ;; <spc><rpt>ci -> becoming
+      spc (macro a u s e spc) ;; <spc><rpt>c<spc> -> because
+      [ (macro o m e) ;; <spc><rpt>co -> become
+      ' (macro a m e) ;; <spc><rpt>co -> became
+      ret (macro o m i n g) ;; <spc><rpt>ci -> becoming
     )
     (deflayermap (be-f)
-      spc (macro f o r e spc) ;; <spc><rpt>f -> before
+      spc (macro o r e spc) ;; <spc><rpt>f -> before
     )
     (deflayermap (be-u)
-      spc (macro bspc u t spc) ;; <spc><rpt>u<spc> -> but
-      f (macro a u t y (on-press tap-vkey beauty)) ;; <spc><rpt>ut -> beauty
+      spc (macro bspc bspc u t spc) ;; <spc><rpt>u<spc> -> but
+      f (macro bspc a u t y (on-press tap-vkey beauty)) ;; <spc><rpt>ut -> beauty
     )
     (deflayermap (beauty)
       o (macro bspc i f u l (on-press tap-vkey beautifully)) ;; <spc><rpt>utf -> beautiful
@@ -227,14 +227,14 @@ with lib; let
       ] (macro l y) ;; <spc><rpt>utfy -> beautifully
     )
     (deflayermap (be-t)
-      a (macro t w e e n) ;; <spc><rpt>tn -> between
-      ; (macro t t e r) ;; <spc><rpt>te -> better
-      s (macro t r a y) ;; <spc><rpt>tr -> betray
+      a (macro w e e n) ;; <spc><rpt>tn -> between
+      ; (macro t e r) ;; <spc><rpt>te -> better
+      s (macro r a y) ;; <spc><rpt>tr -> betray
     )
     (deflayermap (be-g)
-      ret (macro g i n) ;; <spc><rpt>gi -> begin
-      ' (macro g a n) ;; <spc><rpt>ga -> began
-      p (macro g u n) ;; <spc><rpt>gu -> begun
+      ret (macro i n) ;; <spc><rpt>gi -> begin
+      ' (macro a n) ;; <spc><rpt>ga -> began
+      p (macro u n) ;; <spc><rpt>gu -> begun
     )
 
     (defalias
