@@ -41,7 +41,8 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | ⎵⚝y⬡v     | they've    |
 | ⎵⚝y⬡l     | they'll    |
 | ⎵⚝r⎵      | their      |
-| ⎵⚝re      | there      |
+| ⎵⚝re⎵     | there      |
+| ⎵⚝ro⎵     | through    |
 | ⎵⚝n       | then       |
 | ⎵⚝s       | these      |
 | ⎵⚝o       | tho        |
@@ -94,6 +95,24 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | f⬡ r⎵     | forever    |
 | f⬡ rd     | forward    |
 | f⬡ rn     | foreign    |
+| ⎵⬡        | be         |
+| ⎵⬡ k      | back       |
+| ⎵⬡ c⎵     | because    |
+| ⎵⬡ co     | become     |
+| ⎵⬡ ca     | became     |
+| ⎵⬡ ci     | becoming   |
+| ⎵⬡ f⎵     | before     |
+| ⎵⬡ u⎵     | but        |
+| ⎵⬡ ut     | beauty     |
+| ⎵⬡ utf    | beautiful  |
+| ⎵⬡ utfy   | beautifully|
+| ⎵⬡ uty    | beautify   |
+| ⎵⬡ tn     | between    |
+| ⎵⬡ te     | better     |
+| ⎵⬡ tr     | betray     |
+| ⎵⬡ gi     | begin      |
+| ⎵⬡ ga     | began      |
+| ⎵⬡ gu     | begun      |
 
 ## Fingering and slides
 
