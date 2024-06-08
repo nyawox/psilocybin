@@ -1,11 +1,11 @@
 # Psilocybin
 
-You can see the details of the layout [here](layout/README.md)  
-This flake can be also used to easily configure your own magic layout
+This flake defaults to my own layout, but it can be also used to easily configure your own magic layout🪄⭐  
+You can see the details of the default layout [here](layout/README.md)  
 
 ## Usage
 
-This enables the psilocybin layout on your NixOS system
+This enables the default psilocybin layout on your NixOS system  
 ```nix
   description = "Your NixOS configuration";
 
