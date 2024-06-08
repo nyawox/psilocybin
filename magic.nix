@@ -38,7 +38,7 @@
       (t! seq lopment (l o p nop0) (macro l (unmod o p m e n t))) ;; opment
       (t! seq oopment (o o p nop0) (macro o (unmod o p m e n t))) ;; opment
       (t! seq script (s c r i p nop0) (macro s (unmod c r i p t))) ;; prevent ipment overriding script
-      (t! seq oopment (i p nop0) (macro i (unmod p m e n t))) ;; ipment
+      (t! seq ipment (i p nop0) (macro i (unmod p m e n t))) ;; ipment
       (t! seq pt (p nop0) (macro p (unmod t))) ;; sfb
       (t! seq rl (r nop0) (macro r (unmod l))) ;; sfb
       (t! seq ws (w nop0) (macro w (unmod s))) ;; sfb
