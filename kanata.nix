@@ -27,7 +27,7 @@ with lib; let
       XX   @x    @l   @c   @m   @k   XX    XX   @z   @f   @u   @o   @y   @.
       @⬢   @n    @r   @s   @t   @g   XX    XX   @b   @⚝   @e   @a   @i
       XX   @j    @w   @p   @d   @q   XX    XX   @v   @h   @;   @'
-      XX   @lmet               @spc            @ral @rmet @⬡
+      XX   @lmet               @spc            @⬡   @rmet @⬡
     )
 
     (deflayer psilocybin-tp
