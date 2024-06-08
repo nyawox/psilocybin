@@ -492,12 +492,12 @@ in {
       {
         name = "for";
         inputs = "f ${rpt}";
-        outputs = "f o r";
+        outputs = "f o r ${for}";
       }
       {
         name = "be";
         inputs = "spc ${rpt}";
-        outputs = "spc b e";
+        outputs = "spc b e ${be}";
       }
       {
         name = "ipt";
@@ -527,7 +527,7 @@ in {
       {
         name = "wh";
         inputs = "spc ${lrpt}";
-        outputs = "spc w h";
+        outputs = "spc w h ${wh}";
       } # defaults to wh
     ];
     psilocybin.magic.postInitRules = [
@@ -660,19 +660,9 @@ in {
         outputs = "bspc o r k";
       }
       {
-        name = "who";
-        inputs = "${wh} o";
-        outputs = "o";
-      }
-      {
-        name = "why";
-        inputs = "${wh} y";
-        outputs = "y";
-      }
-      {
         name = "when";
         inputs = "${wh} ${rpt}";
-        outputs = "bspc e n";
+        outputs = "e n";
       }
       {
         name = "whenever";
