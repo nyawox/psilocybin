@@ -12,66 +12,86 @@
   when = "nop3 nop7";
   what = "nop3 nop8";
   will = "nop3 nop9";
-  nop13 = "nop4 nop0";
-  nop14 = "nop4 nop1";
-  nop15 = "nop4 nop2";
-  nop16 = "nop4 nop3";
-  nop17 = "nop4 nop4";
-  nop18 = "nop4 nop5";
-  nop19 = "nop4 nop6";
-  nop20 = "nop4 nop7";
-  nop21 = "nop4 nop8";
-  nop22 = "nop4 nop9";
-  nop23 = "nop5 nop0";
-  nop24 = "nop5 nop1";
-  nop25 = "nop5 nop2";
-  nop26 = "nop5 nop3";
-  nop27 = "nop5 nop4";
-  nop28 = "nop5 nop5";
-  nop29 = "nop5 nop6";
-  nop30 = "nop5 nop7";
-  nop31 = "nop5 nop8";
-  nop32 = "nop5 nop9";
-  nop33 = "nop6 nop0";
-  nop34 = "nop6 nop1";
-  nop35 = "nop6 nop2";
-  nop36 = "nop6 nop3";
-  nop37 = "nop6 nop4";
-  nop38 = "nop6 nop5";
-  nop39 = "nop6 nop6";
-  nop40 = "nop6 nop7";
-  nop41 = "nop6 nop8";
-  nop42 = "nop6 nop9";
-  nop43 = "nop7 nop0";
-  nop44 = "nop7 nop1";
-  nop45 = "nop7 nop2";
-  nop46 = "nop7 nop3";
-  nop47 = "nop7 nop4";
-  nop48 = "nop7 nop5";
-  nop49 = "nop7 nop6";
-  nop50 = "nop7 nop7";
-  nop51 = "nop7 nop8";
-  nop52 = "nop7 nop9";
-  nop53 = "nop8 nop0";
-  nop54 = "nop8 nop1";
-  nop55 = "nop8 nop2";
-  nop56 = "nop8 nop3";
-  nop57 = "nop8 nop4";
-  nop58 = "nop8 nop5";
-  nop59 = "nop8 nop6";
-  nop60 = "nop8 nop7";
-  nop61 = "nop8 nop8";
-  nop62 = "nop8 nop9";
-  nop63 = "nop9 nop0";
-  nop64 = "nop9 nop1";
-  nop65 = "nop9 nop2";
-  nop66 = "nop9 nop3";
-  nop67 = "nop9 nop4";
-  nop68 = "nop9 nop5";
-  nop69 = "nop9 nop6";
-  nop70 = "nop9 nop7";
-  nop71 = "nop9 nop8";
-  nop72 = "nop9 nop9";
+  # nop13 = "nop4 nop0";
+  # nop14 = "nop4 nop1";
+  # nop15 = "nop4 nop2";
+  # nop16 = "nop4 nop3";
+  # nop17 = "nop4 nop4";
+  # nop18 = "nop4 nop5";
+  # nop19 = "nop4 nop6";
+  # nop20 = "nop4 nop7";
+  # nop21 = "nop4 nop8";
+  # nop22 = "nop4 nop9";
+  # nop23 = "nop5 nop0";
+  # nop24 = "nop5 nop1";
+  # nop25 = "nop5 nop2";
+  # nop26 = "nop5 nop3";
+  # nop27 = "nop5 nop4";
+  # nop28 = "nop5 nop5";
+  # nop29 = "nop5 nop6";
+  # nop30 = "nop5 nop7";
+  # nop31 = "nop5 nop8";
+  # nop32 = "nop5 nop9";
+  # nop33 = "nop6 nop0";
+  # nop34 = "nop6 nop1";
+  # nop35 = "nop6 nop2";
+  # nop36 = "nop6 nop3";
+  # nop37 = "nop6 nop4";
+  # nop38 = "nop6 nop5";
+  # nop39 = "nop6 nop6";
+  # nop40 = "nop6 nop7";
+  # nop41 = "nop6 nop8";
+  # nop42 = "nop6 nop9";
+  # nop43 = "nop7 nop0";
+  # nop44 = "nop7 nop1";
+  # nop45 = "nop7 nop2";
+  # nop46 = "nop7 nop3";
+  # nop47 = "nop7 nop4";
+  # nop48 = "nop7 nop5";
+  # nop49 = "nop7 nop6";
+  # nop50 = "nop7 nop7";
+  # nop51 = "nop7 nop8";
+  # nop52 = "nop7 nop9";
+  # nop53 = "nop8 nop0";
+  # nop54 = "nop8 nop1";
+  # nop55 = "nop8 nop2";
+  # nop56 = "nop8 nop3";
+  # nop57 = "nop8 nop4";
+  # nop58 = "nop8 nop5";
+  # nop59 = "nop8 nop6";
+  # nop60 = "nop8 nop7";
+  # nop61 = "nop8 nop8";
+  # nop62 = "nop8 nop9";
+  # nop63 = "nop9 nop0";
+  # nop64 = "nop9 nop1";
+  # nop65 = "nop9 nop2";
+  # nop66 = "nop9 nop3";
+  # nop67 = "nop9 nop4";
+  # nop68 = "nop9 nop5";
+  # nop69 = "nop9 nop6";
+  # nop70 = "nop9 nop7";
+  # nop71 = "nop9 nop8";
+  # nop72 = "nop9 nop9";
+  ruleTemplate = {
+    name,
+    inputs,
+    outputs,
+  }: ''
+    (t! seq ${name} (${inputs}) (macro ${outputs}))
+  '';
+  rules = [
+    {
+      name = "mp";
+      inputs = "m ${magic}";
+      outputs = "m p";
+    }
+    {
+      name = "y.";
+      inputs = "y ${magic}";
+      outputs = "y .";
+    }
+  ];
+  generatedRules = lib.concatMapStringsSep "\n" ruleTemplate rules;
 in {
   config = {
     psilocybin.magic = lib.mkDefault ''
@@ -91,8 +111,9 @@ in {
       )
 
       ;;⚝
-      (t! seq mp (m ${magic}) (macro m (unmod p))) ;; sfb
-      (t! seq y. (y ${magic}) (macro y (unmod .))) ;; sfb
+      ;;(t! seq mp (m ${magic}) (macro m (unmod p))) ;; sfb
+      ;;(t! seq y. (y ${magic}) (macro y (unmod .))) ;; sfb
+      ${generatedRules}
       (t! seq was (w a ${magic}) (macro w (unmod a s))) ;; wao doesn't happen
       (t! seq wis (w i ${magic}) (macro w (unmod i s))) ;; wion doesn't happen
       (t! seq wes (w e ${magic}) (macro w (unmod e s))) ;; weu doesn't happen
