@@ -252,8 +252,16 @@ in {
           An empty list, the default value, lets kanata detect which input devices are keyboards and intercept them all.
         '';
       };
-      magic = mkOption {
-        type = types.str;
+      magic = {
+        rules = mkOption {
+          type = types.listOf types.str;
+        };
+        rptRules = mkOption {
+          type = types.listOf types.str;
+        };
+        extraConfig = mkOption {
+          type = types.str;
+        };
       };
       ansi = mkOption {
         type = types.bool;
@@ -292,12 +300,12 @@ in {
 
       keyboards.psilocybin = mkIf cfg.ansi {
         extraDefCfg = defCfg;
-        config = ansi + psilocybin + cfg.magic;
+        config = ansi + psilocybin + cfg.magic.extraConfig;
         devices = cfg.devices;
       };
       keyboards.psilocybinjis = mkIf cfg.jis {
         extraDefCfg = defCfg;
-        config = jis + psilocybin + cfg.magic;
+        config = jis + psilocybin + cfg.magic.extraConfig;
         devices = cfg.devices;
       };
     };
