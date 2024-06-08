@@ -425,7 +425,7 @@ in {
       {
         name = "forever";
         inputs = "${for} r spc";
-        outputs = "e v e r";
+        outputs = "e v e r spc";
       }
       {
         name = "forward";
