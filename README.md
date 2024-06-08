@@ -50,3 +50,4 @@ Visit [here](layout/) for examples of how to configure your layout.
 Ensure you set `psilocybin.ansi.config` for layers,  
 `psilocybin.config` for aliases and chords,  
 as well as `psilocybin.magic.rules` and `psilocybin.magic.rptRules` for your custom magic rules.  
+Use `psilocybin.magic.rptRules` for magic rules that activate via repeat keys.  
