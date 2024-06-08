@@ -76,7 +76,7 @@
   # nop70 = "nop9 nop7";
   # nop71 = "nop9 nop8";
   # nop72 = "nop9 nop9";
-  cfg = config.psilocybin;
+  cfg = config.psilocybin.magic;
   ruleTemplate = {
     name,
     inputs,
@@ -84,7 +84,7 @@
   }: ''
     (t! seq ${name} (${inputs}) (macro ${outputs}))
   '';
-  generatedRules = lib.concatMapStringsSep "\n" ruleTemplate cfg.psilocybin.magic.rules;
+  generatedRules = lib.concatMapStringsSep "\n" ruleTemplate cfg.rules;
   rptRuleTemplate = {
     name,
     inputs,
@@ -92,7 +92,7 @@
   }: ''
     (t! seq ${name} (${inputs}) (macro bspc ${outputs}))
   '';
-  generatedRptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.psilocybin.magic.rptRules;
+  generatedRptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.rptRules;
 in {
   config = {
     psilocybin.magic.extraConfig = lib.mkDefault ''
