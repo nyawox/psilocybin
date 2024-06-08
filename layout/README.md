@@ -91,30 +91,50 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | u⚝      | use         |
 | u⬡      | ure         |
 | f⬡      | for         |
-| f⬡ d    | found       |
-| f⬡ g    | foreign     |
-| f⬡ n⎵   | forgotten   |
-| f⬡ w⎵   | follow      |
-| f⬡ r⎵   | forever     |
-| f⬡ rd   | forward     |
+| f⬡d     | found       |
+| f⬡g⎵    | foreign     |
+| f⬡go    | forgot      |
+| f⬡ge    | forget      |
+| f⬡n⎵    | forgotten   |
+| f⬡w⎵    | follow      |
+| f⬡r⎵    | forever     |
+| f⬡rd    | forward     |
 | ⎵⬡      | be          |
-| ⎵⬡ k    | back        |
-| ⎵⬡ c⎵   | because     |
-| ⎵⬡ co   | become      |
-| ⎵⬡ ca   | became      |
-| ⎵⬡ ci   | becoming    |
-| ⎵⬡ f⎵   | before      |
-| ⎵⬡ u⎵   | but         |
-| ⎵⬡ ut   | beauty      |
-| ⎵⬡ utf  | beautiful   |
-| ⎵⬡ utfy | beautifully |
-| ⎵⬡ uty  | beautify    |
-| ⎵⬡ tn   | between     |
-| ⎵⬡ te   | better      |
-| ⎵⬡ tr   | betray      |
-| ⎵⬡ gi   | begin       |
-| ⎵⬡ ga   | began       |
-| ⎵⬡ gu   | begun       |
+| ⎵⬡k     | back        |
+| ⎵⬡c⎵    | because     |
+| ⎵⬡co    | become      |
+| ⎵⬡ca    | became      |
+| ⎵⬡ci    | becoming    |
+| ⎵⬡f⎵    | before      |
+| ⎵⬡u⎵    | but         |
+| ⎵⬡ut    | beauty      |
+| ⎵⬡utf   | beautiful   |
+| ⎵⬡utfy  | beautifully |
+| ⎵⬡uty   | beautify    |
+| ⎵⬡tn    | between     |
+| ⎵⬡te    | better      |
+| ⎵⬡tr    | betray      |
+| ⎵⬡gi    | begin       |
+| ⎵⬡ga    | began       |
+| ⎵⬡gu    | begun       |
+| ⎵⬢      | wh          |
+| ⎵⬢⚝     | with        |
+| ⎵⬢k     | work        |
+| ⎵⬢⬡     | when        |
+| ⎵⬢⬡v    | whenever    |
+| ⎵⬢a     | what        |
+| ⎵⬢av    | whatever    |
+| ⎵⬢as⎵   | what's      |
+| ⎵⬢asv   | whatsoever  |
+| ⎵⬢i     | will        |
+| ⎵⬢it    | without     |
+| ⎵⬢l     | well        |
+| ⎵⬢h     | while       |
+| ⎵⬢c     | which       |
+| ⎵⬢e     | where       |
+| ⎵⬢u     | would       |
+| ⎵⬢d     | world       |
+| ⎵⬢t     | whether     |
 
 ## Fingering and slides
 
