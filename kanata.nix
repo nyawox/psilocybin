@@ -5,13 +5,11 @@
   ...
 }:
 with lib; let
-  # workaround one-shot shift not working on keys with chord defined
-  # https://github.com/jtroo/kanata/issues/900
   defCfg = ''
-    ${lib.optionalString (cfg.magic.timeout != 0) "rapid-event-delay" ++ toString cfg.rapidEventDelay}
-    ${lib.optionalString (cfg.magic.timeout != 0) "sequence-timeout" ++ toString cfg.magic.timeout}
+    ${lib.optionalString (cfg.magic.timeout != 0) "rapid-event-delay" + toString cfg.rapidEventDelay}
+    ${lib.optionalString (cfg.magic.timeout != 0) "sequence-timeout" + toString cfg.magic.timeout}
     ${lib.optionalString cfg.magic.enable "sequence-always-on true"}
-    ${lib.optionalString (cfg.magic.mode != "") "sequence-input-mode" ++ cfg.magic.mode}
+    ${lib.optionalString (cfg.magic.mode != "") "sequence-input-mode" + cfg.magic.mode}
     ${lib.optionalString (cfg.extraDefCfg != "") cfg.extraDefCfg}
   '';
   ansi = ''
@@ -326,7 +324,7 @@ in {
         type = types.int;
         default = 35;
         description = ''
-          Increase this value if you experience issue with chords.
+          Increase this value if you experience issue with chords and one-shot shifts.
         '';
       };
       ansi = mkOption {
