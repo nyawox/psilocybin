@@ -52,11 +52,10 @@
       ;; th
       (t! seq the (spc nop0 spc) (macro t (unmod h e spc)))
       (t! seq them (spc nop0 nop1) (macro t (unmod h e m)))
-      ;; they, I will keep in this order to see if order matters in sequences
-      (t! seq they (spc nop0 y) (macro t (unmod h e y)))
       (t! seq they're (spc nop0 y nop1 r) (macro t (unmod h e y ' r e)))
       (t! seq they've (spc nop0 y nop1 v) (macro t (unmod h e y ' v e)))
       (t! seq they'll (spc nop0 y nop1 l) (macro t (unmod h e y ' l l)))
+      (t! seq they (spc nop0 y) (macro t (unmod h e y)))
       (t! seq then (spc nop0 n) (macro t (unmod h e n)))
       (t! seq these (spc nop0 s) (macro t (unmod h e s e)))
       (t! seq their (spc nop0 r spc) (macro t (unmod h e i r spc)))
