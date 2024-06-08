@@ -40,7 +40,7 @@ with lib; let
   '';
   cfg = config.psilocybin;
 in {
-  imports = [./layout/magic.nix ./layout/config.nix];
+  imports = [./layout];
   options = {
     psilocybin = {
       enable = mkOption {
