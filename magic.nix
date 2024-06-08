@@ -155,6 +155,9 @@
       (t! seq world (spc nop2 d) (macro w (unmod o r l d)))
       (t! seq whether (spc nop2 t) (macro w (unmod h e t h e r)))
       (t! seq wh (spc nop2) (macro w (unmod h))) ;; defaults to wh
+      ;; default repeat keys to rpt
+      (t! seq rpt (nop1) rpt)
+      (t! seq lrpt (nop2) rpt)
 
     '';
   };
