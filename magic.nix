@@ -123,11 +123,11 @@ in {
       ;; th
       (t! seq th (spc ${magic}) (macro spc t (unmod h) ${th}))
       (t! seq the (${th} spc) (macro e spc))
-      (t! seq them (${th} ${rpt}) (macro e e m))
+      (t! seq them (${th} ${rpt}) (macro bspc e e m))
       (t! seq they (${th} y) (macro e y ${they}))
-      (t! seq they're (${they} ${rpt} r) (macro ' r e))
-      (t! seq they've (${they} ${rpt} v) (macro ' v e))
-      (t! seq they'll (${they} ${rpt} l) (macro ' l l))
+      (t! seq they're (${they} ${rpt} r) (macro bspc ' r e))
+      (t! seq they've (${they} ${rpt} v) (macro bspc ' v e))
+      (t! seq they'll (${they} ${rpt} l) (macro bspc ' l l))
       (t! seq then (${th} n) (macro e n))
       (t! seq these (${th} s) (macro e s e))
       (t! seq their (${th} r spc) (macro e i r spc))
@@ -161,19 +161,19 @@ in {
       (t! seq stud (s t u d ${magic}) (macro s (unmod t u d))) ;; most of the tud sfs
       (t! seq use (u ${magic}) (macro u (unmod s e))) ;; sfs
       ;;⬡
-      (t! seq ing (i ${rpt}) (macro i (unmod n g)))
-      (t! seq ying (y ${rpt}) (macro y (unmod i n g)))
-      (t! seq nging (n g ${rpt}) (macro n (unmod g i n) 50 (unmod g)))
-      (t! seq nding (n d ${rpt}) (macro n (unmod d i n g)))
-      (t! seq owing (o w ${rpt}) (macro o (unmod w i n g)))
-      (t! seq rawing (r a w ${rpt}) (macro r (unmod a w i n g)))
-      (t! seq ewing (e w ${rpt}) (macro e (unmod w i n g)))
-      (t! seq ving (v ${rpt}) (macro v (unmod i n g)))
-      (t! seq hav (h ${rpt}) (macro h (unmod a v))) ;; sfs
-      (t! seq and (a ${rpt}) (macro a (unmod n d)))
-      (t! seq ure (u ${rpt}) (macro u (unmod r e)))
+      (t! seq ing (i ${rpt}) (macro bspc i (unmod n g)))
+      (t! seq ying (y ${rpt}) (macro bspc y (unmod i n g)))
+      (t! seq nging (n g ${rpt}) (macro bspc n (unmod g i n) 50 (unmod g)))
+      (t! seq nding (n d ${rpt}) (macro bspc n (unmod d i n g)))
+      (t! seq owing (o w ${rpt}) (macro bspc o (unmod w i n g)))
+      (t! seq rawing (r a w ${rpt}) (macro bspc r (unmod a w i n g)))
+      (t! seq ewing (e w ${rpt}) (macro bspc e (unmod w i n g)))
+      (t! seq ving (v ${rpt}) (macro v bspc (unmod i n g)))
+      (t! seq hav (h ${rpt}) (macro h bspc (unmod a v))) ;; sfs
+      (t! seq and (a ${rpt}) (macro a bspc (unmod n d)))
+      (t! seq ure (u ${rpt}) (macro u bspc (unmod r e)))
       ;; for
-      (t! seq for (f ${rpt}) (macro f (unmod o r) ${for}))
+      (t! seq for (f ${rpt}) (macro bspc f (unmod o r) ${for}))
       (t! seq found (${for} d) (macro bspc u n d))
       (t! seq foreign (${for} g) (macro e i g n))
       (t! seq follow (${for} w spc) (macro bspc l l o w spc)) ;; spc is necessary to prevent confliction with forward
@@ -181,7 +181,7 @@ in {
       (t! seq forever (${for} r spc) (macro e v e r))
       (t! seq forward (${for} r d) (macro w a r d))
       ;; be
-      (t! seq be (spc ${rpt}) (macro spc b (unmod e) ${be}))
+      (t! seq be (spc ${rpt}) (macro bspc spc b (unmod e) ${be}))
       (t! seq because (${be} c spc) (macro c a u s e spc))
       (t! seq become (${be} c o) (macro c o m e))
       (t! seq became (${be} c a) (macro c a m e))
@@ -200,18 +200,18 @@ in {
       (t! seq begun (${be} g u) (macro g u n))
       (t! seq back (${be} k) (macro bspc a c k))
       ;;⬢
-      (t! seq ipt (i p ${lrpt}) (macro i (unmod p t)))
-      (t! seq pm (p ${lrpt}) (macro p (unmod m))) ;; sfb
-      (t! seq tp (t ${lrpt}) (macro t (unmod p))) ;; sfb
-      (t! seq king (k ${lrpt}) (macro k (unmod i n g)))
-      (t! seq get (g ${lrpt}) (macro g (unmod e t))) ;; sfs
+      (t! seq ipt (i p ${lrpt}) (macro bspc i (unmod p t)))
+      (t! seq pm (p ${lrpt}) (macro bspc p (unmod m))) ;; sfb
+      (t! seq tp (t ${lrpt}) (macro bspc t (unmod p))) ;; sfb
+      (t! seq king (k ${lrpt}) (macro bspc k (unmod i n g)))
+      (t! seq get (g ${lrpt}) (macro bspc g (unmod e t))) ;; sfs
       ;; wh
-      (t! seq wh (spc ${lrpt}) (macro spc w (unmod h) ${wh})) ;; defaults to wh
+      (t! seq wh (spc ${lrpt}) (macro bspc spc w (unmod h) ${wh})) ;; defaults to wh
       (t! seq with (${wh} ${magic}) (macro bspc i t h))
       (t! seq who (${wh} o) o)
       (t! seq why (${wh} y) y)
 
-      (t! seq when (${wh} ${rpt}) (macro e n ${when}))
+      (t! seq when (${wh} ${rpt}) (macro bspc e n ${when}))
       (t! seq whenever (${when} v) (macro e v e r))
 
       (t! seq what (${wh} a) (macro a t ${what}))
