@@ -92,7 +92,7 @@
   }: ''
     (t! seq ${name} (${inputs}) (macro bspc ${outputs}))
   '';
-  generatedRptRules = lib.concatMapStringsSep "\n" ruleTemplate cfg.psilocybin.magic.rptRules;
+  generatedRptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.psilocybin.magic.rptRules;
 in {
   config = {
     psilocybin.magic.extraConfig = lib.mkDefault ''
