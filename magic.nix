@@ -113,64 +113,6 @@ in {
 
       ${generatedRules}
       ${generatedRptRules}
-      ;; for
-      (t! seq for (f ${rpt}) (macro bspc f (unmod o r) ${for}))
-      (t! seq found (${for} d) (macro bspc u n d))
-      (t! seq foreign (${for} g) (macro e i g n))
-      (t! seq follow (${for} w spc) (macro bspc l l o w spc)) ;; spc is necessary to prevent confliction with forward
-      (t! seq forgotten (${for} n spc) (macro g o t t e n spc)) ;; spc is necessary to prevent confliction with california
-      (t! seq forever (${for} r spc) (macro e v e r))
-      (t! seq forward (${for} r d) (macro w a r d))
-      ;; be
-      (t! seq be (spc ${rpt}) (macro bspc spc b (unmod e) ${be}))
-      (t! seq because (${be} c spc) (macro c a u s e spc))
-      (t! seq become (${be} c o) (macro c o m e))
-      (t! seq became (${be} c a) (macro c a m e))
-      (t! seq becoming (${be} c i) (macro c o m i n g))
-      (t! seq before (${be} f spc) (macro f o r e spc))
-      (t! seq but (${be} u spc) (macro bspc u t spc))
-      (t! seq beauty (${be} u t) (macro a u t y ${beauty}))
-      (t! seq beautiful (${beauty} f) (macro bspc i f u l ${beautiful}))
-      (t! seq beautifully (${beautiful} y) (macro l y))
-      (t! seq beautify (${beauty} y) (macro bspc i f y))
-      (t! seq between (${be} t n) (macro t w e e n))
-      (t! seq better (${be} t e) (macro t t e r))
-      (t! seq betray (${be} t r) (macro t r a y))
-      (t! seq begin (${be} g i) (macro g i n))
-      (t! seq began (${be} g a) (macro g a n))
-      (t! seq begun (${be} g u) (macro g u n))
-      (t! seq back (${be} k) (macro bspc a c k))
-      ;;⬢
-      (t! seq ipt (i p ${lrpt}) (macro bspc i (unmod p t)))
-      (t! seq pm (p ${lrpt}) (macro bspc p (unmod m))) ;; sfb
-      (t! seq tp (t ${lrpt}) (macro bspc t (unmod p))) ;; sfb
-      (t! seq king (k ${lrpt}) (macro bspc k (unmod i n g)))
-      (t! seq get (g ${lrpt}) (macro bspc g (unmod e t))) ;; sfs
-      ;; wh
-      (t! seq wh (spc ${lrpt}) (macro bspc spc w (unmod h) ${wh})) ;; defaults to wh
-      (t! seq with (${wh} ${magic}) (macro bspc i t h))
-      (t! seq work (${wh} k) (macro bspc o r k))
-      (t! seq who (${wh} o) o)
-      (t! seq why (${wh} y) y)
-
-      (t! seq when (${wh} ${rpt}) (macro bspc e n ${when}))
-      (t! seq whenever (${when} v) (macro e v e r))
-
-      (t! seq what (${wh} a) (macro a t ${what}))
-      (t! seq whatever (${what} v) (macro e v e r))
-      (t! seq whats (${what} s spc) (macro ' s spc))
-      (t! seq whatsoever (${what} s v) (macro s o e v e r))
-
-      (t! seq will (${wh} i) (macro bspc i l 5 l ${will}))
-      (t! seq without (${will} t) (macro bspc bspc t h o u t))
-
-      (t! seq well (${wh} l) (macro bspc e l 5 l))
-      (t! seq while (${wh} h) (macro i l e))
-      (t! seq which (${wh} c) (macro i c h))
-      (t! seq where (${wh} e) (macro e r e))
-      (t! seq would (${wh} u) (macro bspc o u l d))
-      (t! seq world (${wh} d) (macro bspc o r l d))
-      (t! seq whether (${wh} t) (macro e t h e r))
     '';
     psilocybin.magic.rules = [
       {
@@ -488,6 +430,219 @@ in {
         inputs = "u ${magic}";
         outputs = "u s e";
       } # sfs
+      ### for
+      {
+        name = "found";
+        inputs = "${for} d";
+        outputs = "bspc u n d";
+      }
+      {
+        name = "foreign";
+        inputs = "${for} g";
+        outputs = "e i g n";
+      }
+      {
+        name = "follow";
+        inputs = "${for} w spc";
+        outputs = "bspc l l o w spc";
+      } # spc is necessary to prevent confliction with forward
+      {
+        name = "forgotten";
+        inputs = "${for} n spc";
+        outputs = "g o t t e n spc";
+      } # spc is necessary to prevent confliction with california
+      {
+        name = "forever";
+        inputs = "${for} r spc";
+        outputs = "e v e r";
+      }
+      {
+        name = "forward";
+        inputs = "${for} r d";
+        outputs = "w a r d";
+      }
+      ### be
+      {
+        name = "because";
+        inputs = "${be} c spc";
+        outputs = "c a u s e spc";
+      }
+      {
+        name = "become";
+        inputs = "${be} c o";
+        outputs = "c o m e";
+      }
+      {
+        name = "became";
+        inputs = "${be} c a";
+        outputs = "c a m e";
+      }
+      {
+        name = "becoming";
+        inputs = "${be} c i";
+        outputs = "c o m i n g";
+      }
+      {
+        name = "before";
+        inputs = "${be} f spc";
+        outputs = "f o r e spc";
+      }
+      {
+        name = "but";
+        inputs = "${be} u spc";
+        outputs = "bspc u t spc";
+      }
+      {
+        name = "beauty";
+        inputs = "${be} u t";
+        outputs = "a u t y";
+      }
+      {
+        name = "beautiful";
+        inputs = "${beauty} f";
+        outputs = "bspc i f u l";
+      }
+      {
+        name = "beautifully";
+        inputs = "${beautiful} y";
+        outputs = "l y";
+      }
+      {
+        name = "beautify";
+        inputs = "${beauty} y";
+        outputs = "bspc i f y";
+      }
+      {
+        name = "between";
+        inputs = "${be} t n";
+        outputs = "t w e e n";
+      }
+      {
+        name = "better";
+        inputs = "${be} t e";
+        outputs = "t t e r";
+      }
+      {
+        name = "betray";
+        inputs = "${be} t r";
+        outputs = "t r a y";
+      }
+      {
+        name = "begin";
+        inputs = "${be} g i";
+        outputs = "g i n";
+      }
+      {
+        name = "began";
+        inputs = "${be} g a";
+        outputs = "g a n";
+      }
+      {
+        name = "begun";
+        inputs = "${be} g u";
+        outputs = "g u n";
+      }
+      {
+        name = "back";
+        inputs = "${be} k";
+        outputs = "bspc a c k";
+      }
+      ## wh
+      {
+        name = "with";
+        inputs = "${wh} ${magic}";
+        outputs = "bspc i t h";
+      }
+      {
+        name = "work";
+        inputs = "${wh} k";
+        outputs = "bspc o r k";
+      }
+      {
+        name = "who";
+        inputs = "${wh} o";
+        outputs = "o";
+      }
+      {
+        name = "why";
+        inputs = "${wh} y";
+        outputs = "y";
+      }
+      {
+        name = "when";
+        inputs = "${wh} ${rpt}";
+        outputs = "bspc e n";
+      }
+      {
+        name = "whenever";
+        inputs = "${when} v";
+        outputs = "e v e r";
+      }
+      {
+        name = "what";
+        inputs = "${wh} a";
+        outputs = "a t";
+      }
+      {
+        name = "whatever";
+        inputs = "${what} v";
+        outputs = "e v e r";
+      }
+      {
+        name = "whats";
+        inputs = "${what} s spc";
+        outputs = "' s spc";
+      }
+      {
+        name = "whatsoever";
+        inputs = "${what} s v";
+        outputs = "s o e v e r";
+      }
+      {
+        name = "will";
+        inputs = "${wh} i";
+        outputs = "bspc i l 5 l";
+      }
+      {
+        name = "without";
+        inputs = "${will} t";
+        outputs = "bspc bspc t h o u t";
+      }
+      {
+        name = "well";
+        inputs = "${wh} l";
+        outputs = "bspc e l 5 l";
+      }
+      {
+        name = "while";
+        inputs = "${wh} h";
+        outputs = "i l e";
+      }
+      {
+        name = "which";
+        inputs = "${wh} c";
+        outputs = "i c h";
+      }
+      {
+        name = "where";
+        inputs = "${wh} e";
+        outputs = "e r e";
+      }
+      {
+        name = "would";
+        inputs = "${wh} u";
+        outputs = "bspc o u l d";
+      }
+      {
+        name = "world";
+        inputs = "${wh} d";
+        outputs = "bspc o r l d";
+      }
+      {
+        name = "whether";
+        inputs = "${wh} t";
+        outputs = "e t h e r";
+      }
     ];
     psilocybin.magic.rptRules = [
       {
@@ -545,6 +700,46 @@ in {
         inputs = "u ${rpt}";
         outputs = "u r e";
       }
+      {
+        name = "for";
+        inputs = "f ${rpt}";
+        outputs = "f o r";
+      }
+      {
+        name = "be";
+        inputs = "spc ${rpt}";
+        outputs = "spc b e";
+      }
+      {
+        name = "ipt";
+        inputs = "i p ${lrpt}";
+        outputs = "i p t";
+      }
+      {
+        name = "pm";
+        inputs = "p ${lrpt}";
+        outputs = "p m";
+      } # sfb
+      {
+        name = "tp";
+        inputs = "t ${lrpt}";
+        outputs = "t p";
+      } # sfb
+      {
+        name = "king";
+        inputs = "k ${lrpt}";
+        outputs = "k i n g";
+      }
+      {
+        name = "get";
+        inputs = "g ${lrpt}";
+        outputs = "g e t";
+      } # sfs
+      {
+        name = "wh";
+        inputs = "spc ${lrpt}";
+        outputs = "spc w h";
+      } # defaults to wh
     ];
   };
 }
