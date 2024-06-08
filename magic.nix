@@ -67,10 +67,10 @@
       (t! seq th (spc nop0) (macro t (unmod h)))
       ;; most common tm words are tment
       ;; put delay to avoid macro being interrupted when the key isn't released yet.
-      (t! seq rtment (r t nop0) (macro r (unmod t m e n 50 t))) ;; rtment
-      (t! seq ntment (n t nop0) (macro n (unmod t m e n 50 t))) ;; ntment
-      (t! seq stment (s t nop0) (macro s (unmod t m e n 50 t))) ;; stment
-      (t! seq ftment (f t nop0) (macro f (unmod t m e n 50 t))) ;; ftment
+      (t! seq rtment (r t nop0) (macro r (unmod t m e n) 50 (unmod t))) ;; rtment
+      (t! seq ntment (n t nop0) (macro n (unmod t m e n) 50 (unmod t))) ;; ntment
+      (t! seq stment (s t nop0) (macro s (unmod t m e n) 50 (unmod t))) ;; stment
+      (t! seq ftment (f t nop0) (macro f (unmod t m e n) 50 (unmod t))) ;; ftment
       (t! seq eatment (e a t nop0) (macro e (unmod a t m e n t))) ;; eatment
       (t! seq uitment (u i t nop0) (macro u (unmod i t m e n t))) ;; uitment
       (t! seq mitment (m i t nop0) (macro m (unmod i t m e n t))) ;; mitment
@@ -93,7 +93,7 @@
       ;;⬡
       (t! seq ing (i nop1) (macro i (unmod n g)))
       (t! seq ying (y nop1) (macro y (unmod i n g)))
-      (t! seq nging (n g nop1) (macro n (unmod g i n 50 g)))
+      (t! seq nging (n g nop1) (macro n (unmod g i n) 50 (unmod g)))
       (t! seq nding (n d nop1) (macro n (unmod d i n g)))
       (t! seq owing (o w nop1) (macro o (unmod w i n g)))
       (t! seq rawing (r a w nop1) (macro r (unmod a w i n g)))
