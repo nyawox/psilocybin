@@ -410,7 +410,7 @@ in {
       {
         name = "forget";
         inputs = "${for} g e";
-        outputs = "g o t";
+        outputs = "g e t";
       }
       {
         name = "follow";
