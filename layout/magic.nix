@@ -466,12 +466,12 @@ in {
       {
         name = "beauty";
         inputs = "${be} u t";
-        outputs = "a u t y";
+        outputs = "a u t y ${beauty}";
       }
       {
         name = "beautiful";
         inputs = "${beauty} f";
-        outputs = "bspc i f u l";
+        outputs = "bspc i f u l ${beautiful}";
       }
       {
         name = "beautifully";
