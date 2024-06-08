@@ -1,17 +1,19 @@
 {lib, ...}: let
   magic = "nop0";
-  rpt = "nop3 nop0";
-  lrpt = "nop3 nop1";
-  th = "nop3 nop2";
-  they = "nop3 nop3";
-  for = "nop3 nop4";
-  be = "nop3 nop5";
-  beauty = "nop3 nop6";
-  beautiful = "nop3 nop7";
-  wh = "nop3 nop8";
-  when = "nop3 nop9";
-  what = "nop4 nop0";
-  will = "nop4 nop1";
+  rpt = "nop1";
+  lrpt = "nop2";
+  th = "nop3 nop0";
+  they = "nop3 nop1";
+  for = "nop3 nop2";
+  be = "nop3 nop3";
+  beauty = "nop3 nop4";
+  beautiful = "nop3 nop5";
+  wh = "nop3 nop6";
+  when = "nop3 nop7";
+  what = "nop3 nop8";
+  will = "nop3 nop9";
+  nop13 = "nop4 nop0";
+  nop14 = "nop4 nop1";
   nop15 = "nop4 nop2";
   nop16 = "nop4 nop3";
   nop17 = "nop4 nop4";
@@ -75,8 +77,8 @@ in {
     psilocybin.magic = lib.mkDefault ''
       (defalias
         ⚝ (multi (chord esc ⚝) @tp)
-        ⬡ nop1
-        ⬢ nop2
+        ⬡ (macro rpt nop1)
+        ⬢ (macro rpt nop2)
       )
       (defchords esc 25
         (⚝    ) ${magic}
@@ -88,8 +90,6 @@ in {
             (defseq $vk-name $input-keys)
       )
 
-      (t! seq repeat (nop1) (macro rpt ${rpt}))
-      (t! seq lrepeat (nop2) (macro rpt ${lrpt}))
       ;;⚝
       (t! seq mp (m ${magic}) (macro m (unmod p))) ;; sfb
       (t! seq y. (y ${magic}) (macro y (unmod .))) ;; sfb
