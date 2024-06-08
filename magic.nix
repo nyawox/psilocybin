@@ -113,18 +113,6 @@ in {
 
       ${generatedRules}
       ${generatedRptRules}
-      ;;⬡
-      (t! seq ing (i ${rpt}) (macro bspc i (unmod n g)))
-      (t! seq ying (y ${rpt}) (macro bspc y (unmod i n g)))
-      (t! seq nging (n g ${rpt}) (macro bspc n (unmod g i n) 50 (unmod g)))
-      (t! seq nding (n d ${rpt}) (macro bspc n (unmod d i n g)))
-      (t! seq owing (o w ${rpt}) (macro bspc o (unmod w i n g)))
-      (t! seq rawing (r a w ${rpt}) (macro bspc r (unmod a w i n g)))
-      (t! seq ewing (e w ${rpt}) (macro bspc e (unmod w i n g)))
-      (t! seq ving (v ${rpt}) (macro v bspc (unmod i n g)))
-      (t! seq hav (h ${rpt}) (macro h bspc (unmod a v))) ;; sfs
-      (t! seq and (a ${rpt}) (macro a bspc (unmod n d)))
-      (t! seq ure (u ${rpt}) (macro u bspc (unmod r e)))
       ;; for
       (t! seq for (f ${rpt}) (macro bspc f (unmod o r) ${for}))
       (t! seq found (${for} d) (macro bspc u n d))
