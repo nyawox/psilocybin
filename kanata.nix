@@ -271,7 +271,7 @@ in {
   config = {
     services.kanata = mkIf cfg.enable {
       enable = true;
-      package = pkgs.kanata.overrideAttrs {
+      package = pkgs.kanata.overrideAttrs (old: {
         version = "unstable-2024-06-07";
         src = pkgs.fetchFromGitHub {
           owner = "jtroo";
@@ -280,7 +280,7 @@ in {
           hash = "sha256-ZvQTX5nNOEx6RHbckyNys9ES2LZ0UUvwQb3fdHqadVE=";
         };
         cargoHash = "";
-      };
+      });
 
       keyboards.psilocybin = mkIf cfg.ansi {
         extraDefCfg = defCfg;
