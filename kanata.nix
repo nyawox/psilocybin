@@ -8,7 +8,7 @@ with lib; let
   # workaround one-shot shift not working on keys with chord defined
   # https://github.com/jtroo/kanata/issues/900
   defCfg = ''
-    ${lib.optionalString (cfg.magic.timeout != 0) "rapid-event-delay" ++ toString cfg.rapid-event-delay}
+    ${lib.optionalString (cfg.magic.timeout != 0) "rapid-event-delay" ++ toString cfg.rapidEventDelay}
     ${lib.optionalString (cfg.magic.timeout != 0) "sequence-timeout" ++ toString cfg.magic.timeout}
     ${lib.optionalString cfg.magic.enable "sequence-always-on true"}
     ${lib.optionalString (cfg.magic.mode != "") "sequence-input-mode" ++ cfg.magic.mode}
