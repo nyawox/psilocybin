@@ -272,12 +272,14 @@ in {
     services.kanata = mkIf cfg.enable {
       enable = true;
       package = pkgs.kanata.overrideAttrs {
+        version = "unstable-2024-06-07";
         src = pkgs.fetchFromGitHub {
           owner = "jtroo";
           repo = "kanata";
           rev = "306e172a05387f78c86eebfa41f665c7df1af710";
           hash = "sha256-ZvQTX5nNOEx6RHbckyNys9ES2LZ0UUvwQb3fdHqadVE=";
         };
+        cargoHash = "";
       };
 
       keyboards.psilocybin = mkIf cfg.ansi {
