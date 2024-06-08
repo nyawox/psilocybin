@@ -662,16 +662,6 @@ in {
         outputs = "u r e";
       }
       {
-        name = "for";
-        inputs = "f ${rpt}";
-        outputs = "f o r ${for}";
-      }
-      {
-        name = "be";
-        inputs = "spc ${rpt}";
-        outputs = "spc b e ${be}";
-      }
-      {
         name = "ipt";
         inputs = "i p ${lrpt}";
         outputs = "i p t";
@@ -696,6 +686,16 @@ in {
         inputs = "g ${lrpt}";
         outputs = "g e t";
       } # sfs
+      {
+        name = "for";
+        inputs = "f ${rpt}";
+        outputs = "f o r ${for}";
+      }
+      {
+        name = "be";
+        inputs = "spc ${rpt}";
+        outputs = "spc b e ${be}";
+      }
       {
         name = "wh";
         inputs = "spc ${lrpt}";
