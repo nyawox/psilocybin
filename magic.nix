@@ -156,10 +156,10 @@ in {
       (t! seq lr (l nop0) (macro l (unmod r))) ;; sfb
       (t! seq ao (a nop0) (macro a (unmod o))) ;; sfb
       ;; th
-      (t! seq th (spc nop0) (macro t (unmod h) nop3))
+      (t! seq th (spc nop0) (macro t (unmod h) @nop3))
       (t! seq the (${nop3} spc) (macro e spc))
       (t! seq them (${nop3} nop1) (macro e e m))
-      (t! seq they (${nop3} y) (macro e y nop4))
+      (t! seq they (${nop3} y) (macro e y @nop4))
       (t! seq they're (${nop4} nop1 r) (macro ' r e))
       (t! seq they've (${nop4} nop1 v) (macro ' v e))
       (t! seq they'll (${nop4} nop1 l) (macro ' l l))
@@ -208,7 +208,7 @@ in {
       (t! seq and (a nop1) (macro a (unmod n d)))
       (t! seq ure (u nop1) (macro u (unmod r e)))
       ;; for
-      (t! seq for (f nop1) (macro f (unmod o r) nop5))
+      (t! seq for (f nop1) (macro f (unmod o r) @nop5))
       (t! seq found (${nop5} d) (macro bspc u n d))
       (t! seq foreign (${nop5} g) (macro e i g n))
       (t! seq follow (${nop5} w spc) (macro bspc l l o w spc)) ;; spc is necessary to prevent confliction with forward
@@ -216,15 +216,15 @@ in {
       (t! seq forever (${nop5} r spc) (macro e v e r))
       (t! seq forward (${nop5} r d) (macro w a r d))
       ;; be
-      (t! seq be (spc nop1) (macro b (unmod e) nop6))
+      (t! seq be (spc nop1) (macro b (unmod e) @nop6))
       (t! seq because (${nop6} c spc) (macro c a u s e spc))
       (t! seq become (${nop6} c o) (macro c o m e))
       (t! seq became (${nop6} c a) (macro c a m e))
       (t! seq becoming (${nop6} c i) (macro c o m i n g))
       (t! seq before (${nop6} f spc) (macro f o r e spc))
       (t! seq but (${nop6} u spc) (macro bspc u t spc))
-      (t! seq beauty (${nop6} u t) (macro a u t y nop7))
-      (t! seq beautiful (${nop7} f) (macro bspc i f u l nop8))
+      (t! seq beauty (${nop6} u t) (macro a u t y @nop7))
+      (t! seq beautiful (${nop7} f) (macro bspc i f u l @nop8))
       (t! seq beautifully (${nop8} y) (macro l y))
       (t! seq beautify (${nop7} y) (macro bspc i f y))
       (t! seq between (${nop6} t n) (macro t w e e n))
@@ -241,19 +241,19 @@ in {
       (t! seq king (k nop2) (macro k (unmod i n g)))
       (t! seq get (g nop2) (macro g (unmod e t))) ;; sfs
       ;; wh
-      (t! seq wh (spc nop2) (macro w (unmod h) nop9)) ;; defaults to wh
+      (t! seq wh (spc nop2) (macro w (unmod h) @nop9)) ;; defaults to wh
       (t! seq with (${nop9} nop0) (macro bspc i t h))
       (t! seq who (${nop9} o) o)
       (t! seq why (${nop9} y) y)
 
-      (t! seq when (${nop9} nop1) (macro e n nop10))
+      (t! seq when (${nop9} nop1) (macro e n @nop10))
       (t! seq whenever (${nop10} v) (macro e v e r))
 
-      (t! seq what (${nop9} a) (macro a t nop11))
+      (t! seq what (${nop9} a) (macro a t @nop11))
       (t! seq whatever (${nop11} v) (macro e v e r))
       (t! seq whats (${nop11} s spc) (macro ' s spc))
       (t! seq whatsoever (${nop11} s v) (macro s o e v e r))
-      (t! seq will (${nop9} i) (macro w (unmod i l l) nop12))
+      (t! seq will (${nop9} i) (macro w (unmod i l l) @nop12))
       (t! seq without (${nop12} t) (macro o u t))
       (t! seq well (${nop9} l) (macro bspc (unmod e l l)))
       (t! seq while (${nop9} h) (macro i l e))
