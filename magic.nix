@@ -158,7 +158,7 @@ in {
 
       (t! seq top (t o nop0) (macro t (unmod o p))) ;; sfs
       (t! seq stud (s t u d nop0) (macro s (unmod t u d))) ;; most of the tud sfs
-      (t! seq use (u s nop0) (macro u (unmod s e))) ;; sfs
+      (t! seq use (u nop0) (macro u (unmod s e))) ;; sfs
       ;;⬡
       (t! seq ing (i nop1) (macro i (unmod n g)))
       (t! seq ying (y nop1) (macro y (unmod i n g)))
