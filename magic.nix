@@ -210,6 +210,7 @@ in {
       (t! seq with (${wh} ${magic}) (macro bspc i t h))
       (t! seq who (${wh} o) o)
       (t! seq why (${wh} y) y)
+      (t! seq work (${wh} k) (macro bspc bspc o r k))
 
       (t! seq when (${wh} ${rpt}) (macro bspc e n ${when}))
       (t! seq whenever (${when} v) (macro e v e r))
@@ -218,8 +219,10 @@ in {
       (t! seq whatever (${what} v) (macro e v e r))
       (t! seq whats (${what} s spc) (macro ' s spc))
       (t! seq whatsoever (${what} s v) (macro s o e v e r))
+
       (t! seq will (${wh} i) (macro bspc i l 5 l ${will}))
       (t! seq without (${will} t) (macro bspc bspc t h o u t))
+
       (t! seq well (${wh} l) (macro bspc e l 5 l))
       (t! seq while (${wh} h) (macro i l e))
       (t! seq which (${wh} c) (macro i c h))
