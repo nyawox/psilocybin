@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{lib, ...}: let
   magic = "nop0";
   rpt = "nop1";
   lrpt = "nop2";
@@ -76,45 +72,9 @@
   # nop70 = "nop9 nop7";
   # nop71 = "nop9 nop8";
   # nop72 = "nop9 nop9";
-  cfg = config.psilocybin.magic;
-  ruleTemplate = {
-    name,
-    inputs,
-    outputs,
-  }: ''
-    (t! seq ${name} (${inputs}) (macro ${outputs}))
-  '';
-  rules = lib.concatMapStringsSep "\n" ruleTemplate cfg.rules;
-  rptRuleTemplate = {
-    name,
-    inputs,
-    outputs,
-  }: ''
-    (t! seq ${name} (${inputs}) (macro bspc ${outputs}))
-  '';
-  rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.rptRules;
 in {
   config = {
-    psilocybin.magic.extraConfig = lib.mkDefault ''
-      (defalias
-        ⚝ (multi (chord esc ⚝) @tp)
-        ⬡ (macro rpt nop1)
-        ⬢ (macro rpt nop2)
-      )
-      (defchords esc 25
-        (⚝    ) ${magic}
-        (   f ) f
-        (⚝  f ) esc
-      )
-      (deftemplate seq (vk-name input-keys output-action)
-            (deffakekeys $vk-name $output-action)
-            (defseq $vk-name $input-keys)
-      )
-
-      ${rules}
-      ${rptRules}
-    '';
-    psilocybin.magic.rules = [
+    psilocybin.magic.rules = lib.mkDefault [
       {
         name = "mp";
         inputs = "m ${magic}";
@@ -645,7 +605,7 @@ in {
         outputs = "e t h e r";
       }
     ];
-    psilocybin.magic.rptRules = [
+    psilocybin.magic.rptRules = lib.mkDefault [
       {
         name = "ing";
         inputs = "i ${rpt}";

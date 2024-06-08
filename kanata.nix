@@ -8,10 +8,11 @@ with lib; let
   # workaround one-shot shift not working on keys with chord defined
   # https://github.com/jtroo/kanata/issues/900
   defCfg = ''
-    rapid-event-delay 35
-    sequence-timeout 2000
-    sequence-input-mode visible-backspaced
-    sequence-always-on true
+    ${lib.optionalString (cfg.magic.timeout != 0) "rapid-event-delay" ++ toString cfg.rapid-event-delay}
+    ${lib.optionalString (cfg.magic.timeout != 0) "sequence-timeout" ++ toString cfg.magic.timeout}
+    ${lib.optionalString cfg.magic.enable "sequence-always-on true"}
+    ${lib.optionalString (cfg.magic.mode != "") "sequence-input-mode" ++ cfg.magic.mode}
+    ${lib.optionalString (cfg.extraDefCfg != "") cfg.extraDefCfg}
   '';
   ansi = ''
     (defsrc
@@ -233,6 +234,42 @@ with lib; let
       hngl 122 ;;ime on/off
     )
   '';
+  ruleTemplate = {
+    name,
+    inputs,
+    outputs,
+  }: ''
+    (t! seq ${name} (${inputs}) (macro ${outputs}))
+  '';
+  rules = lib.concatMapStringsSep "\n" ruleTemplate cfg.magic.rules;
+  rptRuleTemplate = {
+    name,
+    inputs,
+    outputs,
+  }: ''
+    (t! seq ${name} (${inputs}) (macro bspc ${outputs}))
+  '';
+  rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.magic.rptRules;
+
+  magic = lib.mkDefault ''
+    (defalias
+      ⚝ (multi (chord esc ⚝) @tp)
+      ⬡ (macro rpt nop1)
+      ⬢ (macro rpt nop2)
+    )
+    (defchords esc 25
+      (⚝    ) nop0
+      (   f ) f
+      (⚝  f ) esc
+    )
+    (deftemplate seq (vk-name input-keys output-action)
+          (deffakekeys $vk-name $output-action)
+          (defseq $vk-name $input-keys)
+    )
+
+    ${rules}
+    ${rptRules}
+  '';
   cfg = config.psilocybin;
 in {
   imports = [./magic.nix];
@@ -253,6 +290,10 @@ in {
         '';
       };
       magic = {
+        enable = mkOption {
+          type = types.bool;
+          default = true;
+        };
         rules = mkOption {
           type = types.listOf types.attrs;
         };
@@ -262,9 +303,31 @@ in {
             Put magic rules that activates via repeat key here
           '';
         };
-        extraConfig = mkOption {
+        mode = mkOption {
           type = types.str;
+          default = "visible-backspaced";
+          description = ''
+            The options are:
+
+            - visible-backspaced: types sequence characters as they are inputted. The typed characters will be erased with backspaces for a valid sequence termination.
+            - hidden-suppressed: hides sequence characters as they are typed. Does not output the hidden characters for an invalid sequence termination.
+            - hidden-delay-type: hides sequence characters as they are typed. Outputs the hidden characters for an invalid sequence termination either after a timeout or after a non-sequence key is typed.
+          '';
         };
+        timeout = mkOption {
+          type = types.int;
+          default = 2000;
+          description = ''
+            Key sequences are stored until this duration has elapsed since the most recent key press.
+          '';
+        };
+      };
+      rapidEventDelay = mkOption {
+        type = types.int;
+        default = 35;
+        description = ''
+          Increase this value if you experience issue with chords.
+        '';
       };
       ansi = mkOption {
         type = types.bool;
@@ -276,6 +339,13 @@ in {
       jis = mkOption {
         type = types.bool;
         default = false;
+      };
+      extraDefCfg = mkOption {
+        type = types.str;
+        default = "";
+        description = ''
+          Extra kanata defcfg options
+        '';
       };
     };
   };
@@ -303,13 +373,13 @@ in {
 
       keyboards.psilocybin = mkIf cfg.ansi {
         extraDefCfg = defCfg;
-        config = ansi + psilocybin + cfg.magic.extraConfig;
-        devices = cfg.devices;
+        config = ansi + psilocybin + magic;
+        inherit (cfg) devices;
       };
       keyboards.psilocybinjis = mkIf cfg.jis {
         extraDefCfg = defCfg;
-        config = jis + psilocybin + cfg.magic.extraConfig;
-        devices = cfg.devices;
+        config = jis + psilocybin + magic;
+        inherit (cfg) devices;
       };
     };
   };
