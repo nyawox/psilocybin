@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   magic = "nop0";
   rpt = "nop1";
   lrpt = "nop2";
@@ -72,6 +76,7 @@
   # nop70 = "nop9 nop7";
   # nop71 = "nop9 nop8";
   # nop72 = "nop9 nop9";
+  cfg = config.psilocybin;
   ruleTemplate = {
     name,
     inputs,
@@ -79,172 +84,18 @@
   }: ''
     (t! seq ${name} (${inputs}) (macro ${outputs}))
   '';
-  rules = [
-    {
-      name = "mp";
-      inputs = "m ${magic}";
-      outputs = "m p";
-    }
-    {
-      name = "y.";
-      inputs = "y ${magic}";
-      outputs = "y .";
-    }
-    {
-      name = "was";
-      inputs = "w a ${magic}";
-      outputs = "w a s";
-    } # wao doesn't happen
-    {
-      name = "wis";
-      inputs = "w i ${magic}";
-      outputs = "w i s";
-    } # wion doesn't happen
-    {
-      name = "wes";
-      inputs = "w e ${magic}";
-      outputs = "w e s";
-    } # weu doesn't happen
-    {
-      name = "makeup";
-      inputs = "m a k e ${magic}";
-      outputs = "m a k e u";
-    } # prevent ked overriding makeup
-    {
-      name = "ked";
-      inputs = "k e ${magic}";
-      outputs = "k e d";
-    } # sfs
-    {
-      name = "amateur";
-      inputs = "a m a t e ${magic}";
-      outputs = "a m a t e u";
-    } # prevent ted overriding amateur
-    {
-      name = "lmao";
-      inputs = "l m a ${magic}";
-      outputs = "l m a o";
-    } # prevent mat overriding lmao
-    {
-      name = "mat";
-      inputs = "m a ${magic}";
-      outputs = "m a t";
-    } # sfs
-    {
-      name = "met";
-      inputs = "m e ${magic}";
-      outputs = "m e t";
-    } # sfs
-    {
-      name = "ted";
-      inputs = "t e ${magic}";
-      outputs = "t e d";
-    } # sfs
-    {
-      name = "ged";
-      inputs = "g e ${magic}";
-      outputs = "g e d";
-    } # sfs
-    {
-      name = "dat";
-      inputs = "d a ${magic}";
-      outputs = "d a t";
-    } # sfs
-    {
-      name = "eu";
-      inputs = "e ${magic}";
-      outputs = "e u";
-    } # sfb
-    {
-      name = "lopment";
-      inputs = "l o p ${magic}";
-      outputs = "l o p m e n t";
-    } # opment
-    {
-      name = "oopment";
-      inputs = "o o p ${magic}";
-      outputs = "o o p m e n t";
-    } # opment
-    {
-      name = "script";
-      inputs = "s c r i p ${magic}";
-      outputs = "s c r i p t";
-    } # prevent ipment overriding script
-    {
-      name = "ipment";
-      inputs = "i p ${magic}";
-      outputs = "i p m e n t";
-    } # ipment
-    {
-      name = "pt";
-      inputs = "p ${magic}";
-      outputs = "p t";
-    } # sfb
-    {
-      name = "rl";
-      inputs = "r ${magic}";
-      outputs = "r l";
-    } # sfb
-    {
-      name = "ws";
-      inputs = "w ${magic}";
-      outputs = "w s";
-    } # sfb
-    {
-      name = "gadget";
-      inputs = "g a d ${magic}";
-      outputs = "g a d g";
-    } # prevent adm overriding gadget
-    {
-      name = "badge";
-      inputs = "b a d ${magic}";
-      outputs = "b a d g";
-    } # prevent adm overriding badge
-    {
-      name = "adm";
-      inputs = "a d ${magic}";
-      outputs = "a d m";
-    } # most of dm sfb
-    {
-      name = "dg";
-      inputs = "d ${magic}";
-      outputs = "d g";
-    } # sfb
-    {
-      name = "sw";
-      inputs = "s ${magic}";
-      outputs = "s w";
-    } # sfb
-    {
-      name = "lr";
-      inputs = "l ${magic}";
-      outputs = "l r";
-    } # sfb
-    {
-      name = "ao";
-      inputs = "a ${magic}";
-      outputs = "a o";
-    } # sfb
-    {
-      name = "th";
-      inputs = "spc ${magic}";
-      outputs = "spc t h ${th}";
-    } # defaults to th
-    {
-      name = "the";
-      inputs = "${th} spc";
-      outputs = "e spc";
-    }
-    {
-      name = "them";
-      inputs = "${th} ${rpt}";
-      outputs = "e m";
-    }
-  ];
-  generatedRules = lib.concatMapStringsSep "\n" ruleTemplate rules;
+  generatedRules = lib.concatMapStringsSep "\n" ruleTemplate cfg.psilocybin.magic.rules;
+  rptRuleTemplate = {
+    name,
+    inputs,
+    outputs,
+  }: ''
+    (t! seq ${name} (${inputs}) (macro bspc ${outputs}))
+  '';
+  generatedRptRules = lib.concatMapStringsSep "\n" ruleTemplate cfg.psilocybin.magic.rptRules;
 in {
   config = {
-    psilocybin.magic = lib.mkDefault ''
+    psilocybin.magic.extraConfig = lib.mkDefault ''
       (defalias
         ⚝ (multi (chord esc ⚝) @tp)
         ⬡ (macro rpt nop1)
@@ -260,45 +111,8 @@ in {
             (defseq $vk-name $input-keys)
       )
 
-      ;;⚝
       ${generatedRules}
-      ;; th
-      (t! seq they (${th} y) (macro e y ${they}))
-      (t! seq they're (${they} ${rpt} r) (macro bspc ' r e))
-      (t! seq they've (${they} ${rpt} v) (macro bspc ' v e))
-      (t! seq they'll (${they} ${rpt} l) (macro bspc ' l l))
-      (t! seq then (${th} n) (macro e n))
-      (t! seq these (${th} s) (macro e s e))
-      (t! seq their (${th} r spc) (macro e i r spc))
-      (t! seq there (${th} r e spc) (macro e r e spc))
-      (t! seq through (${th} r o spc) (macro r o u g h spc))
-      (t! seq those (${th} o s) (macro o s e))
-      (t! seq though (${th} o h) (macro o u g h))
-      ;; most common tm words are tment
-      ;; put delay to avoid macro being interrupted when the key isn't released yet.
-      (t! seq rtment (r t ${magic}) (macro r (unmod t m e n) 50 (unmod t))) ;; rtment
-      (t! seq ntment (n t ${magic}) (macro n (unmod t m e n) 50 (unmod t))) ;; ntment
-      (t! seq stment (s t ${magic}) (macro s (unmod t m e n) 50 (unmod t))) ;; stment
-      (t! seq ftment (f t ${magic}) (macro f (unmod t m e n) 50 (unmod t))) ;; ftment
-      (t! seq eatment (e a t ${magic}) (macro e (unmod a t m e n t))) ;; eatment
-      (t! seq uitment (u i t ${magic}) (macro u (unmod i t m e n t))) ;; uitment
-      (t! seq mitment (m i t ${magic}) (macro m (unmod i t m e n t))) ;; mitment
-
-      (t! seq ion (i ${magic}) (macro i (unmod o n))) ;; ion
-      (t! seq tch (t ${magic}) (macro t (unmod c h))) ;; tch
-      (t! seq ver (v ${magic}) (macro v (unmod e r))) ;; ver
-      (t! seq just (j ${magic}) (macro j (unmod u s t))) ;; just
-      (t! seq ght (g ${magic}) (macro g (unmod h t))) ;; ght sfs
-      (t! seq got (g o ${magic}) (macro g (unmod o t))) ;; got sfs
-      (t! seq nts (n ${magic}) (macro n (unmod t s))) ;; nts sfs
-      ;; put sfs
-      (t! seq campuse (c a m p u ${magic}) (macro c (unmod a m p u s e))) ;; prevent put overriding campuses
-      (t! seq artocarpuses (a r t o c a r p u ${magic}) (macro a (unmod r t o c a r p u s e))) ;; prevent put overriding artocarpuses
-      (t! seq put (p u ${magic}) (macro p (unmod u t)))
-
-      (t! seq top (t o ${magic}) (macro t (unmod o p))) ;; sfs
-      (t! seq stud (s t u d ${magic}) (macro s (unmod t u d))) ;; most of the tud sfs
-      (t! seq use (u ${magic}) (macro u (unmod s e))) ;; sfs
+      ${generatedRptRules}
       ;;⬡
       (t! seq ing (i ${rpt}) (macro bspc i (unmod n g)))
       (t! seq ying (y ${rpt}) (macro bspc y (unmod i n g)))
@@ -370,5 +184,379 @@ in {
       (t! seq world (${wh} d) (macro bspc o r l d))
       (t! seq whether (${wh} t) (macro e t h e r))
     '';
+    psilocybin.magic.rules = [
+      {
+        name = "mp";
+        inputs = "m ${magic}";
+        outputs = "m p";
+      }
+      {
+        name = "y.";
+        inputs = "y ${magic}";
+        outputs = "y .";
+      }
+      {
+        name = "was";
+        inputs = "w a ${magic}";
+        outputs = "w a s";
+      } # wao doesn't happen
+      {
+        name = "wis";
+        inputs = "w i ${magic}";
+        outputs = "w i s";
+      } # wion doesn't happen
+      {
+        name = "wes";
+        inputs = "w e ${magic}";
+        outputs = "w e s";
+      } # weu doesn't happen
+      {
+        name = "makeup";
+        inputs = "m a k e ${magic}";
+        outputs = "m a k e u";
+      } # prevent ked overriding makeup
+      {
+        name = "ked";
+        inputs = "k e ${magic}";
+        outputs = "k e d";
+      } # sfs
+      {
+        name = "amateur";
+        inputs = "a m a t e ${magic}";
+        outputs = "a m a t e u";
+      } # prevent ted overriding amateur
+      {
+        name = "lmao";
+        inputs = "l m a ${magic}";
+        outputs = "l m a o";
+      } # prevent mat overriding lmao
+      {
+        name = "mat";
+        inputs = "m a ${magic}";
+        outputs = "m a t";
+      } # sfs
+      {
+        name = "met";
+        inputs = "m e ${magic}";
+        outputs = "m e t";
+      } # sfs
+      {
+        name = "ted";
+        inputs = "t e ${magic}";
+        outputs = "t e d";
+      } # sfs
+      {
+        name = "ged";
+        inputs = "g e ${magic}";
+        outputs = "g e d";
+      } # sfs
+      {
+        name = "dat";
+        inputs = "d a ${magic}";
+        outputs = "d a t";
+      } # sfs
+      {
+        name = "eu";
+        inputs = "e ${magic}";
+        outputs = "e u";
+      } # sfb
+      {
+        name = "lopment";
+        inputs = "l o p ${magic}";
+        outputs = "l o p m e n t";
+      } # opment
+      {
+        name = "oopment";
+        inputs = "o o p ${magic}";
+        outputs = "o o p m e n t";
+      } # opment
+      {
+        name = "script";
+        inputs = "s c r i p ${magic}";
+        outputs = "s c r i p t";
+      } # prevent ipment overriding script
+      {
+        name = "ipment";
+        inputs = "i p ${magic}";
+        outputs = "i p m e n t";
+      } # ipment
+      {
+        name = "pt";
+        inputs = "p ${magic}";
+        outputs = "p t";
+      } # sfb
+      {
+        name = "rl";
+        inputs = "r ${magic}";
+        outputs = "r l";
+      } # sfb
+      {
+        name = "ws";
+        inputs = "w ${magic}";
+        outputs = "w s";
+      } # sfb
+      {
+        name = "gadget";
+        inputs = "g a d ${magic}";
+        outputs = "g a d g";
+      } # prevent adm overriding gadget
+      {
+        name = "badge";
+        inputs = "b a d ${magic}";
+        outputs = "b a d g";
+      } # prevent adm overriding badge
+      {
+        name = "adm";
+        inputs = "a d ${magic}";
+        outputs = "a d m";
+      } # most of dm sfb
+      {
+        name = "dg";
+        inputs = "d ${magic}";
+        outputs = "d g";
+      } # sfb
+      {
+        name = "sw";
+        inputs = "s ${magic}";
+        outputs = "s w";
+      } # sfb
+      {
+        name = "lr";
+        inputs = "l ${magic}";
+        outputs = "l r";
+      } # sfb
+      {
+        name = "ao";
+        inputs = "a ${magic}";
+        outputs = "a o";
+      } # sfb
+      {
+        name = "th";
+        inputs = "spc ${magic}";
+        outputs = "spc t h ${th}";
+      } # defaults to th
+      {
+        name = "the";
+        inputs = "${th} spc";
+        outputs = "e spc";
+      }
+      {
+        name = "them";
+        inputs = "${th} ${rpt}";
+        outputs = "e m";
+      }
+      {
+        name = "they";
+        inputs = "${th} y";
+        outputs = "e y ${they}";
+      }
+      {
+        name = "they're";
+        inputs = "${they} ${rpt} r";
+        outputs = "' r e";
+      }
+      {
+        name = "they've";
+        inputs = "${they} ${rpt} v";
+        outputs = "' v e";
+      }
+      {
+        name = "they'll";
+        inputs = "${they} ${rpt} l";
+        outputs = "' l l";
+      }
+      {
+        name = "then";
+        inputs = "${th} n";
+        outputs = "e n";
+      }
+      {
+        name = "these";
+        inputs = "${th} s";
+        outputs = "e s e";
+      }
+      {
+        name = "their";
+        inputs = "${th} r spc";
+        outputs = "e i r spc";
+      }
+      {
+        name = "there";
+        inputs = "${th} r e spc";
+        outputs = "e r e spc";
+      }
+      {
+        name = "through";
+        inputs = "${th} r o spc";
+        outputs = "r o u g h spc";
+      }
+      {
+        name = "those";
+        inputs = "${th} o s";
+        outputs = "o s e";
+      }
+      {
+        name = "though";
+        inputs = "${th} o h";
+        outputs = "o u g h";
+      }
+      {
+        name = "rtment";
+        inputs = "r t ${magic}";
+        outputs = "r t m e n 50 t";
+      } # rtment
+      {
+        name = "ntment";
+        inputs = "n t ${magic}";
+        outputs = "n t m e n 50 t";
+      } # ntment
+      {
+        name = "stment";
+        inputs = "s t ${magic}";
+        outputs = "s t m e n 50 t";
+      } # stment
+      {
+        name = "ftment";
+        inputs = "f t ${magic}";
+        outputs = "f t m e n 50 t";
+      } # ftment
+      {
+        name = "eatment";
+        inputs = "e a t ${magic}";
+        outputs = "e a t m e n t";
+      } # eatment
+      {
+        name = "uitment";
+        inputs = "u i t ${magic}";
+        outputs = "u i t m e n t";
+      } # uitment
+      {
+        name = "mitment";
+        inputs = "m i t ${magic}";
+        outputs = "m i t m e n t";
+      } # mitment
+      {
+        name = "ion";
+        inputs = "i ${magic}";
+        outputs = "i o n";
+      } # ion
+      {
+        name = "tch";
+        inputs = "t ${magic}";
+        outputs = "t c h";
+      } # tch
+      {
+        name = "ver";
+        inputs = "v ${magic}";
+        outputs = "v e r";
+      } # ver
+      {
+        name = "just";
+        inputs = "j ${magic}";
+        outputs = "j u s t";
+      } # just
+      {
+        name = "ght";
+        inputs = "g ${magic}";
+        outputs = "g h t";
+      } # ght sfs
+      {
+        name = "got";
+        inputs = "g o ${magic}";
+        outputs = "g o t";
+      } # got sfs
+      {
+        name = "nts";
+        inputs = "n ${magic}";
+        outputs = "n t s";
+      } # nts sfs
+      {
+        name = "campuses";
+        inputs = "c a m p u ${magic}";
+        outputs = "c a m p u s e";
+      } # prevent put overriding campuses
+      {
+        name = "artocarpuses";
+        inputs = "a r t o c a r p u ${magic}";
+        outputs = "a r t o c a r p u s e";
+      } # prevent put overriding artocarpuses
+      {
+        name = "put";
+        inputs = "p u ${magic}";
+        outputs = "p u t";
+      } # sfs
+      {
+        name = "top";
+        inputs = "t o ${magic}";
+        outputs = "t o p";
+      } # sfs
+      {
+        name = "stud";
+        inputs = "s t u d ${magic}";
+        outputs = "s t u d";
+      } # most of the tud sfs
+      {
+        name = "use";
+        inputs = "u ${magic}";
+        outputs = "u s e";
+      } # sfs
+    ];
+    psilocybin.magic.rptRules = [
+      {
+        name = "ing";
+        inputs = "i ${rpt}";
+        outputs = "i n g";
+      }
+      {
+        name = "ying";
+        inputs = "y ${rpt}";
+        outputs = "y i n g";
+      }
+      {
+        name = "nging";
+        inputs = "n g ${rpt}";
+        outputs = "n g i n 50 g";
+      }
+      {
+        name = "nding";
+        inputs = "n d ${rpt}";
+        outputs = "n d i n g";
+      }
+      {
+        name = "owing";
+        inputs = "o w ${rpt}";
+        outputs = "o w i n g";
+      }
+      {
+        name = "rawing";
+        inputs = "r a w ${rpt}";
+        outputs = "r a w i n g";
+      }
+      {
+        name = "ewing";
+        inputs = "e w ${rpt}";
+        outputs = "e w i n g";
+      }
+      {
+        name = "ving";
+        inputs = "v ${rpt}";
+        outputs = "v i n g";
+      }
+      {
+        name = "hav";
+        inputs = "h ${rpt}";
+        outputs = "h a v";
+      } # sfs
+      {
+        name = "and";
+        inputs = "a ${rpt}";
+        outputs = "a n d";
+      }
+      {
+        name = "ure";
+        inputs = "u ${rpt}";
+        outputs = "u r e";
+      }
+    ];
   };
 }
