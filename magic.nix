@@ -208,9 +208,9 @@ in {
       ;; wh
       (t! seq wh (spc ${lrpt}) (macro bspc spc w (unmod h) ${wh})) ;; defaults to wh
       (t! seq with (${wh} ${magic}) (macro bspc i t h))
+      (t! seq work (${wh} k) (macro bspc o r k))
       (t! seq who (${wh} o) o)
       (t! seq why (${wh} y) y)
-      (t! seq work (${wh} k) (macro bspc bspc o r k))
 
       (t! seq when (${wh} ${rpt}) (macro bspc e n ${when}))
       (t! seq whenever (${when} v) (macro e v e r))
