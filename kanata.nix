@@ -249,7 +249,7 @@ with lib; let
   '';
   rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.magic.rptRules;
 
-  magic = lib.mkDefault ''
+  magic = ''
     (defalias
       ⚝ (multi (chord esc ⚝) @tp)
       ⬡ (macro rpt nop1)
