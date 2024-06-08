@@ -432,105 +432,7 @@ in {
         inputs = "u ${magic}";
         outputs = "u s e";
       } # sfs
-    ];
-    psilocybin.magic.rptRules = [
-      {
-        name = "ing";
-        inputs = "i ${rpt}";
-        outputs = "i n g";
-      }
-      {
-        name = "ying";
-        inputs = "y ${rpt}";
-        outputs = "y i n g";
-      }
-      {
-        name = "nging";
-        inputs = "n g ${rpt}";
-        outputs = "n g i n 50 g";
-      }
-      {
-        name = "nding";
-        inputs = "n d ${rpt}";
-        outputs = "n d i n g";
-      }
-      {
-        name = "owing";
-        inputs = "o w ${rpt}";
-        outputs = "o w i n g";
-      }
-      {
-        name = "rawing";
-        inputs = "r a w ${rpt}";
-        outputs = "r a w i n g";
-      }
-      {
-        name = "ewing";
-        inputs = "e w ${rpt}";
-        outputs = "e w i n g";
-      }
-      {
-        name = "ving";
-        inputs = "v ${rpt}";
-        outputs = "v i n g";
-      }
-      {
-        name = "hav";
-        inputs = "h ${rpt}";
-        outputs = "h a v";
-      } # sfs
-      {
-        name = "and";
-        inputs = "a ${rpt}";
-        outputs = "a n d";
-      }
-      {
-        name = "ure";
-        inputs = "u ${rpt}";
-        outputs = "u r e";
-      }
-      {
-        name = "for";
-        inputs = "f ${rpt}";
-        outputs = "f o r ${for}";
-      }
-      {
-        name = "be";
-        inputs = "spc ${rpt}";
-        outputs = "spc b e ${be}";
-      }
-      {
-        name = "ipt";
-        inputs = "i p ${lrpt}";
-        outputs = "i p t";
-      }
-      {
-        name = "pm";
-        inputs = "p ${lrpt}";
-        outputs = "p m";
-      } # sfb
-      {
-        name = "tp";
-        inputs = "t ${lrpt}";
-        outputs = "t p";
-      } # sfb
-      {
-        name = "king";
-        inputs = "k ${lrpt}";
-        outputs = "k i n g";
-      }
-      {
-        name = "get";
-        inputs = "g ${lrpt}";
-        outputs = "g e t";
-      } # sfs
-      {
-        name = "wh";
-        inputs = "spc ${lrpt}";
-        outputs = "spc w h ${wh}";
-      } # defaults to wh
-    ];
-    psilocybin.magic.postInitRules = [
+
       ### for
       {
         name = "found";
@@ -735,5 +637,104 @@ in {
         outputs = "e t h e r";
       }
     ];
+    psilocybin.magic.rptRules = [
+      {
+        name = "ing";
+        inputs = "i ${rpt}";
+        outputs = "i n g";
+      }
+      {
+        name = "ying";
+        inputs = "y ${rpt}";
+        outputs = "y i n g";
+      }
+      {
+        name = "nging";
+        inputs = "n g ${rpt}";
+        outputs = "n g i n 50 g";
+      }
+      {
+        name = "nding";
+        inputs = "n d ${rpt}";
+        outputs = "n d i n g";
+      }
+      {
+        name = "owing";
+        inputs = "o w ${rpt}";
+        outputs = "o w i n g";
+      }
+      {
+        name = "rawing";
+        inputs = "r a w ${rpt}";
+        outputs = "r a w i n g";
+      }
+      {
+        name = "ewing";
+        inputs = "e w ${rpt}";
+        outputs = "e w i n g";
+      }
+      {
+        name = "ving";
+        inputs = "v ${rpt}";
+        outputs = "v i n g";
+      }
+      {
+        name = "hav";
+        inputs = "h ${rpt}";
+        outputs = "h a v";
+      } # sfs
+      {
+        name = "and";
+        inputs = "a ${rpt}";
+        outputs = "a n d";
+      }
+      {
+        name = "ure";
+        inputs = "u ${rpt}";
+        outputs = "u r e";
+      }
+      {
+        name = "for";
+        inputs = "f ${rpt}";
+        outputs = "f o r ${for}";
+      }
+      {
+        name = "be";
+        inputs = "spc ${rpt}";
+        outputs = "spc b e ${be}";
+      }
+      {
+        name = "ipt";
+        inputs = "i p ${lrpt}";
+        outputs = "i p t";
+      }
+      {
+        name = "pm";
+        inputs = "p ${lrpt}";
+        outputs = "p m";
+      } # sfb
+      {
+        name = "tp";
+        inputs = "t ${lrpt}";
+        outputs = "t p";
+      } # sfb
+      {
+        name = "king";
+        inputs = "k ${lrpt}";
+        outputs = "k i n g";
+      }
+      {
+        name = "get";
+        inputs = "g ${lrpt}";
+        outputs = "g e t";
+      } # sfs
+      {
+        name = "wh";
+        inputs = "spc ${lrpt}";
+        outputs = "spc w h ${wh}";
+      } # defaults to wh
+    ];
+    # psilocybin.magic.postInitRules = [
+    # ];
   };
 }
