@@ -90,6 +90,156 @@
       inputs = "y ${magic}";
       outputs = "y .";
     }
+    {
+      name = "was";
+      inputs = "w a ${magic}";
+      outputs = "w a s";
+    } # wao doesn't happen
+    {
+      name = "wis";
+      inputs = "w i ${magic}";
+      outputs = "w i s";
+    } # wion doesn't happen
+    {
+      name = "wes";
+      inputs = "w e ${magic}";
+      outputs = "w e s";
+    } # weu doesn't happen
+    {
+      name = "makeup";
+      inputs = "m a k e ${magic}";
+      outputs = "m a k e u";
+    } # prevent ked overriding makeup
+    {
+      name = "ked";
+      inputs = "k e ${magic}";
+      outputs = "k e d";
+    } # sfs
+    {
+      name = "amateur";
+      inputs = "a m a t e ${magic}";
+      outputs = "a m a t e u";
+    } # prevent ted overriding amateur
+    {
+      name = "lmao";
+      inputs = "l m a ${magic}";
+      outputs = "l m a o";
+    } # prevent mat overriding lmao
+    {
+      name = "mat";
+      inputs = "m a ${magic}";
+      outputs = "m a t";
+    } # sfs
+    {
+      name = "met";
+      inputs = "m e ${magic}";
+      outputs = "m e t";
+    } # sfs
+    {
+      name = "ted";
+      inputs = "t e ${magic}";
+      outputs = "t e d";
+    } # sfs
+    {
+      name = "ged";
+      inputs = "g e ${magic}";
+      outputs = "g e d";
+    } # sfs
+    {
+      name = "dat";
+      inputs = "d a ${magic}";
+      outputs = "d a t";
+    } # sfs
+    {
+      name = "eu";
+      inputs = "e ${magic}";
+      outputs = "e u";
+    } # sfb
+    {
+      name = "lopment";
+      inputs = "l o p ${magic}";
+      outputs = "l o p m e n t";
+    } # opment
+    {
+      name = "oopment";
+      inputs = "o o p ${magic}";
+      outputs = "o o p m e n t";
+    } # opment
+    {
+      name = "script";
+      inputs = "s c r i p ${magic}";
+      outputs = "s c r i p t";
+    } # prevent ipment overriding script
+    {
+      name = "ipment";
+      inputs = "i p ${magic}";
+      outputs = "i p m e n t";
+    } # ipment
+    {
+      name = "pt";
+      inputs = "p ${magic}";
+      outputs = "p t";
+    } # sfb
+    {
+      name = "rl";
+      inputs = "r ${magic}";
+      outputs = "r l";
+    } # sfb
+    {
+      name = "ws";
+      inputs = "w ${magic}";
+      outputs = "w s";
+    } # sfb
+    {
+      name = "gadget";
+      inputs = "g a d ${magic}";
+      outputs = "g a d g";
+    } # prevent adm overriding gadget
+    {
+      name = "badge";
+      inputs = "b a d ${magic}";
+      outputs = "b a d g";
+    } # prevent adm overriding badge
+    {
+      name = "adm";
+      inputs = "a d ${magic}";
+      outputs = "a d m";
+    } # most of dm sfb
+    {
+      name = "dg";
+      inputs = "d ${magic}";
+      outputs = "d g";
+    } # sfb
+    {
+      name = "sw";
+      inputs = "s ${magic}";
+      outputs = "s w";
+    } # sfb
+    {
+      name = "lr";
+      inputs = "l ${magic}";
+      outputs = "l r";
+    } # sfb
+    {
+      name = "ao";
+      inputs = "a ${magic}";
+      outputs = "a o";
+    } # sfb
+    {
+      name = "th";
+      inputs = "spc ${magic}";
+      outputs = "spc t h ${th}";
+    } # defaults to th
+    {
+      name = "the";
+      inputs = "${th} spc";
+      outputs = "e spc";
+    }
+    {
+      name = "them";
+      inputs = "${th} ${rpt}";
+      outputs = "e m";
+    }
   ];
   generatedRules = lib.concatMapStringsSep "\n" ruleTemplate rules;
 in {
@@ -111,40 +261,8 @@ in {
       )
 
       ;;⚝
-      ;;(t! seq mp (m ${magic}) (macro m (unmod p))) ;; sfb
-      ;;(t! seq y. (y ${magic}) (macro y (unmod .))) ;; sfb
       ${generatedRules}
-      (t! seq was (w a ${magic}) (macro w (unmod a s))) ;; wao doesn't happen
-      (t! seq wis (w i ${magic}) (macro w (unmod i s))) ;; wion doesn't happen
-      (t! seq wes (w e ${magic}) (macro w (unmod e s))) ;; weu doesn't happen
-      (t! seq makeup (m a k e ${magic}) (macro m (unmod a k e u))) ;; prevent ked overriding makeup
-      (t! seq ked (k e ${magic}) (macro k (unmod e d))) ;; sfs
-      (t! seq amateur (a m a t e ${magic}) (macro a (unmod m a t e u))) ;; prevent ted overriding amateur
-      (t! seq lmao (l m a ${magic}) (macro l (unmod m a o))) ;; prevent mat overriding lmao
-      (t! seq mat (m a ${magic}) (macro m (unmod a t))) ;; sfs
-      (t! seq met (m e ${magic}) (macro m (unmod e t))) ;; sfs
-      (t! seq ted (t e ${magic}) (macro t (unmod e d))) ;; sfs
-      (t! seq ged (g e ${magic}) (macro g (unmod e d))) ;; sfs
-      (t! seq dat (d a ${magic}) (macro d (unmod a t))) ;; sfs
-      (t! seq eu (e ${magic}) (macro e (unmod u))) ;; sfb
-      (t! seq lopment (l o p ${magic}) (macro l (unmod o p m e n t))) ;; opment
-      (t! seq oopment (o o p ${magic}) (macro o (unmod o p m e n t))) ;; opment
-      (t! seq script (s c r i p ${magic}) (macro s (unmod c r i p t))) ;; prevent ipment overriding script
-      (t! seq ipment (i p ${magic}) (macro i (unmod p m e n t))) ;; ipment
-      (t! seq pt (p ${magic}) (macro p (unmod t))) ;; sfb
-      (t! seq rl (r ${magic}) (macro r (unmod l))) ;; sfb
-      (t! seq ws (w ${magic}) (macro w (unmod s))) ;; sfb
-      (t! seq gadget (g a d ${magic}) (macro g (unmod a d g))) ;; prevent adm overriding gadget
-      (t! seq badge (b a d ${magic}) (macro b (unmod a d g))) ;; prevent adm overriding badge
-      (t! seq adm (a d ${magic}) (macro a (unmod d m))) ;; most of dm sfb
-      (t! seq dg (d ${magic}) (macro d (unmod g))) ;; sfb
-      (t! seq sw (s ${magic}) (macro s (unmod w))) ;; sfb
-      (t! seq lr (l ${magic}) (macro l (unmod r))) ;; sfb
-      (t! seq ao (a ${magic}) (macro a (unmod o))) ;; sfb
       ;; th
-      (t! seq th (spc ${magic}) (macro spc t (unmod h) ${th}))
-      (t! seq the (${th} spc) (macro e spc))
-      (t! seq them (${th} ${rpt}) (macro bspc e e m))
       (t! seq they (${th} y) (macro e y ${they}))
       (t! seq they're (${they} ${rpt} r) (macro bspc ' r e))
       (t! seq they've (${they} ${rpt} v) (macro bspc ' v e))
