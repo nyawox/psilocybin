@@ -254,10 +254,10 @@ in {
       };
       magic = {
         rules = mkOption {
-          type = types.listOf types.str;
+          type = types.listOf types.attrs;
         };
         rptRules = mkOption {
-          type = types.listOf types.str;
+          type = types.listOf types.attrs;
         };
         extraConfig = mkOption {
           type = types.str;
