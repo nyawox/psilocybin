@@ -8,6 +8,9 @@ with lib; let
   # https://github.com/jtroo/kanata/issues/900
   defCfg = ''
     rapid-event-delay 35
+    sequence-timeout 2000
+    sequence-input-mode visible-backspaced
+    sequence-always-on true
   '';
   ansi = ''
     (defsrc

@@ -4,11 +4,6 @@
     # ⬡ -> nop1
     # ⬢ -> nop2
     psilocybin.magic = lib.mkDefault ''
-      (defcfg
-        sequence-timeout 2000
-        sequence-input-mode visible-backspaced
-        sequence-always-on true
-      )
       (defalias
         mgc (chord esc *)
         ⚝ (multi (chord esc ⚝) @tp)
