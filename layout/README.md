@@ -188,8 +188,8 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
           ({
             psilocybin = {
               enable = true;
-              # ansi = true;
-              # jis = true;
+              # ansi.enable = true;
+              # jis.enable = true;
             };
           })
         ];
