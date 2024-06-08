@@ -1,6 +1,6 @@
 # Psilocybin
 
-You can see the details of the layout [here](layout/README.md)
+You can see the details of the layout [here](layout/README.md)  
 This flake can be also used to easily configure your own magic layout
 
 ## Usage
@@ -46,5 +46,7 @@ This enables the psilocybin layout on your NixOS system
 ```
 
 ### Using your own layout
-Visit [here](layout/) for examples of how to configure your layout.
-Ensure you set `psilocybin.ansi.config` for layers, `psilocybin.config` for aliases and chords, and `psilocybin.magic.rules` and `psilocybin.magic.rptRules` for your custom magic rules.
+Visit [here](layout/) for examples of how to configure your layout.  
+Ensure you set `psilocybin.ansi.config` for layers,  
+`psilocybin.config` for aliases and chords,  
+as well as `psilocybin.magic.rules` and `psilocybin.magic.rptRules` for your custom magic rules.  
