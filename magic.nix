@@ -120,7 +120,7 @@ in {
       (t! seq lr (l nop0) (macro l (unmod r))) ;; sfb
       (t! seq ao (a nop0) (macro a (unmod o))) ;; sfb
       ;; th
-      (t! seq th (spc nop0) (macro t (unmod h) ${nop3}))
+      (t! seq th (spc nop0) (macro spc t (unmod h) ${nop3}))
       (t! seq the (${nop3} spc) (macro e spc))
       (t! seq them (${nop3} nop1) (macro e e m))
       (t! seq they (${nop3} y) (macro e y ${nop4}))
@@ -180,7 +180,7 @@ in {
       (t! seq forever (${nop5} r spc) (macro e v e r))
       (t! seq forward (${nop5} r d) (macro w a r d))
       ;; be
-      (t! seq be (spc nop1) (macro b (unmod e) ${nop6}))
+      (t! seq be (spc nop1) (macro spc b (unmod e) ${nop6}))
       (t! seq because (${nop6} c spc) (macro c a u s e spc))
       (t! seq become (${nop6} c o) (macro c o m e))
       (t! seq became (${nop6} c a) (macro c a m e))
@@ -205,7 +205,7 @@ in {
       (t! seq king (k nop2) (macro k (unmod i n g)))
       (t! seq get (g nop2) (macro g (unmod e t))) ;; sfs
       ;; wh
-      (t! seq wh (spc nop2) (macro w (unmod h) ${nop9})) ;; defaults to wh
+      (t! seq wh (spc nop2) (macro spc w (unmod h) ${nop9})) ;; defaults to wh
       (t! seq with (${nop9} nop0) (macro bspc i t h))
       (t! seq who (${nop9} o) o)
       (t! seq why (${nop9} y) y)
