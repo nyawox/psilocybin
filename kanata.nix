@@ -33,7 +33,7 @@ with lib; let
     (deflayer psilocybin-tp
       _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
       _    x     l    c    m    k    XX    XX   z    f    u    o    y    .
-      _    n     r    s    t    g    XX    XX   b    @mgc e    a    i
+      _    n     r    s    t    g    XX    XX   b    @⚝   e    a    i
       _    j     w    p    d    q    XX    XX   v    h    ;    '
       _    _                    _               _    _    _
     )
@@ -89,7 +89,7 @@ with lib; let
     (deflayer psilocybin-tp
       _    _     _    _    _    _    _     _    _    _    _    _    _    _    _
       _    x     l    c    m    k    XX    XX   z    f    u    o    y    .
-      _    n     r    s    t    g    XX    XX   b    @mgc e    a    i
+      _    n     r    s    t    g    XX    XX   b    @⚝   e    a    i
       _    j     w    p    d    q    XX    XX   v    h    ;    '    '
       _    _     _    _         _          _     _    _     _   _
     )
