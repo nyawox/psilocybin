@@ -439,8 +439,18 @@ in {
       }
       {
         name = "foreign";
-        inputs = "${for} g";
+        inputs = "${for} g spc";
         outputs = "e i g n";
+      }
+      {
+        name = "forgot";
+        inputs = "${for} g o";
+        outputs = "g o t";
+      }
+      {
+        name = "forget";
+        inputs = "${for} g e";
+        outputs = "g o t";
       }
       {
         name = "follow";
