@@ -1,4 +1,54 @@
-{lib, ...}: {
+{lib, ...}: let
+  nop3 = "nop3 nop3";
+  nop4 = "nop3 nop4";
+  nop5 = "nop3 nop5";
+  nop6 = "nop3 nop6";
+  nop7 = "nop3 nop7";
+  nop8 = "nop3 nop8";
+  nop9 = "nop3 nop9";
+  nop10 = "nop4 nop3";
+  nop11 = "nop4 nop4";
+  nop12 = "nop4 nop5";
+  nop13 = "nop4 nop6";
+  nop14 = "nop4 nop7";
+  nop15 = "nop4 nop8";
+  nop16 = "nop4 nop9";
+  nop17 = "nop5 nop3";
+  nop18 = "nop5 nop4";
+  nop19 = "nop5 nop5";
+  nop20 = "nop5 nop6";
+  nop21 = "nop5 nop7";
+  nop22 = "nop5 nop8";
+  nop23 = "nop5 nop9";
+  nop24 = "nop6 nop3";
+  nop25 = "nop6 nop4";
+  nop26 = "nop6 nop5";
+  nop27 = "nop6 nop6";
+  nop28 = "nop6 nop7";
+  nop29 = "nop6 nop8";
+  nop30 = "nop6 nop9";
+  nop31 = "nop7 nop3";
+  nop32 = "nop7 nop4";
+  nop33 = "nop7 nop5";
+  nop34 = "nop7 nop6";
+  nop35 = "nop7 nop7";
+  nop36 = "nop7 nop8";
+  nop37 = "nop7 nop9";
+  nop38 = "nop8 nop3";
+  nop39 = "nop8 nop4";
+  nop40 = "nop8 nop5";
+  nop41 = "nop8 nop6";
+  nop42 = "nop8 nop7";
+  nop43 = "nop8 nop8";
+  nop44 = "nop8 nop9";
+  nop45 = "nop9 nop3";
+  nop46 = "nop9 nop4";
+  nop47 = "nop9 nop5";
+  nop48 = "nop9 nop6";
+  nop49 = "nop9 nop7";
+  nop50 = "nop9 nop8";
+  nop51 = "nop9 nop9";
+in {
   config = {
     # ⚝ -> nop0
     # ⬡ -> nop1
@@ -7,8 +57,64 @@
       (defalias
         mgc (chord esc *)
         ⚝ (multi (chord esc ⚝) @tp)
-        ⬡ nop1
-        ⬢ nop2
+        ⬡ (multi nop1 rpt)
+        ⬢ (multi nop2 rpt)
+        ;; Using nop3 as prefix
+        nop3 (macro nop3 nop3)
+        nop4 (macro nop3 nop4)
+        nop5 (macro nop3 nop5)
+        nop6 (macro nop3 nop6)
+        nop7 (macro nop3 nop7)
+        nop8 (macro nop3 nop8)
+        nop9 (macro nop3 nop9)
+        ;; Using nop4 as prefix
+        nop10 (macro nop4 nop3)
+        nop11 (macro nop4 nop4)
+        nop12 (macro nop4 nop5)
+        nop13 (macro nop4 nop6)
+        nop14 (macro nop4 nop7)
+        nop15 (macro nop4 nop8)
+        nop16 (macro nop4 nop9)
+        ;; Using nop5 as prefix
+        nop17 (macro nop5 nop3)
+        nop18 (macro nop5 nop4)
+        nop19 (macro nop5 nop5)
+        nop20 (macro nop5 nop6)
+        nop21 (macro nop5 nop7)
+        nop22 (macro nop5 nop8)
+        nop23 (macro nop5 nop9)
+        ;; Using nop6 as prefix
+        nop24 (macro nop6 nop3)
+        nop25 (macro nop6 nop4)
+        nop26 (macro nop6 nop5)
+        nop27 (macro nop6 nop6)
+        nop28 (macro nop6 nop7)
+        nop29 (macro nop6 nop8)
+        nop30 (macro nop6 nop9)
+        ;; Using nop7 as prefix
+        nop31 (macro nop7 nop3)
+        nop32 (macro nop7 nop4)
+        nop33 (macro nop7 nop5)
+        nop34 (macro nop7 nop6)
+        nop35 (macro nop7 nop7)
+        nop36 (macro nop7 nop8)
+        nop37 (macro nop7 nop9)
+        ;; Using nop8 as prefix
+        nop38 (macro nop8 nop3)
+        nop39 (macro nop8 nop4)
+        nop40 (macro nop8 nop5)
+        nop41 (macro nop8 nop6)
+        nop42 (macro nop8 nop7)
+        nop43 (macro nop8 nop8)
+        nop44 (macro nop8 nop9)
+        ;; Using nop9 as prefix
+        nop45 (macro nop9 nop3)
+        nop46 (macro nop9 nop4)
+        nop47 (macro nop9 nop5)
+        nop48 (macro nop9 nop6)
+        nop49 (macro nop9 nop7)
+        nop50 (macro nop9 nop8)
+        nop51 (macro nop9 nop9)
       )
       (defchords esc 25
         (⚝    ) nop0
@@ -50,20 +156,20 @@
       (t! seq lr (l nop0) (macro l (unmod r))) ;; sfb
       (t! seq ao (a nop0) (macro a (unmod o))) ;; sfb
       ;; th
-      (t! seq the (spc nop0 spc) (macro t (unmod h e spc)))
-      (t! seq them (spc nop0 nop1) (macro t (unmod h e m)))
-      (t! seq they (spc nop0 y) (macro t (unmod h e y) nop3))
-      (t! seq they're (nop3 nop1 r) (macro ' (unmod r e)))
-      (t! seq they've (nop3 nop1 v) (macro ' (unmod v e)))
-      (t! seq they'll (nop3 nop1 l) (macro ' (unmod l l)))
-      (t! seq then (spc nop0 n) (macro t (unmod h e n)))
-      (t! seq these (spc nop0 s) (macro t (unmod h e s e)))
-      (t! seq their (spc nop0 r spc) (macro t (unmod h e i r spc)))
-      (t! seq there (spc nop0 r e spc) (macro t (unmod h e r e spc)))
-      (t! seq through (spc nop0 r o spc) (macro t (unmod h r o u g h spc)))
-      (t! seq those (spc nop0 o s) (macro t (unmod h o s e)))
-      (t! seq though (spc nop0 o h) (macro t (unmod h o u g h)))
-      (t! seq th (spc nop0) (macro t (unmod h)))
+      (t! seq th (spc nop0) (macro t (unmod h) nop3))
+      (t! seq the (${nop3} spc) (macro e spc))
+      (t! seq them (${nop3} nop1) (macro e e m))
+      (t! seq they (${nop3} y) (macro e y nop4))
+      (t! seq they're (${nop4} nop1 r) (macro ' r e))
+      (t! seq they've (${nop4} nop1 v) (macro ' v e))
+      (t! seq they'll (${nop4} nop1 l) (macro ' l l))
+      (t! seq then (${nop3} n) (macro e n))
+      (t! seq these (${nop3} s) (macro e s e))
+      (t! seq their (${nop3} r spc) (macro e i r spc))
+      (t! seq there (${nop3} r e spc) (macro e r e spc))
+      (t! seq through (${nop3} r o spc) (macro r o u g h spc))
+      (t! seq those (${nop3} o s) (macro o s e))
+      (t! seq though (${nop3} o h) (macro o u g h))
       ;; most common tm words are tment
       ;; put delay to avoid macro being interrupted when the key isn't released yet.
       (t! seq rtment (r t nop0) (macro r (unmod t m e n) 50 (unmod t))) ;; rtment
@@ -102,32 +208,32 @@
       (t! seq and (a nop1) (macro a (unmod n d)))
       (t! seq ure (u nop1) (macro u (unmod r e)))
       ;; for
-      (t! seq found (f nop1 d) (macro f (unmod o u n d)))
-      (t! seq foreign (f nop1 g) (macro f (unmod o r e i g n)))
-      (t! seq follow (f nop1 w spc) (macro f (unmod o l l o w spc))) ;; spc is necessary to prevent confliction with forward
-      (t! seq forgotten (f nop1 n spc) (macro f (unmod o r g o t t e n spc))) ;; spc is necessary to prevent confliction with california
-      (t! seq forever (f nop1 r spc) (macro f (unmod o u n d)))
-      (t! seq forward (f nop1 r d) (macro f (unmod o r w a r d)))
-      (t! seq for (f nop1) (macro f (unmod o r)))
+      (t! seq for (f nop1) (macro f (unmod o r) nop5))
+      (t! seq found (${nop5} d) (macro bspc u n d))
+      (t! seq foreign (${nop5} g) (macro e i g n))
+      (t! seq follow (${nop5} w spc) (macro bspc l l o w spc)) ;; spc is necessary to prevent confliction with forward
+      (t! seq forgotten (${nop5} n spc) (macro g o t t e n spc)) ;; spc is necessary to prevent confliction with california
+      (t! seq forever (${nop5} r spc) (macro e v e r))
+      (t! seq forward (${nop5} r d) (macro w a r d))
       ;; be
-      (t! seq because (spc nop1 c spc) (macro b (unmod e c a u s e spc)))
-      (t! seq become (spc nop1 c o) (macro b (unmod e c o m e)))
-      (t! seq became (spc nop1 c a) (macro b (unmod e c a m e)))
-      (t! seq becoming (spc nop1 c i) (macro b (unmod e c o m i n g)))
-      (t! seq before (spc nop1 f spc) (macro b (unmod e f o r e spc)))
-      (t! seq but (spc nop1 u spc) (macro b (unmod u t spc)))
-      (t! seq beauty (spc nop1 u t) (macro b (unmod e a u t y)))
-      (t! seq beautiful (spc nop1 u t f) (macro b (unmod e a u t i f u l)))
-      (t! seq beautifully (spc nop1 u t f y) (macro b (unmod e a u t i f u l l y)))
-      (t! seq beautify (spc nop1 u t y) (macro b (unmod e a u t i f y)))
-      (t! seq between (spc nop1 t n) (macro b (unmod e t w e e n)))
-      (t! seq better (spc nop1 t e) (macro b (unmod e t t e r)))
-      (t! seq betray (spc nop1 t r) (macro b (unmod e t r a y)))
-      (t! seq begin (spc nop1 g i) (macro b (unmod e g i n)))
-      (t! seq began (spc nop1 g a) (macro b (unmod e g a n)))
-      (t! seq begun (spc nop1 g u) (macro b (unmod e g u n)))
-      (t! seq back (spc nop1 k) (macro b (unmod a c k)))
-      (t! seq be (spc nop1) (macro b (unmod e)))
+      (t! seq be (spc nop1) (macro b (unmod e) nop6))
+      (t! seq because (${nop6} c spc) (macro c a u s e spc))
+      (t! seq become (${nop6} c o) (macro c o m e))
+      (t! seq became (${nop6} c a) (macro c a m e))
+      (t! seq becoming (${nop6} c i) (macro c o m i n g))
+      (t! seq before (${nop6} f spc) (macro f o r e spc))
+      (t! seq but (${nop6} u spc) (macro bspc u t spc))
+      (t! seq beauty (${nop6} u t) (macro a u t y nop7))
+      (t! seq beautiful (${nop7} f) (macro bspc i f u l nop8))
+      (t! seq beautifully (${nop8} y) (macro l y))
+      (t! seq beautify (${nop7} y) (macro bspc i f y))
+      (t! seq between (${nop6} t n) (macro t w e e n))
+      (t! seq better (${nop6} t e) (macro t t e r))
+      (t! seq betray (${nop6} t r) (macro t r a y))
+      (t! seq begin (${nop6} g i) (macro g i n))
+      (t! seq began (${nop6} g a) (macro g a n))
+      (t! seq begun (${nop6} g u) (macro g u n))
+      (t! seq back (${nop6} k) (macro bspc a c k))
       ;;⬢
       (t! seq ipt (i p nop2) (macro i (unmod p t)))
       (t! seq pm (p nop2) (macro p (unmod m))) ;; sfb
@@ -135,29 +241,27 @@
       (t! seq king (k nop2) (macro k (unmod i n g)))
       (t! seq get (g nop2) (macro g (unmod e t))) ;; sfs
       ;; wh
-      (t! seq with (spc nop2 nop0) (macro w (unmod i t h)))
-      (t! seq whenever (spc nop2 nop1 v) (macro w (unmod h e n e v e r)))
-      (t! seq when (spc nop2 nop1) (macro w (unmod h e n)))
-      (t! seq who (spc nop2 o) (macro w (unmod h o)))
-      (t! seq why (spc nop2 y) (macro w (unmod h y)))
-      (t! seq whatever (spc nop2 a v) (macro w (unmod h a t e v e r)))
-      (t! seq whats (spc nop2 a s spc) (macro w (unmod h a t ' s spc)))
-      (t! seq whatsoever (spc nop2 a s v) (macro w (unmod h a t s o e v e r)))
-      (t! seq what (spc nop2 a) (macro w (unmod h a t)))
-      (t! seq without (spc nop2 i t) (macro w (unmod i t h o u t)))
-      (t! seq will (spc nop2 i) (macro w (unmod i l l)))
-      (t! seq well (spc nop2 l) (macro w (unmod e l l)))
-      (t! seq while (spc nop2 h) (macro w (unmod h i l e)))
-      (t! seq which (spc nop2 c) (macro w (unmod h i c h)))
-      (t! seq where (spc nop2 e) (macro w (unmod h e r e)))
-      (t! seq would (spc nop2 u) (macro w (unmod o u l d)))
-      (t! seq world (spc nop2 d) (macro w (unmod o r l d)))
-      (t! seq whether (spc nop2 t) (macro w (unmod h e t h e r)))
-      (t! seq wh (spc nop2) (macro w (unmod h))) ;; defaults to wh
-      ;; default repeat keys to rpt
-      (t! seq rpt (nop1) rpt)
-      (t! seq lrpt (nop2) rpt)
+      (t! seq wh (spc nop2) (macro w (unmod h) nop9)) ;; defaults to wh
+      (t! seq with (${nop9} nop0) (macro bspc i t h))
+      (t! seq who (${nop9} o) o)
+      (t! seq why (${nop9} y) y)
 
+      (t! seq when (${nop9} nop1) (macro e n nop10))
+      (t! seq whenever (${nop10} v) (macro e v e r))
+
+      (t! seq what (${nop9} a) (macro a t nop11))
+      (t! seq whatever (${nop11} v) (macro e v e r))
+      (t! seq whats (${nop11} s spc) (macro ' s spc))
+      (t! seq whatsoever (${nop11} s v) (macro s o e v e r))
+      (t! seq will (${nop9} i) (macro w (unmod i l l) nop12))
+      (t! seq without (${nop12} t) (macro o u t))
+      (t! seq well (${nop9} l) (macro bspc (unmod e l l)))
+      (t! seq while (${nop9} h) (macro i l e))
+      (t! seq which (${nop9} c) (macro i c h))
+      (t! seq where (${nop9} e) (macro e r e))
+      (t! seq would (${nop9} u) (macro bspc o u l d))
+      (t! seq world (${nop9} d) (macro bspc o r l d))
+      (t! seq whether (${nop9} t) (macro e t h e r))
     '';
   };
 }
