@@ -75,8 +75,8 @@ in {
     psilocybin.magic = lib.mkDefault ''
       (defalias
         ⚝ (multi (chord esc ⚝) @tp)
-        ⬡ (multi rpt nop1)
-        ⬢ (multi rpt nop2)
+        ⬡ nop1
+        ⬢ nop2
       )
       (defchords esc 25
         (⚝    ) ${magic}
