@@ -1,17 +1,5 @@
 {lib, ...}: {
   psilocybin.config = lib.mkDefault ''
-    ;; magic keys
-    (defalias
-      ⚝ (multi (chord esc ⚝) @tp)
-      ⬡ (macro rpt nop1)
-      ⬢ (macro rpt nop2)
-    )
-    (defchords esc 25
-      (⚝    ) nop0
-      (   f ) f
-      (⚝  f ) esc
-    )
-
     ;; typing layer are used to disable chord while typing fast
     (deffakekeys
       to-base (layer-switch psilocybin)
@@ -100,6 +88,18 @@
       ; (multi (chord backspace ;) @tp)
       / (multi / @tp)
       . (multi . @tp)
+    )
+
+    ;; magic keys
+    (defalias
+      ⚝ (multi (chord esc ⚝) @tp)
+      ⬡ (macro rpt nop1)
+      ⬢ (macro rpt nop2)
+    )
+    (defchords esc 25
+      (⚝    ) nop0
+      (   f ) f
+      (⚝  f ) esc
     )
 
     (defchords thumb 2000
