@@ -6,10 +6,10 @@
 }:
 with lib; let
   defCfg = ''
-    ${lib.optionalString (cfg.magic.timeout != 0) "rapid-event-delay" + toString cfg.rapidEventDelay}
-    ${lib.optionalString (cfg.magic.timeout != 0) "sequence-timeout" + toString cfg.magic.timeout}
+    ${lib.optionalString (cfg.magic.timeout != 0) "rapid-event-delay " + toString cfg.rapidEventDelay}
+    ${lib.optionalString (cfg.magic.timeout != 0) "sequence-timeout " + toString cfg.magic.timeout}
     ${lib.optionalString cfg.magic.enable "sequence-always-on true"}
-    ${lib.optionalString (cfg.magic.mode != "") "sequence-input-mode" + cfg.magic.mode}
+    ${lib.optionalString (cfg.magic.mode != "") "sequence-input-mode " + cfg.magic.mode}
     ${lib.optionalString (cfg.extraDefCfg != "") cfg.extraDefCfg}
   '';
   ansi = ''
