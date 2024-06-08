@@ -31,8 +31,8 @@ with lib; let
 
   magic = ''
     (deftemplate seq (vk-name input-keys output-action)
-          (deffakekeys $vk-name $output-action)
-          (defseq $vk-name $input-keys)
+      (deffakekeys $vk-name $output-action)
+      (defseq $vk-name $input-keys)
     )
 
     ${rules}
