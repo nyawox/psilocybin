@@ -532,7 +532,7 @@ in {
       {
         name = "when";
         inputs = "${wh} ${rpt}";
-        outputs = "e n";
+        outputs = "e n ${when}";
       }
       {
         name = "whenever";
@@ -542,7 +542,7 @@ in {
       {
         name = "what";
         inputs = "${wh} a";
-        outputs = "a t";
+        outputs = "a t ${what}";
       }
       {
         name = "whatever";
@@ -562,7 +562,7 @@ in {
       {
         name = "will";
         inputs = "${wh} i";
-        outputs = "bspc i l 5 l";
+        outputs = "bspc i l 5 l ${will}";
       }
       {
         name = "without";
