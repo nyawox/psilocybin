@@ -7,7 +7,7 @@ The overview of all layers can be seen [here](assets/full_layout.png), and keyma
 
 ## Magic rules 🪄
 
-Magic rules are mostly used to address bad patterns, effectively reducing sfbs to almost 0 percent!
+Magic rules effectively reduces bad patterns, such as SFBs and SFS to almost 0 percent. This also reduces keystrokes with word-builder rules, increasing efficiency.
 
 ⚝ is the `magic` key(home row right index)\
 ⬡ is the `right repeat` key(right thumb)\
@@ -158,43 +158,7 @@ Magic rules are mostly used to address bad patterns, effectively reducing sfbs t
 | yi            | slide,only works on wide mod fat i |
 | i'            | pinky ring                         |
 
-## Usage
+## Stats
 
-```nix
-  description = "Your NixOS configuration";
+![stats](assets/stats.png)
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    psilocybin = {
-      url = "github:nyawox/psilocybin";
-      # Recommended to not clutter your flake.lock
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = { self, nixpkgs, psilocybin, ...}: {
-    nixosConfigurations = {
-      yourHost = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        modules = [
-          # This is not a complete configuration and you need to reference
-          # your normal configuration here.
-
-          # Import the module
-          psilocybin.nixosModules.psilocybin
-
-          ({
-            psilocybin = {
-              enable = true;
-              # ansi.enable = true;
-              # jis.enable = true;
-            };
-          })
-        ];
-      };
-    };
-  };
-}
-```
