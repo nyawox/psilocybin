@@ -113,7 +113,6 @@ in {
 
       ${rules}
       ${rptRules}
-      ${postInitRules}
     '';
     psilocybin.magic.rules = [
       {
