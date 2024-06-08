@@ -262,12 +262,6 @@ in {
             Put magic rules that activates via repeat key here
           '';
         };
-        postInitRules = mkOption {
-          type = types.listOf types.attrs;
-          description = ''
-            Put magic rules that have to be initialized later here
-          '';
-        };
         extraConfig = mkOption {
           type = types.str;
         };

@@ -742,7 +742,5 @@ in {
         outputs = "spc w h ${wh}";
       } # defaults to wh
     ];
-    # psilocybin.magic.postInitRules = [
-    # ];
   };
 }
