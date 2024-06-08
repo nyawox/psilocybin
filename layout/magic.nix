@@ -400,7 +400,7 @@ in {
       {
         name = "foreign";
         inputs = "${for} g spc";
-        outputs = "e i g n";
+        outputs = "e i g n spc";
       }
       {
         name = "forgot";
