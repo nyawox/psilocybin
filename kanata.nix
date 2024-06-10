@@ -34,7 +34,7 @@ with lib; let
       ruleTemplate {
         name = "${rule.name}-${startingKey}";
         inputs = "${startingKey} ${rule.inputs}";
-        outputs = rule.outputs;
+        outputs = "${startingKey} ${rule.outputs}";
       })
     cfg.magic.wordStartingRules;
 
@@ -43,7 +43,7 @@ with lib; let
       rptRuleTemplate {
         name = "${rule.name}-${startingKey}-rpt";
         inputs = "${startingKey} ${rule.inputs}";
-        outputs = rule.outputs;
+        outputs = "${startingKey} ${rule.outputs}";
       })
     cfg.magic.wordStartingRptRules;
 
