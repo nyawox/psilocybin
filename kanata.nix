@@ -49,7 +49,7 @@ with lib; let
 
   # S-9 -> (
   # S-' -> "
-  startingKeys = ["spc" "tab" ";" ":" "<" "S-9" "S-'" "ret"];
+  startingKeys = ["spc" "tab" ";" "\\:" "<" "S-9" "S-'" "ret"];
   wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
   rptWordStartingRules = lib.concatStringsSep "\n" (map mkRptWordStartingRules startingKeys);
 
