@@ -47,7 +47,7 @@ with lib; let
       })
     cfg.magic.wordStartingRptRules;
 
-  startingKeys = ["spc" "tab" ";" ":" "<" "(" "\"" "ret"];
+  startingKeys = ["spc" "tab" ";" ":" "<" "\(" "\"" "ret"];
   wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
   rptWordStartingRules = lib.concatStringsSep "\n" (map mkRptWordStartingRules startingKeys);
 
