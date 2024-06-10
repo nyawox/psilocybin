@@ -771,7 +771,7 @@ in {
       }
       {
         name = "structure";
-        inputs = "${str} t";
+        inputs = "${str} ${rpt}";
         outputs = "u c t u r e ${structure}";
       }
       {
