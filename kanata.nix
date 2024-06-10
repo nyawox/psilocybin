@@ -29,12 +29,46 @@ with lib; let
   '';
   rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.magic.rptRules;
 
+  # S-9 -> (
+  # S-' -> "
+  # S-; -> :
+  startingKeys = ["spc" "tab" ";" "S-;" "<" "S-9" "S-'" "S-ret" "ret"];
+
+  mkWordStartingRules = startingKey:
+    lib.concatMapStringsSep "\n" (rule:
+      ruleTemplate {
+        name = "${rule.name}-${startingKey}";
+        inputs = "${startingKey} ${rule.inputs}";
+        outputs =
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
+          then rule.outputs
+          else "${startingKey} ${rule.outputs}";
+      })
+    cfg.magic.wordStartingRules;
+
+  mkRptWordStartingRules = startingKey:
+    lib.concatMapStringsSep "\n" (rule:
+      rptRuleTemplate {
+        name = "${rule.name}-${startingKey}-rpt";
+        inputs = "${startingKey} ${rule.inputs}";
+        outputs =
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
+          then rule.outputs
+          else "${startingKey} ${rule.outputs}";
+      })
+    cfg.magic.wordStartingRptRules;
+
+  wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
+  rptWordStartingRules = lib.concatStringsSep "\n" (map mkRptWordStartingRules startingKeys);
+
   magic = ''
     (deftemplate seq (vk-name input-keys output-action)
       (deffakekeys $vk-name $output-action)
       (defseq $vk-name $input-keys)
     )
 
+    ${wordStartingRules}
+    ${rptWordStartingRules}
     ${rules}
     ${rptRules}
   '';
@@ -82,6 +116,25 @@ in {
           description = ''
             Place magic rules that activate via the repeat key here. It automatically deletes the repeated character.
           '';
+        };
+        wordStartingRules = mkOption {
+          type = types.listOf types.attrs;
+        };
+        wordStartingRptRules = mkOption {
+          type = types.listOf types.attrs;
+        };
+        includeReturn = mkOption {
+          type = types.bool;
+          default = true;
+          description = ''
+            Kanata sequences automatically backspace the inputs before outputting the keys.
+            Therefore, including return in the outputs is necessary to prevent it from being deleted. However, this behavior might interfere with the terminal shell prompt.
+            Disable this option if you do not want that.
+          '';
+        };
+        includeTab = mkOption {
+          type = types.bool;
+          default = true;
         };
         mode = mkOption {
           type = types.str;
