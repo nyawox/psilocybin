@@ -46,7 +46,7 @@ with lib; let
       })
     cfg.magic.wordStartingRules;
 
-  mkRptWordStartingRules = startingKey:
+  mkWordStartingRptRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
       rptRuleTemplate {
         name = "${rule.name}-${startingKey}-rpt";
@@ -59,7 +59,7 @@ with lib; let
     cfg.magic.wordStartingRptRules;
 
   wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
-  rptWordStartingRules = lib.concatStringsSep "\n" (map mkRptWordStartingRules startingKeys);
+  wordStartingRptRules = lib.concatStringsSep "\n" (map mkWordStartingRptRules startingKeys);
 
   magic = ''
     (deftemplate seq (vk-name input-keys output-action)
@@ -68,7 +68,7 @@ with lib; let
     )
 
     ${wordStartingRules}
-    ${rptWordStartingRules}
+    ${wordStartingRptRules}
     ${rules}
     ${rptRules}
   '';
