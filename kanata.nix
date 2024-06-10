@@ -29,12 +29,20 @@ with lib; let
   '';
   rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.magic.rptRules;
 
+  # S-9 -> (
+  # S-' -> "
+  # S-; -> :
+  startingKeys = ["spc" "tab" ";" "S-;" "<" "S-9" "S-'" "ret"];
+
   mkWordStartingRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
       ruleTemplate {
         name = "${rule.name}-${startingKey}";
         inputs = "${startingKey} ${rule.inputs}";
-        outputs = "${startingKey} ${rule.outputs}";
+        outputs =
+          if startingKey == "ret" || startingKey == "tab"
+          then rule.outputs
+          else "${startingKey} ${rule.outputs}";
       })
     cfg.magic.wordStartingRules;
 
@@ -43,14 +51,13 @@ with lib; let
       rptRuleTemplate {
         name = "${rule.name}-${startingKey}-rpt";
         inputs = "${startingKey} ${rule.inputs}";
-        outputs = "${startingKey} ${rule.outputs}";
+        outputs =
+          if startingKey == "ret" || startingKey == "tab"
+          then rule.outputs
+          else "${startingKey} ${rule.outputs}";
       })
     cfg.magic.wordStartingRptRules;
 
-  # S-9 -> (
-  # S-' -> "
-  # S-; -> :
-  startingKeys = ["spc" "tab" ";" "S-;" "<" "S-9" "S-'" "ret"];
   wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
   rptWordStartingRules = lib.concatStringsSep "\n" (map mkRptWordStartingRules startingKeys);
 
