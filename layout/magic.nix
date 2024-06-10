@@ -78,19 +78,19 @@ in {
       {
         name = "be";
         inputs = "${rpt}";
-        outputs = "spc b e ${be}";
+        outputs = "b e ${be}";
       }
       {
         name = "wh";
         inputs = "${lrpt}";
-        outputs = "spc w h ${wh}";
+        outputs = "w h ${wh}";
       } # defaults to wh
     ];
     psilocybin.magic.wordStartingRules = lib.mkDefault [
       {
         name = "th";
         inputs = "${magic}";
-        outputs = "spc t h ${th}";
+        outputs = "t h ${th}";
       } # defaults to th
     ];
     psilocybin.magic.rules = lib.mkDefault [
