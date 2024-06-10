@@ -12,19 +12,19 @@
   when = "nop3 nop7";
   what = "nop3 nop8";
   will = "nop3 nop9";
-  # nop13 = "nop4 nop0";
-  # nop14 = "nop4 nop1";
-  # nop15 = "nop4 nop2";
-  # nop16 = "nop4 nop3";
-  # nop17 = "nop4 nop4";
-  # nop18 = "nop4 nop5";
-  # nop19 = "nop4 nop6";
-  # nop20 = "nop4 nop7";
-  # nop21 = "nop4 nop8";
-  # nop22 = "nop4 nop9";
-  # nop23 = "nop5 nop0";
-  # nop24 = "nop5 nop1";
-  # nop25 = "nop5 nop2";
+  str = "nop4 nop0";
+  strong = "nop4 nop1";
+  stroke = "nop4 nop2";
+  string = "nop4 nop3";
+  strive = "nop4 nop4";
+  strip = "nop4 nop5";
+  striped = "nop4 nop6";
+  street = "nop4 nop7";
+  stretch = "nop4 nop8";
+  stress = "nop4 nop9";
+  straight = "nop5 nop0";
+  struggle = "nop5 nop1";
+  structure = "nop5 nop2";
   # nop26 = "nop5 nop3";
   # nop27 = "nop5 nop4";
   # nop28 = "nop5 nop5";
@@ -92,6 +92,11 @@ in {
         inputs = "${magic}";
         outputs = "t h ${th}";
       } # defaults to th
+      {
+        name = "str";
+        inputs = "s t ${magic}";
+        outputs = "s t r ${str}";
+      }
     ];
     psilocybin.magic.rules = lib.mkDefault [
       {
@@ -617,6 +622,162 @@ in {
         name = "whether";
         inputs = "${wh} t";
         outputs = "e t h e r";
+      }
+      # str
+      {
+        name = "strong";
+        inputs = "${str} o";
+        outputs = "o n g ${strong}";
+      }
+      {
+        name = "stronger";
+        inputs = "${strong} ${rpt}";
+        outputs = "e r";
+      }
+      {
+        name = "strongest";
+        inputs = "${strong} s";
+        outputs = "e s t";
+      }
+      {
+        name = "stroke";
+        inputs = "${strong} ${lrpt}";
+        outputs = "bspc bspc k e ${stroke}";
+      }
+      {
+        name = "strokes";
+        inputs = "${stroke} ${magic}";
+        outputs = "s";
+      }
+      {
+        name = "string";
+        inputs = "${str} i";
+        outputs = "i n g ${string}";
+      }
+      {
+        name = "strike";
+        inputs = "${string} ${rpt}";
+        outputs = "bspc bspc k e";
+      }
+      {
+        name = "striking";
+        inputs = "${string} ${lrpt}";
+        outputs = "bspc bspc k i n g";
+      }
+      {
+        name = "strive";
+        inputs = "${str} v";
+        outputs = "i v e ${strive}";
+      }
+      {
+        name = "striving";
+        inputs = "${strive} i";
+        outputs = "bspc i n g";
+      }
+      {
+        name = "strip";
+        inputs = "${str} ${lrpt}";
+        outputs = "i p ${strip}";
+      }
+      {
+        name = "stripes";
+        inputs = "${strip} s";
+        outputs = "e s";
+      }
+      {
+        name = "striped";
+        inputs = "${strip} e";
+        outputs = "e d ${striped}";
+      }
+      {
+        name = "stripped";
+        inputs = "${striped} ${rpt}";
+        outputs = "bspc bspc p p e d";
+      }
+      {
+        name = "stripping";
+        inputs = "${strip} i";
+        outputs = "p i n g";
+      }
+      {
+        name = "street";
+        inputs = "${str} e";
+        outputs = "e e t ${street}";
+      }
+      {
+        name = "strength";
+        inputs = "${street} ${rpt}";
+        outputs = "bspc bspc n g t h";
+      }
+      {
+        name = "stretch";
+        inputs = "${street} ${magic}";
+        outputs = "bspc bspc e t c h ${stretch}";
+      }
+      {
+        name = "stretching";
+        inputs = "${stretch} i";
+        outputs = "i n g";
+      }
+      {
+        name = "stretched";
+        inputs = "${stretch} d";
+        outputs = "e d";
+      }
+      {
+        name = "stretches";
+        inputs = "${stretch} s";
+        outputs = "e s";
+      }
+      {
+        name = "stress";
+        inputs = "${str} s";
+        outputs = "e s s ${stress}";
+      }
+      {
+        name = "stressed";
+        inputs = "${stress} d";
+        outputs = "e d";
+      }
+      {
+        name = "straight";
+        inputs = "${str} a";
+        outputs = "a i g h t ${straight}";
+      }
+      {
+        name = "strange";
+        inputs = "${straight} ${rpt}";
+        outputs = "bspc bspc bspc bspc n g e";
+      }
+      {
+        name = "struggle";
+        inputs = "${str} u";
+        outputs = "u g g l e ${struggle}";
+      }
+      {
+        name = "struggling";
+        inputs = "${struggle} i";
+        outputs = "bspc i n g";
+      }
+      {
+        name = "strung";
+        inputs = "${struggle} ${rpt}";
+        outputs = "bspc bspc bspc bspc n g";
+      }
+      {
+        name = "struck";
+        inputs = "${struggle} ${lrpt}";
+        outputs = "bspc bspc bspc bspc c k";
+      }
+      {
+        name = "structure";
+        inputs = "${str} t";
+        outputs = "u c t u r e ${structure}";
+      }
+      {
+        name = "structural";
+        inputs = "${structure} a";
+        outputs = "bspc a l";
       }
     ];
     psilocybin.magic.rptRules = lib.mkDefault [
