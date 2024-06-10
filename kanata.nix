@@ -40,7 +40,7 @@ with lib; let
         name = "${rule.name}-${startingKey}";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if startingKey == "ret" || startingKey == "tab"
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
@@ -52,7 +52,7 @@ with lib; let
         name = "${rule.name}-${startingKey}-rpt";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if startingKey == "ret" || startingKey == "tab"
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
@@ -122,6 +122,19 @@ in {
         };
         wordStartingRptRules = mkOption {
           type = types.listOf types.attrs;
+        };
+        includeReturn = mkOption {
+          type = types.bool;
+          default = true;
+          description = ''
+            Kanata sequences automatically backspace the inputs before outputting the keys.
+            Therefore, including return in the outputs is necessary to prevent it from being deleted. However, this behavior might interfere with the terminal shell prompt.
+            Disable this option if you do not want that.
+          '';
+        };
+        includeTab = mkOption {
+          type = types.bool;
+          default = true;
         };
         mode = mkOption {
           type = types.str;
