@@ -74,6 +74,25 @@
   # nop72 = "nop9 nop9";
 in {
   config = {
+    psilocybin.magic.wordStartingRptRules = lib.mkDefault [
+      {
+        name = "be";
+        inputs = "spc ${rpt}";
+        outputs = "spc b e ${be}";
+      }
+      {
+        name = "wh";
+        inputs = "spc ${lrpt}";
+        outputs = "spc w h ${wh}";
+      } # defaults to wh
+    ];
+    psilocybin.magic.wordStartingRules = lib.mkDefault [
+      {
+        name = "th";
+        inputs = "spc ${magic}";
+        outputs = "spc t h ${th}";
+      } # defaults to th
+    ];
     psilocybin.magic.rules = lib.mkDefault [
       {
         name = "mp";
@@ -220,11 +239,6 @@ in {
         inputs = "a ${magic}";
         outputs = "a o";
       } # sfb
-      {
-        name = "th";
-        inputs = "spc ${magic}";
-        outputs = "spc t h ${th}";
-      } # defaults to th
       {
         name = "the";
         inputs = "${th} spc";
@@ -691,16 +705,6 @@ in {
         inputs = "f ${rpt}";
         outputs = "f o r ${for}";
       }
-      {
-        name = "be";
-        inputs = "spc ${rpt}";
-        outputs = "spc b e ${be}";
-      }
-      {
-        name = "wh";
-        inputs = "spc ${lrpt}";
-        outputs = "spc w h ${wh}";
-      } # defaults to wh
     ];
   };
 }
