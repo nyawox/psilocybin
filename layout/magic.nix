@@ -692,7 +692,7 @@ in {
       {
         name = "stripped";
         inputs = "${striped} ${rpt}";
-        outputs = "bspc bspc p p e d";
+        outputs = "bspc bspc p e d";
       }
       {
         name = "stripping";
