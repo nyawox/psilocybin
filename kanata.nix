@@ -32,7 +32,7 @@ with lib; let
   mkWordStartingRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
       ruleTemplate {
-        name = "${rule.name}";
+        name = "${rule.name}-${startingKey}";
         inputs = "${startingKey} ${rule.inputs}";
         outputs = rule.outputs;
       })
@@ -41,13 +41,13 @@ with lib; let
   mkRptWordStartingRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
       rptRuleTemplate {
-        name = "${rule.name}";
+        name = "${rule.name}-${startingKey}-rpt";
         inputs = "${startingKey} ${rule.inputs}";
         outputs = rule.outputs;
       })
     cfg.magic.wordStartingRptRules;
 
-  startingKeys = ["spc" "tab" ";" "ret"];
+  startingKeys = ["spc" "tab" ";" ":" "<" "(" "\"" "ret"];
   wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
   rptWordStartingRules = lib.concatStringsSep "\n" (map mkRptWordStartingRules startingKeys);
 
