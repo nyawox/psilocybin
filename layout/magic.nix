@@ -721,7 +721,7 @@ in {
       }
       {
         name = "stretched";
-        inputs = "${stretch} d";
+        inputs = "${stretch} ${rpt}";
         outputs = "e d";
       }
       {
@@ -736,7 +736,7 @@ in {
       }
       {
         name = "stressed";
-        inputs = "${stress} d";
+        inputs = "${stress} e";
         outputs = "e d";
       }
       {
