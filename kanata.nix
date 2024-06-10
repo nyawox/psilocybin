@@ -29,12 +29,36 @@ with lib; let
   '';
   rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.magic.rptRules;
 
+  createWordStartingRules = startingKey:
+    lib.concatMapStringsSep "\n" (rule:
+      ruleTemplate {
+        name = "${rule.name}";
+        inputs = "${startingKey} ${rule.inputs}";
+        outputs = rule.outputs;
+      })
+    cfg.magic.wordStartingRules;
+
+  createRptWordStartingRules = startingKey:
+    lib.concatMapStringsSep "\n" (rule:
+      rptRuleTemplate {
+        name = "${rule.name}";
+        inputs = "${startingKey} ${rule.inputs}";
+        outputs = rule.outputs;
+      })
+    cfg.magic.wordStartingRptRules;
+
+  startingKeys = ["spc" "tab" ";" "ret"];
+  wordStartingRules = lib.concatStringsSep "\n" (map createWordStartingRules startingKeys);
+  rptWordStartingRules = lib.concatStringsSep "\n" (map createRptWordStartingRules startingKeys);
+
   magic = ''
     (deftemplate seq (vk-name input-keys output-action)
       (deffakekeys $vk-name $output-action)
       (defseq $vk-name $input-keys)
     )
 
+    ${wordStartingRules}
+    ${rptWordStartingRules}
     ${rules}
     ${rptRules}
   '';
@@ -82,6 +106,12 @@ in {
           description = ''
             Place magic rules that activate via the repeat key here. It automatically deletes the repeated character.
           '';
+        };
+        wordStartingRules = mkOption {
+          type = types.listOf types.attrs;
+        };
+        wordStartingRptRules = mkOption {
+          type = types.listOf types.attrs;
         };
         mode = mkOption {
           type = types.str;
