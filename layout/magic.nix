@@ -636,7 +636,7 @@ in {
       }
       {
         name = "strongest";
-        inputs = "${strong} s";
+        inputs = "${strong} e";
         outputs = "e s t";
       }
       {
