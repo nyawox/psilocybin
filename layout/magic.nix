@@ -712,7 +712,7 @@ in {
       {
         name = "stretch";
         inputs = "${street} ${magic}";
-        outputs = "bspc bspc e t c h ${stretch}";
+        outputs = "bspc bspc bspc e t c h ${stretch}";
       }
       {
         name = "stretching";
