@@ -18,7 +18,7 @@
   string = "nop4 nop3";
   strive = "nop4 nop4";
   strip = "nop4 nop5";
-  striped = "nop4 nop6";
+  strike = "nop4 nop6";
   street = "nop4 nop7";
   stretch = "nop4 nop8";
   stress = "nop4 nop9";
@@ -671,13 +671,13 @@ in {
       }
       {
         name = "strike";
-        inputs = "${string} ${rpt}";
-        outputs = "bspc bspc k e";
+        inputs = "${str} ${lrpt}";
+        outputs = "i k e ${strike}";
       }
       {
         name = "striking";
-        inputs = "${string} ${lrpt}";
-        outputs = "bspc bspc k i n g";
+        inputs = "${strike} i";
+        outputs = "bspc i n g";
       }
       {
         name = "strive";
