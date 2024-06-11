@@ -41,7 +41,7 @@ with lib; let
         name = "${rule.name}-${startingKey}";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true) || (startingKey == "/" && cfg.magic.includeSlash != true)
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
@@ -134,6 +134,10 @@ in {
           '';
         };
         includeTab = mkOption {
+          type = types.bool;
+          default = true;
+        };
+        includeSlash = mkOption {
           type = types.bool;
           default = true;
         };
