@@ -631,7 +631,7 @@ in {
       # str
       {
         name = "strong";
-        inputs = "${str} o";
+        inputs = "${str} o spc";
         outputs = "o n g ${strong}";
       }
       {
@@ -651,7 +651,7 @@ in {
       }
       {
         name = "string";
-        inputs = "${str} i";
+        inputs = "${str} i spc";
         outputs = "i n g ${string}";
       }
       {
@@ -666,7 +666,7 @@ in {
       }
       {
         name = "strive";
-        inputs = "${str} v";
+        inputs = "${str} v spc";
         outputs = "i v e ${strive}";
       }
       {
@@ -696,7 +696,7 @@ in {
       }
       {
         name = "street";
-        inputs = "${str} e";
+        inputs = "${str} e spc";
         outputs = "e e t ${street}";
       }
       {
@@ -726,7 +726,7 @@ in {
       }
       {
         name = "straight";
-        inputs = "${str} a";
+        inputs = "${str} a spc";
         outputs = "a i g h t ${straight}";
       }
       {
