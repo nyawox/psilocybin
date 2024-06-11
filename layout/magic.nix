@@ -110,6 +110,16 @@ in {
         inputs = "s t ${rpt} i";
         outputs = "s t r i p ${strip}";
       }
+      {
+        name = "strange";
+        inputs = "s t ${rpt} a";
+        outputs = "s t r a n g e";
+      }
+      {
+        name = "stress";
+        inputs = "s t ${rpt} ${magic}";
+        outputs = "s t r e s s ${stress}";
+      }
     ];
     psilocybin.magic.wordStartingRules = lib.mkDefault [
       {
@@ -740,11 +750,6 @@ in {
         outputs = "e s";
       }
       {
-        name = "stress";
-        inputs = "${str} s";
-        outputs = "e s s ${stress}";
-      }
-      {
         name = "stressed";
         inputs = "${stress} e";
         outputs = "e d";
@@ -753,11 +758,6 @@ in {
         name = "straight";
         inputs = "${str} a";
         outputs = "a i g h t ${straight}";
-      }
-      {
-        name = "strange";
-        inputs = "${straight} ${rpt}";
-        outputs = "bspc bspc bspc bspc n g e";
       }
       {
         name = "struggle";
