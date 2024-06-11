@@ -23,7 +23,7 @@
   stretch = "nop4 nop8";
   stress = "nop4 nop9";
   straight = "nop5 nop0";
-  struggle = "nop5 nop1";
+  strange = "nop5 nop1";
   structure = "nop5 nop2";
   # nop26 = "nop5 nop3";
   # nop27 = "nop5 nop4";
@@ -86,39 +86,34 @@ in {
         outputs = "w h ${wh}";
       } # defaults to wh
       {
+        name = "strange";
+        inputs = "s t ${rpt}";
+        outputs = "s t r a n g e ${strange}";
+      }
+      {
         name = "stroke";
-        inputs = "s t ${rpt} o";
-        outputs = "s t r o k e ${stroke}";
+        inputs = "${strange} o";
+        outputs = "bspc bspc bspc bspc o k e ${stroke}";
       }
       {
         name = "stretch";
-        inputs = "s t ${rpt} e";
-        outputs = "s t r e t c h ${stretch}";
-      }
-      {
-        name = "strung";
-        inputs = "s t ${rpt} ${magic}";
-        outputs = "s t r u n g";
+        inputs = "${strange} e";
+        outputs = "bspc bspc bspc bspc e t c h ${stretch}";
       }
       {
         name = "struck";
-        inputs = "s t ${rpt} u";
-        outputs = "s t r u c k";
+        inputs = "${strange} u";
+        outputs = "bspc bspc bspc bspc u c k";
       }
       {
         name = "strip";
-        inputs = "s t ${rpt} i";
-        outputs = "s t r i p ${strip}";
-      }
-      {
-        name = "strange";
-        inputs = "s t ${rpt} a";
-        outputs = "s t r a n g e";
+        inputs = "${strange} i";
+        outputs = "bspc bspc bspc bspc i p ${strip}";
       }
       {
         name = "stress";
-        inputs = "s t ${rpt} ${magic}";
-        outputs = "s t r e s s ${stress}";
+        inputs = "${strange} ${magic}";
+        outputs = "bspc bspc bspc bspc e s s ${stress}";
       }
     ];
     psilocybin.magic.wordStartingRules = lib.mkDefault [
@@ -761,12 +756,12 @@ in {
       }
       {
         name = "struggle";
-        inputs = "${str} u";
-        outputs = "u g g l e ${struggle}";
+        inputs = "${str} u spc";
+        outputs = "u g g l e";
       }
       {
         name = "struggling";
-        inputs = "${struggle} i";
+        inputs = "${str} u i";
         outputs = "bspc i n g";
       }
       {
