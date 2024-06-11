@@ -98,7 +98,7 @@ in {
       {
         name = "strung";
         inputs = "s t ${rpt} ${magic}";
-        outputs = "bspc bspc bspc bspc n g";
+        outputs = "s t r u n g";
       }
       {
         name = "strip";
