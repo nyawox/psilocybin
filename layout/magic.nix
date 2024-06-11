@@ -95,6 +95,16 @@ in {
         inputs = "s t ${rpt} e";
         outputs = "s t r e t c h ${stretch}";
       }
+      {
+        name = "strung";
+        inputs = "s t ${rpt} ${magic}";
+        outputs = "bspc bspc bspc bspc n g";
+      }
+      {
+        name = "strip";
+        inputs = "s t ${rpt} i";
+        outputs = "i p ${strip}";
+      }
     ];
     psilocybin.magic.wordStartingRules = lib.mkDefault [
       {
@@ -680,28 +690,23 @@ in {
         outputs = "bspc i n g";
       }
       {
-        name = "strip";
-        inputs = "${str} ${lrpt}";
-        outputs = "i p ${strip}";
-      }
-      {
-        name = "stripes";
-        inputs = "${strip} s";
-        outputs = "e s";
-      }
-      {
         name = "striped";
         inputs = "${strip} e";
-        outputs = "e d ${striped}";
+        outputs = "e d";
       }
       {
         name = "stripped";
-        inputs = "${striped} ${rpt}";
-        outputs = "bspc bspc p e d";
+        inputs = "${strip} ${rpt}";
+        outputs = "p e d";
+      }
+      {
+        name = "stripes";
+        inputs = "${strip} ${magic}";
+        outputs = "e s";
       }
       {
         name = "stripping";
-        inputs = "${strip} i";
+        inputs = "${strip} ${lrpt}";
         outputs = "p i n g";
       }
       {
@@ -758,11 +763,6 @@ in {
         name = "struggling";
         inputs = "${struggle} i";
         outputs = "bspc i n g";
-      }
-      {
-        name = "strung";
-        inputs = "${struggle} ${rpt}";
-        outputs = "bspc bspc bspc bspc n g";
       }
       {
         name = "struck";
