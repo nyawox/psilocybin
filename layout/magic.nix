@@ -701,8 +701,8 @@ in {
       }
       {
         name = "strength";
-        inputs = "${street} ${rpt}";
-        outputs = "bspc bspc n g t h";
+        inputs = "${str} e ${rpt}";
+        outputs = "e n g t h";
       }
       {
         name = "stretching";
