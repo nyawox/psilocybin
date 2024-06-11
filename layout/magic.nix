@@ -85,6 +85,16 @@ in {
         inputs = "${lrpt}";
         outputs = "w h ${wh}";
       } # defaults to wh
+      {
+        name = "stroke";
+        inputs = "s t ${rpt} o";
+        outputs = "s t r o k e ${stroke}";
+      }
+      {
+        name = "stretch";
+        inputs = "s t ${rpt} e";
+        outputs = "s t r e t c h ${stretch}";
+      }
     ];
     psilocybin.magic.wordStartingRules = lib.mkDefault [
       {
@@ -636,13 +646,8 @@ in {
       }
       {
         name = "strongest";
-        inputs = "${strong} e";
-        outputs = "e s t";
-      }
-      {
-        name = "stroke";
         inputs = "${strong} ${lrpt}";
-        outputs = "bspc bspc k e ${stroke}";
+        outputs = "e s t";
       }
       {
         name = "strokes";
@@ -708,11 +713,6 @@ in {
         name = "strength";
         inputs = "${street} ${rpt}";
         outputs = "bspc bspc n g t h";
-      }
-      {
-        name = "stretch";
-        inputs = "${street} ${magic}";
-        outputs = "bspc bspc bspc e t c h ${stretch}";
       }
       {
         name = "stretching";
