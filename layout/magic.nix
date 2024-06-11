@@ -700,11 +700,6 @@ in {
         outputs = "e e t ${street}";
       }
       {
-        name = "strength";
-        inputs = "${str} e ${rpt}";
-        outputs = "e n g t h";
-      }
-      {
         name = "stretching";
         inputs = "${stretch} i";
         outputs = "i n g";
@@ -860,6 +855,11 @@ in {
         name = "for";
         inputs = "f ${rpt}";
         outputs = "f o r ${for}";
+      }
+      {
+        name = "strength";
+        inputs = "${str} e ${rpt}";
+        outputs = "e n g t h";
       }
     ];
   };
