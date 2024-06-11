@@ -101,6 +101,11 @@ in {
         outputs = "s t r u n g";
       }
       {
+        name = "struck";
+        inputs = "s t ${rpt} u";
+        outputs = "bspc bspc bspc bspc c k";
+      }
+      {
         name = "strip";
         inputs = "s t ${rpt} i";
         outputs = "s t r i p ${strip}";
@@ -763,11 +768,6 @@ in {
         name = "struggling";
         inputs = "${struggle} i";
         outputs = "bspc i n g";
-      }
-      {
-        name = "struck";
-        inputs = "${struggle} ${lrpt}";
-        outputs = "bspc bspc bspc bspc c k";
       }
       {
         name = "structure";
