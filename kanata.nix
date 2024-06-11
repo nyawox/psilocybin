@@ -53,7 +53,7 @@ with lib; let
         name = "${rule.name}-${startingKey}-rpt";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true) || (startingKey == "/" && cfg.magic.includeSlash != true)
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
@@ -139,7 +139,10 @@ in {
         };
         includeSlash = mkOption {
           type = types.bool;
-          default = true;
+          default = false;
+          description = ''
+            Defaults to not include / in the output, as it works better in Helix/Vim.
+          '';
         };
         mode = mkOption {
           type = types.str;
