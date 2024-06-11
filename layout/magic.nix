@@ -90,31 +90,6 @@ in {
         inputs = "s t ${rpt}";
         outputs = "s t r a n g e ${strange}";
       }
-      {
-        name = "stroke";
-        inputs = "${strange} o";
-        outputs = "bspc bspc bspc bspc o k e ${stroke}";
-      }
-      {
-        name = "stretch";
-        inputs = "${strange} e";
-        outputs = "bspc bspc bspc bspc e t c h ${stretch}";
-      }
-      {
-        name = "struck";
-        inputs = "${strange} u";
-        outputs = "bspc bspc bspc bspc u c k";
-      }
-      {
-        name = "strip";
-        inputs = "${strange} i";
-        outputs = "bspc bspc bspc bspc i p ${strip}";
-      }
-      {
-        name = "stress";
-        inputs = "${strange} ${magic}";
-        outputs = "bspc bspc bspc bspc e s s ${stress}";
-      }
     ];
     psilocybin.magic.wordStartingRules = lib.mkDefault [
       {
@@ -773,6 +748,31 @@ in {
         name = "structural";
         inputs = "${structure} a";
         outputs = "bspc a l";
+      }
+      {
+        name = "stroke";
+        inputs = "${strange} o";
+        outputs = "bspc bspc bspc bspc o k e ${stroke}";
+      }
+      {
+        name = "stretch";
+        inputs = "${strange} e";
+        outputs = "bspc bspc bspc bspc e t c h ${stretch}";
+      }
+      {
+        name = "struck";
+        inputs = "${strange} u";
+        outputs = "bspc bspc bspc bspc u c k";
+      }
+      {
+        name = "strip";
+        inputs = "${strange} i";
+        outputs = "bspc bspc bspc bspc i p ${strip}";
+      }
+      {
+        name = "stress";
+        inputs = "${strange} ${magic}";
+        outputs = "bspc bspc bspc bspc e s s ${stress}";
       }
     ];
     psilocybin.magic.rptRules = lib.mkDefault [
