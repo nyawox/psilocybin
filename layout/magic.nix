@@ -732,12 +732,12 @@ in {
       {
         name = "struggle";
         inputs = "${str} u spc";
-        outputs = "u g g l e";
+        outputs = "u g g l e spc";
       }
       {
         name = "struggling";
         inputs = "${str} u i";
-        outputs = "bspc i n g";
+        outputs = "u g g l i n g";
       }
       {
         name = "structure";
