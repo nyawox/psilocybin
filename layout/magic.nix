@@ -103,7 +103,7 @@ in {
       {
         name = "struck";
         inputs = "s t ${rpt} u";
-        outputs = "bspc bspc bspc bspc c k";
+        outputs = "s t r u c k";
       }
       {
         name = "strip";
