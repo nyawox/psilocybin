@@ -103,7 +103,7 @@ in {
       {
         name = "strip";
         inputs = "s t ${rpt} i";
-        outputs = "i p ${strip}";
+        outputs = "s t r i p ${strip}";
       }
     ];
     psilocybin.magic.wordStartingRules = lib.mkDefault [
