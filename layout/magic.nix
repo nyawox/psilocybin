@@ -736,7 +736,7 @@ in {
       }
       {
         name = "stretches";
-        inputs = "${stretch} s";
+        inputs = "${stretch} ${magic}";
         outputs = "e s";
       }
       {
