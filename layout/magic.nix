@@ -19,7 +19,7 @@
   strive = "nop4 nop4";
   strip = "nop4 nop5";
   strike = "nop4 nop6";
-  street = "nop4 nop7";
+  # street = "nop4 nop7";
   stretch = "nop4 nop8";
   stress = "nop4 nop9";
   straight = "nop5 nop0";
@@ -697,7 +697,7 @@ in {
       {
         name = "street";
         inputs = "${str} e spc";
-        outputs = "e e t ${street}";
+        outputs = "e e t spc";
       }
       {
         name = "stretching";
