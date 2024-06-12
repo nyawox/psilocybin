@@ -33,7 +33,7 @@ with lib; let
   # S-' -> "
   # S-; -> :
   # S-. -> <
-  startingKeys = ["spc" "tab" ";" "S-;" "S-." "S-9" "S-'" "S-ret" "ret"];
+  startingKeys = ["spc" "tab" ";" "/" "S-;" "S-." "S-9" "S-'" "S-ret" "ret"];
 
   mkWordStartingRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
@@ -41,7 +41,7 @@ with lib; let
         name = "${rule.name}-${startingKey}";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true) || (startingKey == "/" && cfg.magic.includeSlash != true)
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
@@ -53,7 +53,7 @@ with lib; let
         name = "${rule.name}-${startingKey}-rpt";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true)
+          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true) || (startingKey == "/" && cfg.magic.includeSlash != true)
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
@@ -136,6 +136,13 @@ in {
         includeTab = mkOption {
           type = types.bool;
           default = true;
+        };
+        includeSlash = mkOption {
+          type = types.bool;
+          default = false;
+          description = ''
+            Defaults to not include / in the output, as it works better in Helix/Vim.
+          '';
         };
         mode = mkOption {
           type = types.str;
