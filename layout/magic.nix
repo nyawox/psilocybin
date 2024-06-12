@@ -13,13 +13,13 @@
   what = "nop3 nop8";
   will = "nop3 nop9";
   str = "nop4 nop0";
-  strong = "nop4 nop1";
+  though = "nop4 nop1";
   stroke = "nop4 nop2";
-  # string = "nop4 nop3";
-  strive = "nop4 nop4";
+  those = "nop4 nop3";
+  them = "nop4 nop4";
   strip = "nop4 nop5";
   strike = "nop4 nop6";
-  # street = "nop4 nop7";
+  thumb = "nop4 nop7";
   stretch = "nop4 nop8";
   stress = "nop4 nop9";
   # straight = "nop5 nop0";
@@ -257,7 +257,7 @@ in {
       {
         name = "them";
         inputs = "${th} ${rpt}";
-        outputs = "e m";
+        outputs = "e m ${them}";
       }
       {
         name = "they";
@@ -307,12 +307,37 @@ in {
       {
         name = "those";
         inputs = "${th} o s";
-        outputs = "o s e";
+        outputs = "o s e ${those}";
       }
       {
-        name = "though";
-        inputs = "${th} o h";
-        outputs = "o u g h";
+        name = "thousand";
+        inputs = "${those} d";
+        outputs = "bspc bspc u s a n d";
+      }
+      {
+        name = "thoughts";
+        inputs = "${though} s";
+        outputs = "t s";
+      }
+      {
+        name = "themselves";
+        inputs = "${them} s";
+        outputs = "s e l v e s";
+      }
+      {
+        name = "theme";
+        inputs = "${th} m";
+        outputs = "e m e";
+      }
+      {
+        name = "thumb";
+        inputs = "${th} u m";
+        outputs = "u m b";
+      }
+      {
+        name = "thump";
+        inputs = "${thumb} ${magic}";
+        outputs = "bspc p";
       }
       {
         name = "rtment";
@@ -860,6 +885,11 @@ in {
         name = "strongest";
         inputs = "${str} o ${lrpt}";
         outputs = "o n g e s t";
+      }
+      {
+        name = "though";
+        inputs = "${th} o ${rpt}";
+        outputs = "o u g h ${though}";
       }
     ];
   };
