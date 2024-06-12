@@ -635,16 +635,6 @@ in {
         outputs = "o n g spc";
       }
       {
-        name = "stronger";
-        inputs = "${str} o ${rpt}";
-        outputs = "o n g e r";
-      }
-      {
-        name = "strongest";
-        inputs = "${strong} ${lrpt}";
-        outputs = "e s t";
-      }
-      {
         name = "strokes";
         inputs = "${stroke} ${magic}";
         outputs = "s";
@@ -860,6 +850,16 @@ in {
         name = "strength";
         inputs = "${str} e ${rpt}";
         outputs = "e n g t h";
+      }
+      {
+        name = "stronger";
+        inputs = "${str} o ${rpt}";
+        outputs = "o n g e r";
+      }
+      {
+        name = "strongest";
+        inputs = "${str} o ${lrpt}";
+        outputs = "o n g e s t";
       }
     ];
   };
