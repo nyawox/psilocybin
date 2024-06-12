@@ -15,14 +15,14 @@
   str = "nop4 nop0";
   strong = "nop4 nop1";
   stroke = "nop4 nop2";
-  string = "nop4 nop3";
+  # string = "nop4 nop3";
   strive = "nop4 nop4";
   strip = "nop4 nop5";
   strike = "nop4 nop6";
   # street = "nop4 nop7";
   stretch = "nop4 nop8";
   stress = "nop4 nop9";
-  straight = "nop5 nop0";
+  # straight = "nop5 nop0";
   strange = "nop5 nop1";
   structure = "nop5 nop2";
   # nop26 = "nop5 nop3";
@@ -632,12 +632,12 @@ in {
       {
         name = "strong";
         inputs = "${str} o spc";
-        outputs = "o n g ${strong}";
+        outputs = "o n g spc";
       }
       {
         name = "stronger";
-        inputs = "${strong} ${rpt}";
-        outputs = "e r";
+        inputs = "${str} o ${rpt}";
+        outputs = "o n g e r";
       }
       {
         name = "strongest";
@@ -652,7 +652,7 @@ in {
       {
         name = "string";
         inputs = "${str} i spc";
-        outputs = "i n g ${string}";
+        outputs = "i n g spc";
       }
       {
         name = "strike";
@@ -667,12 +667,12 @@ in {
       {
         name = "strive";
         inputs = "${str} v spc";
-        outputs = "i v e ${strive}";
+        outputs = "i v e spc";
       }
       {
         name = "striving";
-        inputs = "${strive} i";
-        outputs = "bspc i n g";
+        inputs = "${str} v i";
+        outputs = "i v i n g";
       }
       {
         name = "striped";
@@ -722,7 +722,7 @@ in {
       {
         name = "straight";
         inputs = "${str} a spc";
-        outputs = "a i g h t ${straight}";
+        outputs = "a i g h t spc";
       }
       {
         name = "struggle";
