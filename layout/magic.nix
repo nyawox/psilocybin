@@ -639,7 +639,7 @@ in {
         outputs = "i c h ${which}";
       }
       {
-        name "whichever";
+        name = "whichever";
         inputs = "${which} v";
         outputs = "e v e r";
       }
