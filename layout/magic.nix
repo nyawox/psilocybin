@@ -465,6 +465,11 @@ in {
         outputs = "p o t";
       } # sfs
       {
+        name = "pet";
+        inputs = "p e ${magic}";
+        outputs = "p e t";
+      } # sfs
+      {
         name = "top";
         inputs = "t o ${magic}";
         outputs = "t o p";
