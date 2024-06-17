@@ -425,6 +425,11 @@ in {
         outputs = "p u t";
       } # sfs
       {
+        name = "pot";
+        inputs = "p o ${magic}";
+        outputs = "p o t";
+      } # sfs
+      {
         name = "top";
         inputs = "t o ${magic}";
         outputs = "t o p";
