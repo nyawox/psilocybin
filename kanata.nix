@@ -34,7 +34,8 @@ with lib; let
   # S-; -> :
   # S-. -> <
   # S-[ -> {
-  startingKeys = ["spc" "tab" ";" "/" "S-;" "S-." "S-9" "S-[" "S-'" "S-ret" "ret"];
+  # S-6 -> ^
+  startingKeys = ["spc" "tab" ";" "/" "S-;" "S-." "S-9" "S-[" "S-'" "S-6" "🔢₊" "S-ret" "ret"];
 
   mkWordStartingRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
