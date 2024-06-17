@@ -26,10 +26,10 @@
   strange = "nop5 nop1";
   structure = "nop5 nop2";
   work = "nop5 nop3";
-  # nop27 = "nop5 nop4";
-  # nop28 = "nop5 nop5";
-  # nop29 = "nop5 nop6";
-  # nop30 = "nop5 nop7";
+  thick = "nop5 nop4";
+  third = "nop5 nop5";
+  thing = "nop5 nop6";
+  think = "nop5 nop7";
   # nop31 = "nop5 nop8";
   # nop32 = "nop5 nop9";
   # nop33 = "nop6 nop0";
@@ -258,6 +258,51 @@ in {
         name = "them";
         inputs = "${th} ${rpt}";
         outputs = "e m ${them}";
+      }
+      {
+        name = "thin";
+        inputs = "${th} i n";
+        outputs = "i n";
+      } # attempt to fix conflicting with then
+      {
+        name = "thick";
+        inputs = "${th} i c";
+        outputs = "i c k ${thick}";
+      }
+      {
+        name = "third";
+        inputs = "${th} i d";
+        outputs = "i r d ${third}";
+      }
+      {
+        name = "thirdly";
+        inputs = "${third} y";
+        outputs = "l y";
+      }
+      {
+        name = "think";
+        inputs = "${th} i k";
+        outputs = "i n k ${think}";
+      }
+      {
+        name = "thinking";
+        inputs = "${think} i";
+        outputs = "i n g";
+      }
+      {
+        name = "thinks";
+        inputs = "${think} s";
+        outputs = "s";
+      }
+      {
+        name = "thing";
+        inputs = "${th} i ${rpt}";
+        outputs = "i n g ${thing}";
+      }
+      {
+        name = "things";
+        inputs = "${thing} ${magic}";
+        outputs = "s";
       }
       {
         name = "they";
