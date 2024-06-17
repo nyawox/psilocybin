@@ -649,6 +649,11 @@ in {
         outputs = "a r o u n d";
       }
       {
+        name = "workable";
+        inputs = "${work} b";
+        outputs = "a b l e";
+      }
+      {
         name = "workshop";
         inputs = "${work} ${magic} o";
         outputs = "s h o p";
