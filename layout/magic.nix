@@ -25,7 +25,7 @@
   which = "nop5 nop0";
   strange = "nop5 nop1";
   structure = "nop5 nop2";
-  # nop26 = "nop5 nop3";
+  work = "nop5 nop3";
   # nop27 = "nop5 nop4";
   # nop28 = "nop5 nop5";
   # nop29 = "nop5 nop6";
@@ -581,7 +581,57 @@ in {
       {
         name = "work";
         inputs = "${wh} k";
-        outputs = "bspc o r k";
+        outputs = "bspc o r k ${work}";
+      }
+      {
+        name = "workman";
+        inputs = "${work} m";
+        outputs = "m a n";
+      }
+      {
+        name = "workspace";
+        inputs = "${work} s ${magic}";
+        outputs = "s p a c e";
+      }
+      {
+        name = "workstation";
+        inputs = "${work} s t";
+        outputs = "s t a t i o n";
+      }
+      {
+        name = "workaround";
+        inputs = "${work} a";
+        outputs = "a r o u n d";
+      }
+      {
+        name = "workshop";
+        inputs = "${work} ${magic} o";
+        outputs = "s h o p";
+      }
+      {
+        name = "workers";
+        inputs = "${work} ${magic} e";
+        outputs = "e r s";
+      }
+      {
+        name = "worked";
+        inputs = "${work} e";
+        outputs = "e d";
+      }
+      {
+        name = "workplace";
+        inputs = "${work} ${rpt}";
+        outputs = "p l a c e";
+      }
+      {
+        name = "workflow";
+        inputs = "${work} f";
+        outputs = "f l o w";
+      }
+      {
+        name = "workout";
+        inputs = "${work} o";
+        outputs = "o u t";
       }
       {
         name = "when";
