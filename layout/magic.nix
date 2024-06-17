@@ -285,11 +285,6 @@ in {
         outputs = "i n k ${think}";
       }
       {
-        name = "thinking";
-        inputs = "${think} i";
-        outputs = "i n g";
-      }
-      {
         name = "thinks";
         inputs = "${think} s";
         outputs = "s";
@@ -1005,6 +1000,11 @@ in {
         name = "thing";
         inputs = "${th} i ${rpt}";
         outputs = "i n g ${thing}";
+      }
+      {
+        name = "thinking";
+        inputs = "${think} ${rpt}";
+        outputs = "i n g";
       }
     ];
   };
