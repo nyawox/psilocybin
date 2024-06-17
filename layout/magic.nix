@@ -22,7 +22,7 @@
   thumb = "nop4 nop7";
   stretch = "nop4 nop8";
   stress = "nop4 nop9";
-  # straight = "nop5 nop0";
+  which = "nop5 nop0";
   strange = "nop5 nop1";
   structure = "nop5 nop2";
   # nop26 = "nop5 nop3";
@@ -636,7 +636,12 @@ in {
       {
         name = "which";
         inputs = "${wh} c";
-        outputs = "i c h";
+        outputs = "i c h ${which}";
+      }
+      {
+        name "whichever";
+        inputs = "${which} v";
+        outputs = "e v e r";
       }
       {
         name = "where";
