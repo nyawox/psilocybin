@@ -590,12 +590,12 @@ in {
       }
       {
         name = "workspace";
-        inputs = "${work} s ${magic}";
+        inputs = "${work} ${magic} a";
         outputs = "s p a c e";
       }
       {
         name = "workstation";
-        inputs = "${work} s t";
+        inputs = "${work} ${magic} i";
         outputs = "s t a t i o n";
       }
       {
