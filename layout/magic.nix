@@ -295,11 +295,6 @@ in {
         outputs = "s";
       }
       {
-        name = "thing";
-        inputs = "${th} i ${rpt}";
-        outputs = "i n g ${thing}";
-      }
-      {
         name = "things";
         inputs = "${thing} ${magic}";
         outputs = "s";
@@ -1000,6 +995,11 @@ in {
         name = "though";
         inputs = "${th} o ${rpt}";
         outputs = "o u g h ${though}";
+      }
+      {
+        name = "thing";
+        inputs = "${th} i ${rpt}";
+        outputs = "i n g ${thing}";
       }
     ];
   };
