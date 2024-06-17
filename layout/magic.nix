@@ -30,7 +30,7 @@
   third = "nop5 nop5";
   thing = "nop5 nop6";
   think = "nop5 nop7";
-  # nop31 = "nop5 nop8";
+  mp = "nop5 nop8";
   # nop32 = "nop5 nop9";
   # nop33 = "nop6 nop0";
   # nop34 = "nop6 nop1";
@@ -107,7 +107,12 @@ in {
       {
         name = "mp";
         inputs = "m ${magic}";
-        outputs = "m p";
+        outputs = "m p ${mp}";
+      }
+      {
+        name = "map";
+        inputs = "${mp} spc";
+        outputs = "bspc a p";
       }
       {
         name = "y.";
