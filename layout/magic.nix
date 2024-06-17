@@ -584,6 +584,11 @@ in {
         outputs = "bspc o r k ${work}";
       }
       {
+        name = "working";
+        inputs = "${work} i";
+        outputs = "i n g";
+      }
+      {
         name = "workman";
         inputs = "${work} m";
         outputs = "m a n";
