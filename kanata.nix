@@ -36,6 +36,11 @@ with lib; let
   # S-[ -> {
   # S-6 -> ^
   startingKeys = ["spc" "tab" "`" ";" "/" "S-;" "S-." "S-9" "S-[" "S-'" "S-6" "🔢₊" "S-ret" "ret" "Home" "End"];
+  isExcludedKey = startingKey:
+    (startingKey == "tab" && !cfg.magic.includeTab)
+    || (startingKey == "ret" && !cfg.magic.includeReturn)
+    || (startingKey == "/" && !cfg.magic.includeSlash)
+    || (startingKey != "Home" && startingKey != "End");
 
   mkWordStartingRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
@@ -43,7 +48,7 @@ with lib; let
         name = "${rule.name}-${startingKey}";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true) || (startingKey == "/" && cfg.magic.includeSlash != true)
+          if isExcludedKey startingKey
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
@@ -55,7 +60,7 @@ with lib; let
         name = "${rule.name}-${startingKey}-rpt";
         inputs = "${startingKey} ${rule.inputs}";
         outputs =
-          if (startingKey == "tab" && cfg.magic.includeTab != true) || (startingKey == "ret" && cfg.magic.includeReturn != true) || (startingKey == "/" && cfg.magic.includeSlash != true)
+          if isExcludedKey startingKey
           then rule.outputs
           else "${startingKey} ${rule.outputs}";
       })
