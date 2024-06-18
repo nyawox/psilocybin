@@ -527,7 +527,7 @@ in {
         outputs = "bspc l l o w s";
       }
       {
-        name = "followed";
+        name = "follower";
         inputs = "${for} w e";
         outputs = "bspc l l o w e r ${follower}";
       }
