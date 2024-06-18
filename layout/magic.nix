@@ -31,7 +31,7 @@
   thing = "nop5 nop6";
   think = "nop5 nop7";
   mp = "nop5 nop8";
-  # nop32 = "nop5 nop9";
+  followed = "nop5 nop9";
   # nop33 = "nop6 nop0";
   # nop34 = "nop6 nop1";
   # nop35 = "nop6 nop2";
@@ -516,6 +516,26 @@ in {
         inputs = "${for} w spc";
         outputs = "bspc l l o w spc";
       } # spc is necessary to prevent confliction with forward
+      {
+        name = "following";
+        inputs = "${for} w i";
+        outputs = "bspc l l o w i n g";
+      }
+      {
+        name = "follows";
+        inputs = "${for} w ${magic}";
+        outputs = "bspc l l o w s";
+      }
+      {
+        name = "followed";
+        inputs = "${for} w e";
+        outputs = "bspc l l o w e d ${followed}";
+      }
+      {
+        name = "followers";
+        inputs = "${followed} ${magic}";
+        outputs = "bspc r s";
+      }
       {
         name = "forgotten";
         inputs = "${for} n spc";
