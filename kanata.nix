@@ -40,7 +40,8 @@ with lib; let
     (startingKey == "tab" && !cfg.magic.includeTab)
     || (startingKey == "ret" && !cfg.magic.includeReturn)
     || (startingKey == "/" && !cfg.magic.includeSlash)
-    || (startingKey != "Home" && startingKey != "End");
+    || (startingKey == "Home")
+    || (startingKey == "End");
 
   mkWordStartingRules = startingKey:
     lib.concatMapStringsSep "\n" (rule:
