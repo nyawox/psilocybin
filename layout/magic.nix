@@ -31,7 +31,7 @@
   thing = "nop5 nop6";
   think = "nop5 nop7";
   mp = "nop5 nop8";
-  followed = "nop5 nop9";
+  follower = "nop5 nop9";
   # nop33 = "nop6 nop0";
   # nop34 = "nop6 nop1";
   # nop35 = "nop6 nop2";
@@ -529,12 +529,17 @@ in {
       {
         name = "followed";
         inputs = "${for} w e";
-        outputs = "bspc l l o w e d ${followed}";
+        outputs = "bspc l l o w e r ${follower}";
       }
       {
         name = "followers";
-        inputs = "${followed} ${magic}";
-        outputs = "bspc r s";
+        inputs = "${follower} ${magic}";
+        outputs = "s";
+      }
+      {
+        name = "followed";
+        inputs = "${follower} ${rpt}";
+        outputs = "bspc d";
       }
       {
         name = "forgotten";
