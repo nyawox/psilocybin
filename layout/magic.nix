@@ -34,7 +34,7 @@
   follower = "nop5 nop9";
   back = "nop6 nop0";
   works = "nop6 nop1";
-  # nop35 = "nop6 nop2";
+  force = "nop6 nop2";
   # nop36 = "nop6 nop3";
   # nop37 = "nop6 nop4";
   # nop38 = "nop6 nop5";
@@ -516,6 +516,21 @@ in {
       } # sfs
 
       ### for
+      {
+        name = "force";
+        inputs = "${for} c";
+        outputs = "c e ${force}";
+      }
+      {
+        name = "forced";
+        inputs = "${force} ${rpt}";
+        outputs = "d";
+      }
+      {
+        name = "forcing";
+        inputs = "${force} i";
+        outputs = "i n g";
+      }
       {
         name = "found";
         inputs = "${for} d";
