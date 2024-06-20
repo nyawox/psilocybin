@@ -527,6 +527,11 @@ in {
         outputs = "d";
       }
       {
+        name = "forces";
+        inputs = "${force} ${magic}";
+        outputs = "s";
+      }
+      {
         name = "forcing";
         inputs = "${force} i";
         outputs = "i n g";
