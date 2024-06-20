@@ -1071,11 +1071,6 @@ in {
         inputs = "${th} i ${rpt}";
         outputs = "i n g ${thing}";
       }
-      {
-        name = "thinking";
-        inputs = "${think} ${rpt}";
-        outputs = "i n g";
-      }
     ];
   };
 }
