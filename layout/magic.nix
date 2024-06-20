@@ -310,6 +310,11 @@ in {
         outputs = "s";
       }
       {
+        name = "thinking";
+        inputs = "${think} i";
+        outputs = "i n g";
+      }
+      {
         name = "things";
         inputs = "${thing} ${magic}";
         outputs = "s";
