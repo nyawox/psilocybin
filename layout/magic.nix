@@ -265,6 +265,11 @@ in {
         outputs = "e m ${them}";
       }
       {
+        name = "this";
+        inputs = "${th} i spc";
+        outputs = "i s spc";
+      }
+      {
         name = "thin";
         inputs = "${th} i n";
         outputs = "i n";
@@ -306,7 +311,7 @@ in {
       }
       {
         name = "thinks";
-        inputs = "${think} s";
+        inputs = "${think} ${magic}";
         outputs = "s";
       }
       {
