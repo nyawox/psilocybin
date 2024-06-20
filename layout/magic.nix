@@ -33,7 +33,7 @@
   mp = "nop5 nop8";
   follower = "nop5 nop9";
   back = "nop6 nop0";
-  # nop34 = "nop6 nop1";
+  works = "nop6 nop1";
   # nop35 = "nop6 nop2";
   # nop36 = "nop6 nop3";
   # nop37 = "nop6 nop4";
@@ -699,14 +699,29 @@ in {
         outputs = "m a n";
       }
       {
+        name = "works";
+        inputs = "${work} ${magic}";
+        outputs = "s ${works}";
+      }
+      {
         name = "workspace";
-        inputs = "${work} ${magic} a";
-        outputs = "s p a c e";
+        inputs = "${works} a";
+        outputs = "p a c e";
       }
       {
         name = "workstation";
-        inputs = "${work} ${magic} i";
-        outputs = "s t a t i o n";
+        inputs = "${works} i";
+        outputs = "t a t i o n";
+      }
+      {
+        name = "workshop";
+        inputs = "${works} o";
+        outputs = "h o p";
+      }
+      {
+        name = "workers";
+        inputs = "${works} e";
+        outputs = "bspc e r s";
       }
       {
         name = "workaround";
@@ -717,16 +732,6 @@ in {
         name = "workable";
         inputs = "${work} b";
         outputs = "a b l e";
-      }
-      {
-        name = "workshop";
-        inputs = "${work} ${magic} o";
-        outputs = "s h o p";
-      }
-      {
-        name = "workers";
-        inputs = "${work} ${magic} e";
-        outputs = "e r s";
       }
       {
         name = "worked";
