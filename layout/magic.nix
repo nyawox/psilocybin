@@ -26,13 +26,13 @@
   strange = "nop5 nop1";
   structure = "nop5 nop2";
   work = "nop5 nop3";
-  thick = "nop5 nop4";
+  thank = "nop5 nop4";
   third = "nop5 nop5";
   thing = "nop5 nop6";
   think = "nop5 nop7";
   mp = "nop5 nop8";
   follower = "nop5 nop9";
-  # nop33 = "nop6 nop0";
+  back = "nop6 nop0";
   # nop34 = "nop6 nop1";
   # nop35 = "nop6 nop2";
   # nop36 = "nop6 nop3";
@@ -272,7 +272,22 @@ in {
       {
         name = "thick";
         inputs = "${th} i c";
-        outputs = "i c k ${thick}";
+        outputs = "i c k";
+      }
+      {
+        name = "thank";
+        inputs = "${th} a k";
+        outputs = "a n k ${thank}";
+      }
+      {
+        name = "thanks";
+        inputs = "${thank} ${magic}";
+        outputs = "s";
+      }
+      {
+        name = "thanking";
+        inputs = "${thank} i";
+        outputs = "i n g";
       }
       {
         name = "third";
@@ -643,9 +658,19 @@ in {
         outputs = "g u n";
       }
       {
+        name = "being";
+        inputs = "${be} i";
+        outputs = "i n g";
+      }
+      {
         name = "back";
         inputs = "${be} k";
-        outputs = "bspc a c k";
+        outputs = "bspc a c k ${back}";
+      }
+      {
+        name = "background";
+        inputs = "${back} o";
+        outputs = "g r o u n d";
       }
       ## wh
       {
