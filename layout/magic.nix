@@ -112,7 +112,17 @@ in {
       {
         name = "map";
         inputs = "${mp} spc";
-        outputs = "bspc a p";
+        outputs = "bspc a p spc";
+      }
+      {
+        name = "maps";
+        inputs = "${mp} ${rpt}";
+        outputs = "bspc a p s";
+      }
+      {
+        name = "mapping";
+        inputs = "${mp} i";
+        outputs = "bspc a p p i n g";
       }
       {
         name = "y.";
@@ -539,7 +549,7 @@ in {
       {
         name = "forcing";
         inputs = "${force} i";
-        outputs = "i n g";
+        outputs = "bspc i n g";
       }
       {
         name = "found";
