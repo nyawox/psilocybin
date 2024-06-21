@@ -173,7 +173,7 @@ in {
       };
       rapidEventDelay = mkOption {
         type = types.int;
-        default = 35;
+        default = 20;
         description = ''
           Increase this value if you experience issue with chords and one-shot shifts.
         '';

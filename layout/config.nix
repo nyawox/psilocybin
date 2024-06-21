@@ -96,7 +96,7 @@
       ⬡ (macro rpt nop1)
       ⬢ (macro rpt nop2)
     )
-    (defchords esc 25
+    (defchords esc 20
       (⚝    ) nop0
       (   f ) f
       (⚝  f ) esc
@@ -108,7 +108,7 @@
       (lm rm ) @num
     )
 
-    (defchords backspace 25
+    (defchords backspace 20
       (h   ) h
       (  ; ) ;
       (h ; ) bspc
