@@ -824,6 +824,11 @@ in {
         outputs = "bspc i l 5 l ${will}";
       }
       {
+        name = "willing";
+        inputs = "${will} ${rpt}";
+        outputs = "i n g";
+      }
+      {
         name = "without";
         inputs = "${will} t";
         outputs = "bspc bspc t h o u t";
