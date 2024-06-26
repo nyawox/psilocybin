@@ -880,6 +880,11 @@ in {
         outputs = "o n g spc";
       }
       {
+        name = "strongly";
+        inputs = "${str} o y";
+        outputs = "o n g l y";
+      }
+      {
         name = "strokes";
         inputs = "${stroke} ${magic}";
         outputs = "s";
