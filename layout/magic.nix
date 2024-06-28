@@ -35,7 +35,7 @@
   back = "nop6 nop0";
   works = "nop6 nop1";
   force = "nop6 nop2";
-  # nop36 = "nop6 nop3";
+  who = "nop6 nop3";
   # nop37 = "nop6 nop4";
   # nop38 = "nop6 nop5";
   # nop39 = "nop6 nop6";
@@ -787,6 +787,21 @@ in {
         name = "workout";
         inputs = "${work} o";
         outputs = "o u t";
+      }
+      {
+        name = "who";
+        inputs = "${wh} o";
+        outputs = "o ${who}";
+      }
+      {
+        name = "whole";
+        inputs = "${who} l";
+        outputs = "l e";
+      }
+      {
+        name = "whose";
+        inputs = "${who} s";
+        outputs = "s e";
       }
       {
         name = "when";
