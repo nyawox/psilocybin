@@ -102,6 +102,21 @@ in {
         inputs = "s t ${magic}";
         outputs = "s t r ${str}";
       }
+      {
+        name = "map";
+        inputs = "m ${magic} spc";
+        outputs = "m a p spc";
+      }
+      {
+        name = "maps";
+        inputs = "m ${magic} ${rpt}";
+        outputs = "m a p s";
+      }
+      {
+        name = "mapping";
+        inputs = "m ${magic} i";
+        outputs = "m a p p i n g";
+      }
     ];
     psilocybin.magic.rules = lib.mkDefault [
       {
@@ -110,19 +125,19 @@ in {
         outputs = "m p ${mp}";
       }
       {
-        name = "map";
-        inputs = "${mp} spc";
-        outputs = "bspc a p spc";
+        name = "keymap";
+        inputs = "k e y m ${magic}";
+        outputs = "k e y m a p";
       }
       {
-        name = "maps";
-        inputs = "${mp} ${rpt}";
-        outputs = "bspc a p s";
+        name = "heatmap";
+        inputs = "h e a t m ${magic}";
+        outputs = "h e a t m a p";
       }
       {
-        name = "mapping";
-        inputs = "${mp} i";
-        outputs = "bspc a p p i n g";
+        name = "remap";
+        inputs = "r e m ${magic}";
+        outputs = "r e m a p";
       }
       {
         name = "y.";
