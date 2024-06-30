@@ -56,7 +56,8 @@ with lib; let
   # S-. -> <
   # S-[ -> {
   # S-6 -> ^
-  startingKeys = ["spc" "tab" "." "`" ";" "/" "-" "S-;" "S-." "S-9" "S-[" "S-'" "S-6" "🔢₊" "S-ret" "ret" "Home" "End"];
+  # S-3 -> #
+  startingKeys = ["spc" "tab" "." "`" ";" "/" "-" "S-;" "S-." "S-3" "S-9" "S-[" "S-'" "S-6" "🔢₊" "S-ret" "ret" "Home" "End"];
   isExcludedKey = startingKey:
     (startingKey == "tab" && !cfg.magic.includeTab)
     || (startingKey == "ret" && !cfg.magic.includeReturn)
