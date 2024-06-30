@@ -13,6 +13,9 @@ with lib; let
     ${lib.optionalString (cfg.extraDefCfg != "") cfg.extraDefCfg}
   '';
   capitalizeFirst = s: "S-${s}";
+
+  generateRule = template: rules: lib.concatMapStringsSep "\n" template rules;
+
   ruleTemplate = {
     name,
     inputs,
@@ -20,7 +23,7 @@ with lib; let
   }: ''
     (t! seq ${name} (${inputs}) (macro ${outputs}))
   '';
-  rules = lib.concatMapStringsSep "\n" ruleTemplate cfg.magic.rules;
+
   rptRuleTemplate = {
     name,
     inputs,
@@ -28,7 +31,6 @@ with lib; let
   }: ''
     (t! seq ${name} (${inputs}) (macro bspc ${outputs}))
   '';
-  rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.magic.rptRules;
 
   shiftRuleTemplate = {
     name,
@@ -38,8 +40,6 @@ with lib; let
     (t! seq ${name}-shift (lsft ${inputs}) (macro ${capitalizeFirst outputs}))
   '';
 
-  shiftRules = lib.concatMapStringsSep "\n" shiftRuleTemplate cfg.magic.rules;
-
   shiftRptRuleTemplate = {
     name,
     inputs,
@@ -48,7 +48,10 @@ with lib; let
     (t! seq ${name}-shift-rpt (lsft ${inputs}) (macro bspc ${capitalizeFirst outputs}))
   '';
 
-  shiftRptRules = lib.concatMapStringsSep "\n" shiftRptRuleTemplate cfg.magic.rptRules;
+  rules = generateRule ruleTemplate cfg.magic.rules;
+  rptRules = generateRule rptRuleTemplate cfg.magic.rptRules;
+  shiftRules = generateRule shiftRuleTemplate cfg.magic.rules;
+  shiftRptRules = generateRule shiftRptRuleTemplate cfg.magic.rptRules;
 
   # S-9 -> (
   # S-' -> "
@@ -65,58 +68,62 @@ with lib; let
     || (startingKey == "Home")
     || (startingKey == "End");
 
-  mkWordStartingRules = startingKey:
-    lib.concatMapStringsSep "\n" (rule:
-      ruleTemplate {
-        name = "${rule.name}-${startingKey}";
-        inputs = "${startingKey} ${rule.inputs}";
-        outputs =
-          if isExcludedKey startingKey
-          then rule.outputs
-          else "${startingKey} ${rule.outputs}";
-      })
-    cfg.magic.wordStartingRules;
+  generateWordStartingRules = {
+    templateFunc,
+    ruleSet,
+    shiftMode ? false,
+  }:
+    lib.concatStringsSep "\n" (map (
+        startingKey:
+          lib.concatMapStringsSep "\n" (
+            rule: let
+              baseInputs =
+                if shiftMode
+                then "lsft ${rule.inputs}"
+                else rule.inputs;
+              baseOutputs =
+                if shiftMode
+                then capitalizeFirst rule.outputs
+                else rule.outputs;
+            in
+              templateFunc {
+                name = "${rule.name}-${startingKey}${
+                  if shiftMode
+                  then "-shift"
+                  else ""
+                }";
+                inputs = "${startingKey} ${baseInputs}";
+                outputs =
+                  if isExcludedKey startingKey
+                  then baseOutputs
+                  else "${startingKey} ${baseOutputs}";
+              }
+          )
+          ruleSet
+      )
+      startingKeys);
 
-  mkWordStartingRptRules = startingKey:
-    lib.concatMapStringsSep "\n" (rule:
-      rptRuleTemplate {
-        name = "${rule.name}-${startingKey}-rpt";
-        inputs = "${startingKey} ${rule.inputs}";
-        outputs =
-          if isExcludedKey startingKey
-          then rule.outputs
-          else "${startingKey} ${rule.outputs}";
-      })
-    cfg.magic.wordStartingRptRules;
+  wordStartingRules = generateWordStartingRules {
+    templateFunc = ruleTemplate;
+    ruleSet = cfg.magic.wordStartingRules;
+  };
 
-  mkShiftWordStartingRules = startingKey:
-    lib.concatMapStringsSep "\n" (rule:
-      ruleTemplate {
-        name = "${rule.name}-${startingKey}-shift";
-        inputs = "${startingKey} lsft ${rule.inputs}";
-        outputs =
-          if isExcludedKey startingKey
-          then capitalizeFirst rule.outputs
-          else "${startingKey} ${capitalizeFirst rule.outputs}";
-      })
-    cfg.magic.wordStartingRules;
+  wordStartingRptRules = generateWordStartingRules {
+    templateFunc = rptRuleTemplate;
+    ruleSet = cfg.magic.wordStartingRptRules;
+  };
 
-  mkShiftWordStartingRptRules = startingKey:
-    lib.concatMapStringsSep "\n" (rule:
-      rptRuleTemplate {
-        name = "${rule.name}-${startingKey}-shift-rpt";
-        inputs = "${startingKey} lsft ${rule.inputs}";
-        outputs =
-          if isExcludedKey startingKey
-          then capitalizeFirst rule.outputs
-          else "${startingKey} bspc ${capitalizeFirst rule.outputs}";
-      })
-    cfg.magic.wordStartingRptRules;
+  shiftWordStartingRules = generateWordStartingRules {
+    templateFunc = ruleTemplate;
+    ruleSet = cfg.magic.wordStartingRules;
+    shiftMode = true;
+  };
 
-  wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
-  wordStartingRptRules = lib.concatStringsSep "\n" (map mkWordStartingRptRules startingKeys);
-  shiftWordStartingRules = lib.concatStringsSep "\n" (map mkShiftWordStartingRules startingKeys);
-  shiftWordStartingRptRules = lib.concatStringsSep "\n" (map mkShiftWordStartingRptRules startingKeys);
+  shiftWordStartingRptRules = generateWordStartingRules {
+    templateFunc = rptRuleTemplate;
+    ruleSet = cfg.magic.wordStartingRptRules;
+    shiftMode = true;
+  };
 
   magic = ''
     (deftemplate seq (vk-name input-keys output-action)
