@@ -12,6 +12,7 @@ with lib; let
     ${lib.optionalString (cfg.magic.mode != "") "sequence-input-mode " + cfg.magic.mode}
     ${lib.optionalString (cfg.extraDefCfg != "") cfg.extraDefCfg}
   '';
+  capitalizeFirst = s: "S-${s}";
   ruleTemplate = {
     name,
     inputs,
@@ -28,6 +29,26 @@ with lib; let
     (t! seq ${name} (${inputs}) (macro bspc ${outputs}))
   '';
   rptRules = lib.concatMapStringsSep "\n" rptRuleTemplate cfg.magic.rptRules;
+
+  shiftRuleTemplate = {
+    name,
+    inputs,
+    outputs,
+  }: ''
+    (t! seq ${name}-shift (lsft ${inputs}) (macro ${capitalizeFirst outputs}))
+  '';
+
+  shiftRules = lib.concatMapStringsSep "\n" shiftRuleTemplate cfg.magic.rules;
+
+  shiftRptRuleTemplate = {
+    name,
+    inputs,
+    outputs,
+  }: ''
+    (t! seq ${name}-shift-rpt (lsft ${inputs}) (macro bspc ${capitalizeFirst outputs}))
+  '';
+
+  shiftRptRules = lib.concatMapStringsSep "\n" shiftRptRuleTemplate cfg.magic.rptRules;
 
   # S-9 -> (
   # S-' -> "
@@ -67,8 +88,34 @@ with lib; let
       })
     cfg.magic.wordStartingRptRules;
 
+  mkShiftWordStartingRules = startingKey:
+    lib.concatMapStringsSep "\n" (rule:
+      ruleTemplate {
+        name = "${rule.name}-${startingKey}-shift";
+        inputs = "${startingKey} lsft ${rule.inputs}";
+        outputs =
+          if isExcludedKey startingKey
+          then capitalizeFirst rule.outputs
+          else "${startingKey} ${capitalizeFirst rule.outputs}";
+      })
+    cfg.magic.wordStartingRules;
+
+  mkShiftWordStartingRptRules = startingKey:
+    lib.concatMapStringsSep "\n" (rule:
+      rptRuleTemplate {
+        name = "${rule.name}-${startingKey}-shift-rpt";
+        inputs = "${startingKey} lsft ${rule.inputs}";
+        outputs =
+          if isExcludedKey startingKey
+          then capitalizeFirst rule.outputs
+          else "${startingKey} bspc ${capitalizeFirst rule.outputs}";
+      })
+    cfg.magic.wordStartingRptRules;
+
   wordStartingRules = lib.concatStringsSep "\n" (map mkWordStartingRules startingKeys);
   wordStartingRptRules = lib.concatStringsSep "\n" (map mkWordStartingRptRules startingKeys);
+  shiftWordStartingRules = lib.concatStringsSep "\n" (map mkShiftWordStartingRules startingKeys);
+  shiftWordStartingRptRules = lib.concatStringsSep "\n" (map mkShiftWordStartingRptRules startingKeys);
 
   magic = ''
     (deftemplate seq (vk-name input-keys output-action)
@@ -78,8 +125,12 @@ with lib; let
 
     ${wordStartingRules}
     ${wordStartingRptRules}
+    ${shiftWordStartingRules}
+    ${shiftWordStartingRptRules}
     ${rules}
     ${rptRules}
+    ${shiftRules}
+    ${shiftRptRules}
   '';
   cfg = config.psilocybin;
 in {
