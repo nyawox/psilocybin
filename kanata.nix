@@ -153,7 +153,10 @@ in {
     };
 
     magic = {
-      enable = mkEnableOption "magic";
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+      };
 
       rules = mkOption {
         type = types.listOf types.attrs;
