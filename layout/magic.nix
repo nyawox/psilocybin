@@ -1039,6 +1039,16 @@ in {
         inputs = "${strange} ${magic}";
         outputs = "bspc bspc bspc bspc e s s ${stress}";
       }
+      {
+        name = "unmap";
+        inputs = "u n m ${magic} spc";
+        outputs = "u n m a p spc";
+      }
+      {
+        name = "unmapping";
+        inputs = "u n m ${magic} i";
+        outputs = "u n m a p i n g";
+      }
     ];
     psilocybin.magic.rptRules = lib.mkDefault [
       {
