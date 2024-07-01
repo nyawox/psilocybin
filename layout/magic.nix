@@ -925,6 +925,11 @@ in {
         outputs = "i n g spc";
       }
       {
+        name = "string";
+        inputs = "${str} i ${magic}";
+        outputs = "i n g s";
+      }
+      {
         name = "strike";
         inputs = "${str} ${lrpt}";
         outputs = "i k e ${strike}";
