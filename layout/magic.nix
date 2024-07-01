@@ -930,7 +930,7 @@ in {
         outputs = "i n g spc";
       }
       {
-        name = "string";
+        name = "strings";
         inputs = "${str} i ${magic}";
         outputs = "i n g s";
       }
