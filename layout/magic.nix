@@ -113,6 +113,11 @@ in {
         outputs = "m a p s";
       }
       {
+        name = "maple";
+        inputs = "m ${magic} l";
+        outputs = "m a p l e";
+      }
+      {
         name = "mapping";
         inputs = "m ${magic} i";
         outputs = "m a p p i n g";
