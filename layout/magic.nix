@@ -809,6 +809,11 @@ in {
         outputs = "o ${who}";
       }
       {
+        name = "whoever";
+        inputs = "${who} v";
+        outputs = "e v e r";
+      }
+      {
         name = "whole";
         inputs = "${who} l";
         outputs = "l e";
