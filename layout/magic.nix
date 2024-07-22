@@ -740,7 +740,7 @@ in {
       }
       {
         name = "work";
-        inputs = "${wh} k";
+        inputs = "${wh} p";
         outputs = "bspc o r k ${work}";
       }
       {
