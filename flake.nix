@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    kanata = {
+      url = "github:jtroo/kanata";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:

@@ -22,20 +22,20 @@
   thumb = "nop4 nop7";
   stretch = "nop4 nop8";
   stress = "nop4 nop9";
-  # straight = "nop5 nop0";
+  which = "nop5 nop0";
   strange = "nop5 nop1";
   structure = "nop5 nop2";
-  # nop26 = "nop5 nop3";
-  # nop27 = "nop5 nop4";
-  # nop28 = "nop5 nop5";
-  # nop29 = "nop5 nop6";
-  # nop30 = "nop5 nop7";
-  # nop31 = "nop5 nop8";
-  # nop32 = "nop5 nop9";
-  # nop33 = "nop6 nop0";
-  # nop34 = "nop6 nop1";
-  # nop35 = "nop6 nop2";
-  # nop36 = "nop6 nop3";
+  work = "nop5 nop3";
+  thank = "nop5 nop4";
+  third = "nop5 nop5";
+  thing = "nop5 nop6";
+  think = "nop5 nop7";
+  mp = "nop5 nop8";
+  follower = "nop5 nop9";
+  back = "nop6 nop0";
+  works = "nop6 nop1";
+  force = "nop6 nop2";
+  who = "nop6 nop3";
   # nop37 = "nop6 nop4";
   # nop38 = "nop6 nop5";
   # nop39 = "nop6 nop6";
@@ -102,12 +102,47 @@ in {
         inputs = "s t ${magic}";
         outputs = "s t r ${str}";
       }
+      {
+        name = "map";
+        inputs = "m ${magic} spc";
+        outputs = "m a p spc";
+      }
+      {
+        name = "maps";
+        inputs = "m ${magic} ${rpt}";
+        outputs = "m a p s";
+      }
+      {
+        name = "maple";
+        inputs = "m ${magic} l";
+        outputs = "m a p l e";
+      }
+      {
+        name = "mapping";
+        inputs = "m ${magic} i";
+        outputs = "m a p p i n g";
+      }
     ];
     psilocybin.magic.rules = lib.mkDefault [
       {
         name = "mp";
         inputs = "m ${magic}";
-        outputs = "m p";
+        outputs = "m p ${mp}";
+      }
+      {
+        name = "keymap";
+        inputs = "k e y m ${magic}";
+        outputs = "k e y m a p";
+      }
+      {
+        name = "heatmap";
+        inputs = "h e a t m ${magic}";
+        outputs = "h e a t m a p";
+      }
+      {
+        name = "remap";
+        inputs = "r e m ${magic}";
+        outputs = "r e m a p";
       }
       {
         name = "y.";
@@ -258,6 +293,66 @@ in {
         name = "them";
         inputs = "${th} ${rpt}";
         outputs = "e m ${them}";
+      }
+      {
+        name = "this";
+        inputs = "${th} i spc";
+        outputs = "i s spc";
+      }
+      {
+        name = "thin";
+        inputs = "${th} i n";
+        outputs = "i n";
+      } # attempt to fix conflicting with then
+      {
+        name = "thick";
+        inputs = "${th} i c";
+        outputs = "i c k";
+      }
+      {
+        name = "thank";
+        inputs = "${th} a k";
+        outputs = "a n k ${thank}";
+      }
+      {
+        name = "thanks";
+        inputs = "${thank} ${magic}";
+        outputs = "s";
+      }
+      {
+        name = "thanking";
+        inputs = "${thank} i";
+        outputs = "i n g";
+      }
+      {
+        name = "third";
+        inputs = "${th} i d";
+        outputs = "i r d ${third}";
+      }
+      {
+        name = "thirdly";
+        inputs = "${third} y";
+        outputs = "l y";
+      }
+      {
+        name = "think";
+        inputs = "${th} i k";
+        outputs = "i n k ${think}";
+      }
+      {
+        name = "thinks";
+        inputs = "${think} ${magic}";
+        outputs = "s";
+      }
+      {
+        name = "thinking";
+        inputs = "${think} i";
+        outputs = "i n g";
+      }
+      {
+        name = "things";
+        inputs = "${thing} ${magic}";
+        outputs = "s";
       }
       {
         name = "they";
@@ -425,9 +520,24 @@ in {
         outputs = "p u t";
       } # sfs
       {
+        name = "pot";
+        inputs = "p o ${magic}";
+        outputs = "p o t";
+      } # sfs
+      {
+        name = "pet";
+        inputs = "p e ${magic}";
+        outputs = "p e t";
+      } # sfs
+      {
         name = "top";
         inputs = "t o ${magic}";
         outputs = "t o p";
+      } # sfs
+      {
+        name = "tup";
+        inputs = "t u ${magic}";
+        outputs = "t u p";
       } # sfs
       {
         name = "stud";
@@ -441,6 +551,26 @@ in {
       } # sfs
 
       ### for
+      {
+        name = "force";
+        inputs = "${for} c";
+        outputs = "c e ${force}";
+      }
+      {
+        name = "forced";
+        inputs = "${force} ${rpt}";
+        outputs = "d";
+      }
+      {
+        name = "forces";
+        inputs = "${force} ${magic}";
+        outputs = "s";
+      }
+      {
+        name = "forcing";
+        inputs = "${force} i";
+        outputs = "bspc i n g";
+      }
       {
         name = "found";
         inputs = "${for} d";
@@ -466,6 +596,31 @@ in {
         inputs = "${for} w spc";
         outputs = "bspc l l o w spc";
       } # spc is necessary to prevent confliction with forward
+      {
+        name = "following";
+        inputs = "${for} w i";
+        outputs = "bspc l l o w i n g";
+      }
+      {
+        name = "follows";
+        inputs = "${for} w ${magic}";
+        outputs = "bspc l l o w s";
+      }
+      {
+        name = "follower";
+        inputs = "${for} w e";
+        outputs = "bspc l l o w e r ${follower}";
+      }
+      {
+        name = "followers";
+        inputs = "${follower} ${magic}";
+        outputs = "s";
+      }
+      {
+        name = "followed";
+        inputs = "${follower} ${rpt}";
+        outputs = "bspc d";
+      }
       {
         name = "forgotten";
         inputs = "${for} n spc";
@@ -563,9 +718,19 @@ in {
         outputs = "g u n";
       }
       {
+        name = "being";
+        inputs = "${be} i";
+        outputs = "i n g";
+      }
+      {
         name = "back";
         inputs = "${be} k";
-        outputs = "bspc a c k";
+        outputs = "bspc a c k ${back}";
+      }
+      {
+        name = "background";
+        inputs = "${back} o";
+        outputs = "g r o u n d";
       }
       ## wh
       {
@@ -575,8 +740,93 @@ in {
       }
       {
         name = "work";
-        inputs = "${wh} k";
-        outputs = "bspc o r k";
+        inputs = "${wh} p";
+        outputs = "bspc o r k ${work}";
+      }
+      {
+        name = "working";
+        inputs = "${work} i";
+        outputs = "i n g";
+      }
+      {
+        name = "workman";
+        inputs = "${work} m";
+        outputs = "m a n";
+      }
+      {
+        name = "works";
+        inputs = "${work} ${magic}";
+        outputs = "s ${works}";
+      }
+      {
+        name = "workspace";
+        inputs = "${works} a";
+        outputs = "p a c e";
+      }
+      {
+        name = "workstation";
+        inputs = "${works} i";
+        outputs = "t a t i o n";
+      }
+      {
+        name = "workshop";
+        inputs = "${works} o";
+        outputs = "h o p";
+      }
+      {
+        name = "workers";
+        inputs = "${works} e";
+        outputs = "bspc e r s";
+      }
+      {
+        name = "workaround";
+        inputs = "${work} a";
+        outputs = "a r o u n d";
+      }
+      {
+        name = "workable";
+        inputs = "${work} b";
+        outputs = "a b l e";
+      }
+      {
+        name = "worked";
+        inputs = "${work} e";
+        outputs = "e d";
+      }
+      {
+        name = "workplace";
+        inputs = "${work} ${rpt}";
+        outputs = "p l a c e";
+      }
+      {
+        name = "workflow";
+        inputs = "${work} f";
+        outputs = "f l o w";
+      }
+      {
+        name = "workout";
+        inputs = "${work} o";
+        outputs = "o u t";
+      }
+      {
+        name = "who";
+        inputs = "${wh} o";
+        outputs = "o ${who}";
+      }
+      {
+        name = "whoever";
+        inputs = "${who} v";
+        outputs = "e v e r";
+      }
+      {
+        name = "whole";
+        inputs = "${who} l";
+        outputs = "l e";
+      }
+      {
+        name = "whose";
+        inputs = "${who} s";
+        outputs = "s e";
       }
       {
         name = "when";
@@ -614,6 +864,11 @@ in {
         outputs = "bspc i l 5 l ${will}";
       }
       {
+        name = "willing";
+        inputs = "${will} ${rpt}";
+        outputs = "i n g";
+      }
+      {
         name = "without";
         inputs = "${will} t";
         outputs = "bspc bspc t h o u t";
@@ -631,7 +886,12 @@ in {
       {
         name = "which";
         inputs = "${wh} c";
-        outputs = "i c h";
+        outputs = "i c h ${which}";
+      }
+      {
+        name = "whichever";
+        inputs = "${which} v";
+        outputs = "e v e r";
       }
       {
         name = "where";
@@ -660,6 +920,11 @@ in {
         outputs = "o n g spc";
       }
       {
+        name = "strongly";
+        inputs = "${str} o y";
+        outputs = "o n g l y";
+      }
+      {
         name = "strokes";
         inputs = "${stroke} ${magic}";
         outputs = "s";
@@ -668,6 +933,11 @@ in {
         name = "string";
         inputs = "${str} i spc";
         outputs = "i n g spc";
+      }
+      {
+        name = "strings";
+        inputs = "${str} i ${magic}";
+        outputs = "i n g s";
       }
       {
         name = "strike";
@@ -784,6 +1054,16 @@ in {
         inputs = "${strange} ${magic}";
         outputs = "bspc bspc bspc bspc e s s ${stress}";
       }
+      {
+        name = "unmap";
+        inputs = "u n m ${magic} spc";
+        outputs = "u n m a p spc";
+      }
+      {
+        name = "unmapping";
+        inputs = "u n m ${magic} i";
+        outputs = "u n m a p i n g";
+      }
     ];
     psilocybin.magic.rptRules = lib.mkDefault [
       {
@@ -890,6 +1170,11 @@ in {
         name = "though";
         inputs = "${th} o ${rpt}";
         outputs = "o u g h ${though}";
+      }
+      {
+        name = "thing";
+        inputs = "${th} i ${rpt}";
+        outputs = "i n g ${thing}";
       }
     ];
   };
