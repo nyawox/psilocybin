@@ -395,6 +395,11 @@ in {
         outputs = "e r e spc";
       }
       {
+        name = "therefore";
+        inputs = "${th} r f";
+        outputs = "e r e f o r e";
+      }
+      {
         name = "through";
         inputs = "${th} r o spc";
         outputs = "r o u g h spc";
