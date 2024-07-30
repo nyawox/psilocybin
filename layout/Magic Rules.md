@@ -187,6 +187,7 @@ debugInConsole: false # Print debug info in Obsidian console
 - ⎵⚝y⬡l: they'll
 - ⎵⚝r⎵: their
 - ⎵⚝re⎵: there
+- ⎵⚝rf: therefore
 - ⎵⚝ro⎵: through
 - ⎵⚝n: then
 - ⎵⚝s: these
