@@ -258,7 +258,7 @@ in {
                     rev = "60ce29a23c217fb31729945f850b505a7a9e0273";
                     hash = "sha256-DienE4An34F+/tR5LxP346ACU5GsP3PSOvl0w6o450Q=";
                   };
-                  cargoHash = "sha256-W43U/yjc1DQELHdMFhLs31cch81OxFgaDmutNzBOa0s=";
+                  cargoHash = "sha256-3N6PoStpQAvyBcPIFWaqqjuT27rxz9N02VeW07g0gQU=";
                 });
           };
       };
