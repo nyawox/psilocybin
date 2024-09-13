@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib; let
@@ -244,24 +243,6 @@ in {
   config = {
     services.kanata = mkIf cfg.enable {
       enable = true;
-      package = pkgs.kanata.override {
-        rustPlatform =
-          pkgs.rustPlatform
-          // {
-            buildRustPackage = args:
-              pkgs.rustPlatform.buildRustPackage (args
-                // {
-                  version = "git";
-                  src = pkgs.fetchFromGitHub {
-                    owner = "jtroo";
-                    repo = "kanata";
-                    rev = "60ce29a23c217fb31729945f850b505a7a9e0273";
-                    hash = "sha256-DienE4An34F+/tR5LxP346ACU5GsP3PSOvl0w6o450Q=";
-                  };
-                  cargoHash = "sha256-3N6PoStpQAvyBcPIFWaqqjuT27rxz9N02VeW07g0gQU=";
-                });
-          };
-      };
 
       keyboards = {
         psilocybin = mkIf cfg.ansi.enable {
