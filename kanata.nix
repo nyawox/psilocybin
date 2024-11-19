@@ -238,6 +238,10 @@ in {
       default = "";
       description = "Extra kanata defcfg options.";
     };
+    extraArgs = mkOption {
+      type = types.listOf types.str;
+      default = [];
+    };
   };
 
   config = {
@@ -248,12 +252,12 @@ in {
         psilocybin = mkIf cfg.ansi.enable {
           extraDefCfg = defCfg;
           config = cfg.ansi.config + cfg.config + magic;
-          inherit (cfg) devices;
+          inherit (cfg) devices extraArgs;
         };
         psilocybinjis = mkIf cfg.jis.enable {
           extraDefCfg = defCfg;
           config = cfg.jis.config + cfg.config + magic;
-          inherit (cfg) devices;
+          inherit (cfg) devices extraArgs;
         };
       };
     };
