@@ -14,7 +14,6 @@
       gam (switch
           ((base-layer psilocybin)) (layer-switch game) break
           ((base-layer game)) (layer-switch psilocybin) break
-          ()
         )
       vm C-slck ;; toggle kvm evdev passthrough
       cbs C-bspc
