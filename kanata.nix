@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -145,6 +146,11 @@ in {
   options.psilocybin = {
     enable = mkEnableOption "psilocybin";
 
+    package = mkOption {
+      type = types.package;
+      default = pkgs.kanata;
+    };
+
     devices = mkOption {
       type = types.listOf types.str;
       default = [];
@@ -247,6 +253,7 @@ in {
   config = {
     services.kanata = mkIf cfg.enable {
       enable = true;
+      inherit (cfg) package;
 
       keyboards = {
         psilocybin = mkIf cfg.ansi.enable {
