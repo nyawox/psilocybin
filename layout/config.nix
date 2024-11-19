@@ -11,8 +11,12 @@
         (on-idle-fakekey to-base tap 30)
       )
 
-      psi (layer-switch psilocybin)
-      gam (layer-switch game)
+      gam (switch
+          ((base-layer psilocybin)) (layer-switch game) break
+          ((base-layer game)) (layer-switch psilocybin) break
+          ()
+        )
+      vm C-slck ;; toggle kvm evdev passthrough
       cbs C-bspc
       lng hngl ;; ime toggle
       cls M-q
